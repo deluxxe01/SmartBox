@@ -18,11 +18,11 @@ A SmartBox é uma solução inovadora que combina praticidade, versatilidade e p
 
 | Característica          | Valores Disponíveis                                      |
 -------------------------|-----------------------------------------------------------|
-| **Número de Andares**     | 1, 2, 3, **null** (padrão).                            |
-| **Cor do Chassi**         | Preto, Branco, Cinza, Azul, Vermelho, **null** (padrão).   |
-| **Cor da Paleta Esquerda**| Preto, Branco, Cinza, Azul, Vermelho, **null** (padrão).   |
-| **Cor da Paleta Direita** | Preto, Branco, Cinza, Azul, Vermelho, **null** (padrão).   |
-| **Cor da Paleta Frontal** | Preto, Branco, Cinza, Azul, Vermelho, **null** (padrão).   |
+| **Número de Andares**     | 1, 2, 3.                         |
+| **Cor do Chassi**         | Preto, Azul, Vermelh, **null** (padrão).   |
+| **Cor da Paleta Esquerda**| Preto, branco, amarelo, azul, vermelho, verde **null** (padrão).   |
+| **Cor da Paleta Direita** | Preto, branco, amarelo, azul, vermelho, verde **null** (padrão).  |
+| **Cor da Paleta Frontal** | Preto, branco, amarelo, azul, vermelho, verde **null** (padrão).   |
 | **Desenho na Paleta Esquerda**  | Casa, barco, estrela, **null** (sem desenho). |
 | **Desenho na Paleta Direita**   |  Casa, barco, estrela, **null** (sem desenho). |
 | **Desenho na Paleta Frontal**   |  Casa, barco, estrela, **null** (sem desenho).  |
