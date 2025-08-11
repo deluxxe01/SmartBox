@@ -17,9 +17,12 @@ A SmartBox é uma solução inovadora que combina praticidade, versatilidade e p
 ## 🎨 Características Customizáveis e Seus Valores
 
 | Característica          | Valores Disponíveis                                      |
-|------------------------|---------------------------------------------------------|
-| **Número de Andares**   | 1, 2, 3, 4, **null** (padrão)                           |
-| **Cores do Chassi**     | Preto, Branco, Cinza, Azul, Vermelho, **null** (padrão). |
-| **Cores das Paletas**   | Preto, Branco, Cinza, Azul, Vermelho, **null** (padrão). |
-| **Divisórias Internas** | Removíveis, Fixas, Ajustáveis. |
-| **Desenhos nas Paletas**| Desenhos geométricos, Naturais, Personalizados (upload de imagem), **null** (sem desenho). |
+-------------------------|-----------------------------------------------------------|
+| **Número de Andares**     | 1, 2, 3, 4, **null** (padrão)                             |
+| **Cor do Chassi**         | Preto, Branco, Cinza, Azul, Vermelho, **null** (padrão).   |
+| **Cor da Paleta Esquerda**| Preto, Branco, Cinza, Azul, Vermelho, **null** (padrão).   |
+| **Cor da Paleta Direita** | Preto, Branco, Cinza, Azul, Vermelho, **null** (padrão).   |
+| **Cor da Paleta Frontal** | Preto, Branco, Cinza, Azul, Vermelho, **null** (padrão).   |
+| **Desenho na Paleta Esquerda**  | Casa, barco, estrela, **null** (sem desenho). |
+| **Desenho na Paleta Direita**   |  Casa, barco, estrela, **null** (sem desenho). |
+| **Desenho na Paleta Frontal**   |  Casa, barco, estrela, **null** (sem desenho).  |
