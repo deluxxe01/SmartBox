@@ -1,9 +1,9 @@
 # SmartBox
 
-## Contexto
-A SmartBox é uma solução inovadora que combina praticidade, versatilidade e personalização total em um único produto. Com design inteligente e multifuncional, ela permite que o usuário adapte seu uso e aparência conforme suas necessidades e estilo pessoal. O cliente pode personalizar a SmartBox escolhendo diferentes opções de andares, cores para o chassi e as paletas, além de adicionar desenhos exclusivos nas áreas externas, criando uma caixa única e com a sua cara. Com resistência, leveza e facilidade no manuseio, a SmartBox é ideal tanto para usos rápidos quanto para soluções duradouras, entregando uma experiência completa que une design funcional, personalização detalhada e inovação prática para acompanhar diversos estilos de vida sem abrir mão da qualidade e da durabilidade.
+## 📦 Contexto
+A SmartBox é uma solução inovadora que combina praticidade, versatilidade e personalização total em um único produto. Com design inteligente e multifuncional, ela permite que o usuário adapte seu uso e aparência conforme suas necessidades e estilo pessoal. O cliente pode personalizar a caixa escolhendo diferentes opções de andares, cores para o chassi e as paletas, além de adicionar desenhos exclusivos nas áreas externas, criando uma caixa única e com a sua cara. Com resistência, leveza e facilidade no manuseio, a SmartBox é ideal tanto para usos rápidos quanto para soluções duradouras, entregando uma experiência completa que une design funcional, personalização detalhada e inovação prática para acompanhar diversos estilos de vida sem abrir mão da qualidade e da durabilidade.
 
-## Requisitos Funcionais (RF)
+## ✅Requisitos Funcionais (RF)
 | Código   | Requisito |
 |----------|-----------|
 | **RF001** | O cliente deve poder personalizar a SmartBox.<br>O sistema deve permitir a seleção de elementos como: número de andares, cores do chassi e das paletas (esquerda, direita e frontal), divisórias internas e desenhos personalizados nas paletas. |
@@ -13,3 +13,13 @@ A SmartBox é uma solução inovadora que combina praticidade, versatilidade e p
 | **RF005** | O administrador deve poder gerenciar os pedidos.<br>Deve haver uma área administrativa para visualizar, controlar e organizar os pedidos personalizados recebidos. |
 | **RF006** | O sistema deve enviar notificações sobre o status do pedido.<br>O cliente deve receber atualizações sobre a confirmação da personalização, início da produção e finalização do pedido. |
 | **RF007** | O sistema deve permitir o gerenciamento de perfil.<br>Os usuários poderão editar informações pessoais como nome, e-mail e endereço de entrega. |
+
+## 🎨 Características Customizáveis e Seus Valores
+
+| Característica          | Valores Disponíveis                                      |
+|------------------------|---------------------------------------------------------|
+| **Número de Andares**   | 1, 2, 3, 4, **null** (padrão)                           |
+| **Cores do Chassi**     | Preto, Branco, Cinza, Azul, Vermelho, **null** (padrão) |
+| **Cores das Paletas**   | Preto, Branco, Cinza, Azul, Vermelho, **null** (padrão) |
+| **Divisórias Internas** | Removíveis, Fixas, Ajustáveis, **null** (sem divisórias) |
+| **Desenhos nas Paletas**| Desenhos geométricos, Naturais, Personalizados (upload de imagem), **null** (sem desenho) |
