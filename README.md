@@ -3,33 +3,3 @@ A SmartBox é uma solução inovadora que combina praticidade, versatilidade e p
 
 O cliente pode personalizar a SmartBox escolhendo diferentes opções de andares, cores do chassi e das paletas, além de adicionar desenhos exclusivos nas áreas externas — criando uma caixa única e com a sua cara. Com resistência, leveza e facilidade no manuseio, a SmartBox é ideal tanto para usos rápidos quanto para soluções duradouras.
 
-## 📌 Contexto do Projeto
-A proposta do projeto é desenvolver uma plataforma interativa que permita aos usuários personalizar sua SmartBox de forma visual e intuitiva, além de integrar todo o processo de customização com o sistema de produção automatizado.
-
-## ❗ Problemas Identificados
- Problemas enfrentados pelos clientes
-- Falta de opções personalizadas: produtos genéricos e pouco versáteis.
-
-- Experiência de compra pouco envolvente e interativa.
-
-- Incerteza sobre como ficará o produto final após a personalização.
-
-Problemas enfrentados pelas empresas
-- Produção rígida, com dificuldade em escalar a personalização.
-
-- Baixa integração entre o sistema de customização e a produção.
-
-- Baixo engajamento com o público digital.
-
-## ✅ Solução Proposta
-- Desenvolver uma plataforma com as seguintes funcionalidades:
-
-- Personalização visual da SmartBox com opções de andares, cores, divisórias e artes externas.
-
-- Visualização 3D em tempo real da caixa personalizada.
-
-- Integração com sistema de produção automatizado.
-
-- Painel do usuário com histórico de pedidos, personalizações salvas e notificações de status.
-
-- Experiência de compra criativa, personalizada e envolvente.
