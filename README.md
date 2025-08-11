@@ -20,3 +20,16 @@ Problemas enfrentados pelas empresas
 - Baixa integração entre o sistema de customização e a produção.
 
 - Baixo engajamento com o público digital.
+
+## ✅ Solução Proposta
+- Desenvolver uma plataforma com as seguintes funcionalidades:
+
+- Personalização visual da SmartBox com opções de andares, cores, divisórias e artes externas.
+
+- Visualização 3D em tempo real da caixa personalizada.
+
+- Integração com sistema de produção automatizado.
+
+- Painel do usuário com histórico de pedidos, personalizações salvas e notificações de status.
+
+- Experiência de compra criativa, personalizada e envolvente.
