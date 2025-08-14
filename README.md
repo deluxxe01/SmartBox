@@ -14,7 +14,7 @@ A SmartBox é uma solução inovadora que combina praticidade, versatilidade e p
 | **RF006** | O sistema deve enviar notificações sobre o status do pedido.<br>O cliente deve receber atualizações sobre a confirmação da personalização, início da produção e finalização do pedido. |
 | **RF007** | O sistema deve permitir o gerenciamento de perfil.<br>Os usuários poderão editar informações pessoais como nome, e-mail e endereço de entrega. |
 
-## 🎨 Características Customizáveis e Seus Valores
+## 🎨 Características Customizáveis e Seus Valore
 
 | Característica          | Valores Disponíveis                                      |
 -------------------------|-----------------------------------------------------------|
