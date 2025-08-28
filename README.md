@@ -1,4 +1,4 @@
-![Contador de visitas](https://count.getloli.com/get/@deluxxe01.SmartBox?theme=rule34)
+![Contador de visitas](https://count.getloli.com/get/@deluxxe01.SmartBox?theme=github)
 ![Logo do projeto](SmartBox_code/Front_end/public/LogoProjeto.png)
 
 ## 📦 Contexto
