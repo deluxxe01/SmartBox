@@ -1,4 +1,4 @@
-![Profile Views](https://visitor-badge.glitch.me/badge?page_id=deluxxe01.SmartBox)
+![Contador de visitas](https://count.getloli.com/get/@deluxxe01.SmartBox?theme=rule34)
 ![Logo do projeto](SmartBox_code/Front_end/public/LogoProjeto.png)
 
 ## 📦 Contexto
