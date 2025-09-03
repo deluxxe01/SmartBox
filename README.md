@@ -1,4 +1,4 @@
-![Visitor Badge](https://visitor-badge.laobi.icu/badge?page_id=deluxxe01.SmartBox)
+![Visitor Badge](https://visitor-badge.laobi.icu/badge?page_id=deluxxe01.SmartBox&style=flat-square&color=blue)
 
 ![Logo do projeto](SmartBox_code/Front_end/public/images/LogoProjeto.png)
 
