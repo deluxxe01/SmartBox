@@ -1,13 +1,13 @@
 
 import './App.css'
-
+import './Pages/HomePage/Home'
 function App() {
   
 
   return (
     <>
       
-<h2>oi</h2>
+ <Home />
 
 
 
