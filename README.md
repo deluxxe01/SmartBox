@@ -1,4 +1,4 @@
-![Hits](https://hits.sh/github/@deluxxe01.SmartBox.svg)
+![Visitor Badge](https://visitor-badge.laobi.icu/badge?page_id=deluxxe01.SmartBox)
 
 ![Logo do projeto](SmartBox_code/Front_end/public/images/LogoProjeto.png)
 
