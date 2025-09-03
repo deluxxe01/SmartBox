@@ -2,9 +2,15 @@ body{
     height: 100%;
     margin: 0;
     padding: 0;
-    background-color: aliceblue;
+    background-color: #FBFBFB;
 }
 .Container{
-    background-color: aqua;
-    height: 80vh;
+   
+    background-color: #F3F3F3;
+     width: 100vw; /* 100% da largura da tela */
+     height: 80vh; /* 100% da altura da tela */
+
+}
+.KAKA{
+    
 }

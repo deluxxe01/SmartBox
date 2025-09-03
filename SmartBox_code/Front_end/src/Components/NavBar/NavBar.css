@@ -1,4 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 .navbar{
+   display:flex ;
+   flex-direction: row;
+   justify-content: space-between;
+   padding: 2vh;
+}
+.navbar img {
+  width: 5vh;
+  height: 5vh;
+  
+}
+.Infos{
+    display: flex;
+    flex-direction: row;
+    gap: 2vh;
+    font-family: 'Roboto', sans-serif;
+}
 
-
+.Icons{
+    display: flex;
+    flex-direction: row;
+    gap: 2vh;
+}
+.Icons img{
+  width: 4vh;
+  height: 4vh;
 }

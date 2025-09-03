@@ -11,8 +11,16 @@ function NavBar() {
         />
       </div>
 
+     <div className='Infos'>
+      <p>Catálago</p>
+      <p>Suas Caixas</p>
 
+      </div>
 
+<div className='Icons'>
+  <img src=".\public\icon\sacola.png" alt="" />
+  <img src=".\public\icon\user.png" alt="" />
+</div>
     </div>
   )
 }
