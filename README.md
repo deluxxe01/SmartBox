@@ -1,4 +1,4 @@
-![GitHub repo visits](https://img.shields.io/github/search/deluxxe01/SmartBox?label=visitas)
+![Hits](https://hits.sh/github/@deluxxe01.SmartBox.svg)
 ![Logo do projeto](SmartBox_code/Front_end/public/images/LogoProjeto.png)
 
 ## 📦 Contexto
