@@ -11,15 +11,19 @@ function NavBar() {
         />
       </div>
 
+<div className='container_links_nav_bar'>
+
      <div className='Infos'>
       <p>Catálago</p>
       <p>Suas Caixas</p>
 
       </div>
 
-<div className='Icons'>
-  <img src=".\public\icon\sacola.png" alt="" />
-  <img src=".\public\icon\user.png" alt="" />
+<div className='container_Icons'>
+  <img src=".\public\icon\sacola.svg" alt="" />
+  <img src=".\public\icon\user.svg" alt="" />
+</div>
+
 </div>
     </div>
   )
