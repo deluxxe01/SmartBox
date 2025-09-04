@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+.containerCarrinhoCaixa{
+    display: flex;
+    width: 60%;
+    justify-content: space-evenly;
+    border: 2px solid #D9D9D9;
+    border-radius: 10px;
+
+}
+.containerNumeroCaixas{
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    
+
+}
+.containerCaixaPreçoQtd{
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+
+   
+
+}
+.pPrecoCaixa{
+    font-family: 'Roboto',sans-serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+.h2NomeDaCaixa{
+    font-family:'Roboto', sans-serif ;
+    font-weight: 600;
+    font-size: 1.5rem;
+
+    margin-top: 14.4%;
+}

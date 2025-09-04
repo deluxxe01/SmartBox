@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
+
+
+
 .navbar{
    display:flex ;
    flex-direction: row;
@@ -7,8 +10,8 @@
    padding: 2vh;
 }
 .navbar img {
-  width: 5vh;
-  height: 5vh;
+  width: 6vh;
+  height:6vh;
   
 }
 .Infos{
@@ -16,15 +19,45 @@
     flex-direction: row;
     gap: 2vh;
     font-family: 'Roboto', sans-serif;
+<<<<<<< HEAD
     color: #1a1a1a;
 }
+=======
+width: fit-content;
+>>>>>>> d96f91aafa4dc5e7e467260440a7e9c861b48d4b
 
-.Icons{
+  }
+
+
+.container_Icons{
     display: flex;
     flex-direction: row;
+   align-items: center;
     gap: 2vh;
+    width: fit-content;
+padding-left: 50%;
+
+
+
+  }
+.container_Icons img{
+  width: 5vh;
+  height: 5vh;
+margin: 5px;
+}.container_links_nav_bar{
+
+
+width: 50%;
+display: flex;
+justify-content: space-around;
+font-size: 19px;
+margin: 3px;
 }
-.Icons img{
-  width: 4vh;
-  height: 4vh;
+
+.container_icons_user_sacola{
+
+width: 40px;
+height: 10px;
+border: solid green 2px;
+
 }
