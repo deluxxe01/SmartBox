@@ -1,3 +1,4 @@
+import NavBar from "../../Components/NavBar/NavBar"
 import TamplateCaixa from "../../Components/TamplateCaixas/TamplateCaixas"
 
  
@@ -5,6 +6,7 @@ import TamplateCaixa from "../../Components/TamplateCaixas/TamplateCaixas"
 
     return(
         <div>
+            <NavBar />
             <TamplateCaixa />
 
         </div>
