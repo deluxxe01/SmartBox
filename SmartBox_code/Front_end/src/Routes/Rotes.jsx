@@ -3,6 +3,8 @@ import Login from "../Pages/LoginPage/Login";
 import Cadastro from "../Pages/CadastroPage/Cadastro";
 import CatalogoPage from "../Pages/CatalogoPage/CatalogoPage";
 import Home from "../Pages/HomePage/Home"
+import Carrinho from '../Pages/Carrinho/Carrinho'
+import Caixa_persona_etp1 from "../Pages/Caixa_Persona_etp1/Caixa_persona_etp1"
 
 
 const router =  createBrowserRouter([
