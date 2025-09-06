@@ -1,0 +1,50 @@
+ section {
+      width: 50%;
+      margin: 2rem auto;
+      padding: 1rem;
+      border-radius: 8px;
+    }
+    .h2tituloResumoPedido {
+      text-align: center;
+      margin-bottom: 1rem;
+      font-family: 'Roboto',sans-serif;
+    }
+    dl {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px #9D9D9D solid;
+    }
+    .dtSubtotalResumoPedido{
+      font-weight: normal;
+      margin-bottom: 4%;
+      font-family: 'Roboto',sans-serif;
+      font-weight: 400;
+    }
+    .ddSubtotalResumoPedido{
+      margin: 0;
+      font-weight: normal;
+      margin-bottom: 4%;
+      font-family: 'Roboto',sans-serif;
+      font-weight: 400;
+    }
+    .total {
+      font-weight: bold;
+    }
+    .btnFinalizarCompra {
+      display: block;
+      width: 100%;
+      padding: 0.75rem;
+      margin-top: 1rem;
+      background: black;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    .containerResumoPedido{
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        width: 100%;
+    }
