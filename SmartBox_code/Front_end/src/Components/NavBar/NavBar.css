@@ -1,13 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-
-
-
 .navbar{
-   display:flex ;
-   flex-direction: row;
-   justify-content: space-between;
-   padding: 2vh;
+  display:flex ;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 2vh;
 }
 .navbar img {
   width: 6vh;
@@ -15,49 +12,38 @@
   
 }
 .Infos{
-    display: flex;
-    flex-direction: row;
-    gap: 2vh;
-    font-family: 'Roboto', sans-serif;
-<<<<<<< HEAD
-    color: #1a1a1a;
+  display: flex;
+  flex-direction: row;
+  gap: 2vh;
+  font-family: 'Roboto', sans-serif;
+  color: #1a1a1a;
 }
-=======
-width: fit-content;
->>>>>>> d96f91aafa4dc5e7e467260440a7e9c861b48d4b
-
-  }
-
-
+.Infos p:hover{
+  cursor: pointer;
+  color: #11ce21;
+}
 .container_Icons{
-    display: flex;
-    flex-direction: row;
-   align-items: center;
-    gap: 2vh;
-    width: fit-content;
-padding-left: 50%;
-
-
-
-  }
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2vh;
+  width: fit-content;
+  padding-left: 50%;
+}
 .container_Icons img{
   width: 5vh;
   height: 5vh;
-margin: 5px;
-}.container_links_nav_bar{
-
-
-width: 50%;
-display: flex;
-justify-content: space-around;
-font-size: 19px;
-margin: 3px;
+  margin: 5px;
 }
-
+.container_links_nav_bar{
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  font-size: 19px;
+  margin: 3px;
+}
 .container_icons_user_sacola{
-
-width: 40px;
-height: 10px;
-border: solid green 2px;
-
+  width: 40px;
+  height: 10px;
+  border: solid green 2px;
 }

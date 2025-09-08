@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 body{
     height: 100%;
     margin: 0;
@@ -5,9 +7,114 @@ body{
     background-color: #FBFBFB;
 }
 .Container{
-   
     background-color: #F3F3F3;
-     width: 100vw; /* 100% da largura da tela */
-     height: 80vh; /* 100% da altura da tela */
-
+    width: 100vw; /* 100% da largura da tela */
+    height: 80vh; /* 100% da altura da tela */
+}
+.Container-Titulo{
+    display: flex;
+    flex-direction: column;
+    margin-left: 23vh;
+    margin-top: 10vh;
+}
+.TituloHome{
+    font-family: 'Roboto', sans-serif;
+    font-size: 6vh;
+}
+.PHome{
+    margin-top: -2vh;
+    font-family: 'Roboto', sans-serif;
+    font-size: 3.5vh;
+    width: 70vh;
+}
+.Container-ButtonIrCadastro{
+    margin-top: 6vh;
+    margin-left: 23vh;
+}
+.Button{
+    font-family: 'Roboto', sans-serif;
+    color: #FFFFFF;
+    font-size: 2.5vh;
+    width: 50vh;
+    height: 5vh;
+    border: none;
+    border-radius: 4vh;
+    background-color: black;
+}
+.Button:hover{
+    background-color: #F3F3F3;
+    border: 0.1vh solid #222222;
+    color: #222222;
+}
+.Colors{
+    margin-top: 5vh;
+    margin-left: 80vh;
+    /* border: 1px solid black; */
+    width: 60vh;
+    display: flex;
+    flex-direction: row;
+    gap: 2vh;
+}
+.Circulo{
+    height: 8vh;
+    width: 8vh;
+    border-radius: 10vh;
+    border: 0.2vh solid #808080;
+    position: relative;
+}
+.Circulo:hover{
+    background-color: #CB0019; 
+    border: 0.2vh solid #CB0019;
+    cursor: pointer;
+}
+.Vermelho{
+    position: absolute;
+    height: 7vh;
+    width: 7vh;
+    border-radius: 10vh;
+    margin-top: 0.7vh;
+    margin-left: 0.6vh;
+    background-color: #CB0019;
+}
+.Circulo2{
+    height: 8vh;
+    width: 8vh;
+    border-radius: 10vh;
+    border: 0.2vh solid #808080;
+    position: relative;
+}
+.Circulo2:hover{
+    background-color: #222222; 
+    border: 0.2vh solid #222222;
+    cursor: pointer;
+}
+.Preto{
+    margin-top: 0.7vh;
+    margin-left: 10.9vh;
+    position: absolute;
+    height: 7vh;
+    width: 7vh;
+    border-radius: 10vh;
+    background-color: #222222;
+}
+.Circulo3{
+    height: 8vh;
+    width: 8vh;
+    border-radius: 10vh;
+    border: 0.2vh solid #808080;
+    position: relative;
+}
+.Circulo3:hover{
+    background-color: #2A7DF0; 
+    border: 0.2vh solid #2A7DF0;
+    cursor: pointer;
+}
+.Azul{
+    margin-left: 21.2vh;
+    margin-top: 0.7vh;
+    position: absolute;
+    height: 7vh;
+    width: 7vh;
+    border-radius: 10vh;
+    background-color: #2A7DF0;
 }

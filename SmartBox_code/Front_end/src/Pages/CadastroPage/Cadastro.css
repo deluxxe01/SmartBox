@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+.ContainerCadastro{
+    background-color: #FBFBFB;
+}
+.Container-2{
+    margin: 10VH;
+    /* border: 2px solid #000000;  */
+    height: 70vh; 
+}
+.Container-3{
+    height: 70vh;
+    width: 163vh;
+}
+.TítulosCadastro{
+    display:flex ;
+    flex-direction: row;
+    margin-left: 13vh;
+    gap: 66vh;
+}
+.Container-4{
+
+}
+.Container-NomeCadastro{
+    display: flex;
+    flex-direction: column;
+    width: 50vh;
+    height: 10VH;
+    margin-left: 8VH;
+}
+.Label-Nome{
+    font-family:'Poppins', sans-serif;
+}
+.Inpt-Nome{
+    border: none;
+    background-color: #ececec;
+    height: 5VH;
+    border-radius: 1VH;
+    font-family: 'Poppins', sans-serif;
+}
+.Container-SobrenomeCadastro{
+    display: flex;
+    flex-direction: column;
+    width: 50vh;
+    height: 10VH;
+    margin-left: 8VH;
+    margin-top: 3vh;
+}
+.Label-Sobrenome{
+    font-family:'Poppins', sans-serif;
+}
+.Inpt-Sobrenome{
+   border: none;
+    background-color: #ececec;
+    height: 5VH;
+    border-radius: 1VH;
+    font-family: 'Poppins', sans-serif;
+}
+.Container-ButtonsCadastro{
+    margin-left: 100vh;
+    margin-top: -20vh;
+    width: 55vh;
+    height: 10vh;
+}
+.Container-5{
+
+}
+.Container-EmailCadastro{
+     display: flex;
+    flex-direction: column;
+    /* border: 2px solid pink; */
+    width: 50vh;
+    height: 10VH;
+    margin-left: 8VH;
+    margin-top: 13vh;
+}
+.Container-SenhaCadastro{
+    display: flex;
+    flex-direction: column;
+    /* border: 2px solid pink; */
+    width: 50vh;
+    height: 15VH;
+    margin-left: 8VH;
+    margin-top: 3vh;
+    position: relative;
+}
+.Container-SenhaCadastro img{
+    width: 3.5vh;
+    height: 3.5vh;
+    position: absolute;
+    margin-top: 4vh;
+    margin-left: 45vh;
+    cursor:pointer;
+}
+.LinhasCadastro{
+     display: flex;
+    flex-direction: row;
+    gap: 1vh;
+    margin-left: 100vh;
+    margin-top: -39.5vh;
+}
+.Irlogin{
+    display: flex;
+    flex-direction: row;
+    gap: 1vh;
+    font-family:'Poppins', sans-serif;
+    margin-left: 109vh;
+}
+.ButtonCadastro{
+    width: 50vh;
+    height: 5vh;
+    border-radius: 4vh;
+    border: none;
+    margin-left: 8vh;
+    margin-top: 27vh;
+    color: #FFFFFF;
+    font-size: 2.5vh;
+    font-family: 'Roboto', sans-serif;
+    background-color: #000000;
+    position: absolute;
+}

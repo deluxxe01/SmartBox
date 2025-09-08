@@ -3,11 +3,10 @@
 
 .ContainerLogin{
     background-color: #FBFBFB;
-}.Container-A{
-   
+ 
 }.Container-B{
     margin: 10VH;
-    border: 2px solid #000000;
+    /* border: 2px solid #000000; */
     height: 70vh; 
 }.Container-C{
     /* background:blue; */
@@ -21,14 +20,11 @@
 }.H1-Login{
    font-family: 'Roboto', sans-serif;
 }
-.Container-D{
-    border: 1px solid orange;
-    /* background-color: palevioletred; */
-}
+
 .Container-Email{
     display: flex;
     flex-direction: column;
-    border: 2px solid pink;
+    /* border: 2px solid pink; */
     width: 50vh;
     height: 10VH;
     margin-left: 8VH;
@@ -45,10 +41,10 @@
 }
 .Container-Buttons{
     margin-left: 100vh;
-    margin-top: -11vh;
+    margin-top: -8vh;
     width: 55vh;
     height: 10vh;
-    border: 2px solid pink;
+    /* border: 2px solid pink; */
 }
 .ButtonGoogle{
     background-color: #FBFBFB;
@@ -76,7 +72,7 @@
     color: #808080;
 }.ButtonLinkedin img{
     width: 3vh;
-        margin-right: 8px;       /* espaçamento entre a imagem e o texto */
+    margin-right: 8px;       /* espaçamento entre a imagem e o texto */
     vertical-align: middle; 
 }
 .Container-E{
@@ -86,11 +82,11 @@
 .Container-Senha{
     display: flex;
     flex-direction: column;
-    border: 2px solid pink;
+    /* border: 2px solid pink; */
     width: 50vh;
     height: 15VH;
     margin-left: 8VH;
-    margin-top: 5vh;
+    margin-top: 1vh;
     position: relative;
 }
 .Label-Senha{
@@ -111,22 +107,42 @@ font-family:'Poppins', sans-serif;
     margin-left: 45vh;
     cursor:pointer;
 }
+
 .Linhas{
     display: flex;
     flex-direction: row;
-    
-    height: 30vh;
-    width: 50vh;
+    gap: 1vh;
+    margin-left: 100vh;
+    margin-top: -15vh;
 }
-.linha1{
-    height: 2vh;
-    width: 10vh;
+.Linha1{
+    width: 25vh;
+    height: 1px;
     background-color: #808080;
 }
-.linha2{
-    height: 2vh;
-    width: 10vh;
+.Ou{
+    margin-top: -1.5vh;
+    color: #808080;
+     font-family: 'Poppins', sans-serif;
+}
+.Linha2{
+    width: 25vh;
+    height: 1px;
     background-color: #808080;
+}
+.IrCadastro{
+    display: flex;
+    flex-direction: row;
+    gap: 1vh;
+    font-family:'Poppins', sans-serif;
+    margin-left: 105vh;
+}
+.Pergunta{
+    color: #808080;
+}
+.Resposta:hover{
+    cursor: pointer;
+    color: #2A7DF0;
 }
 .Button-Login{
     width: 50vh;
@@ -134,9 +150,11 @@ font-family:'Poppins', sans-serif;
     border-radius: 4vh;
     border: none;
     margin-left: 8vh;
-    margin-top: 10vh;
+    margin-top: 8vh;
+    border: 2px solid p;
     color: #FFFFFF;
     font-size: 2.5vh;
     font-family: 'Roboto', sans-serif;
     background-color: #000000;
+    position: absolute;
 }

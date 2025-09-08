@@ -1,18 +1,22 @@
 
 import React, { useState } from 'react';
 import './Login.css'
+import { useNavigate } from 'react-router-dom';
 import NavBar from '../../Components/NavBar/NavBar'
 import eyeOpen from '../../../public/icon/eyeOpen.png'
 import eyeClosed from '../../../public/icon/eyeClosed.png'
 
 function Login() {
-
-  const [senhaVisivel, setSenhaVisivel] = useState(false);
+  const [senhaVisivel, setSenhaVisivel] = useState(false)
+  const navigate = useNavigate()
 
   const toggleVisibilidade = () => {
-    setSenhaVisivel(!senhaVisivel);
+    setSenhaVisivel(!senhaVisivel)
+  }
 
-  };
+    const irParaOutraPagina = () => {
+    navigate('/cadastro')
+  }
 
   return (
     <div className='ContainerLogin'>
@@ -58,8 +62,15 @@ function Login() {
   </div>
 
 <div className='Linhas'>
-  <div className='Linha1'></div>
-  <div className='Linha2'></div>
+  
+  <div class='Linha1'></div>
+  <p className='Ou'>Ou</p>
+  <div class='Linha2'></div>
+
+</div>
+
+<div className='IrCadastro'>
+  <p className='Pergunta'>Não possui uma conta?</p> <p onClick={irParaOutraPagina} className='Resposta'>Faça Cadastro</p>
 </div>
 </div>
 <button className='Button-Login'>Logar</button> 
