@@ -9,6 +9,7 @@ function Home() {
 
   return (
     <div className='Container'>
+    <div className='Container1'>
     <NavBar />
     
     <div className='Container-Titulo'>
@@ -29,6 +30,26 @@ function Home() {
 
           <div className='Azul'></div>
           <div className='Circulo3'></div>
+      </div>
+
+      </div>
+      <div className='Container2'>
+        
+        <h2 className='Comoperso'>Como Personalizar</h2>
+
+        <div className='ImagensPersonaliza'>
+          <img className="CaixaBranco"src="public/images/Group 2.png" alt="" />
+          <img className="CaixaPerso"src="public/images/caixa perso 2.png" alt="" />
+          <img className="CaixaPronta"src="public/images/caixa pronta 2.png" alt="" />
+        </div>
+
+          <div className='Textos2'>
+            <h3 className="Number">1. Escolha seu estilo de caixa</h3>
+             <h3 className="Number2">2. Deixe com a sua Cara</h3>
+             <h3 className="Number3">3. Compre a sua SmartBox</h3>
+          </div>
+      
+          
       </div>
     </div>
   )

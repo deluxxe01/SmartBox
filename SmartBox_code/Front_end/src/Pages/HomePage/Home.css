@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
 body{
     height: 100%;
     margin: 0;
@@ -7,6 +9,10 @@ body{
     background-color: #FBFBFB;
 }
 .Container{
+  
+    
+}
+.Container1{
     background-color: #F3F3F3;
     width: 100vw; /* 100% da largura da tela */
     height: 80vh; /* 100% da altura da tela */
@@ -56,8 +62,8 @@ body{
     gap: 2vh;
 }
 .Circulo{
-    height: 8vh;
-    width: 8vh;
+    height: 7vh;
+    width: 7vh;
     border-radius: 10vh;
     border: 0.2vh solid #808080;
     position: relative;
@@ -69,16 +75,16 @@ body{
 }
 .Vermelho{
     position: absolute;
-    height: 7vh;
-    width: 7vh;
+    height: 6vh;
+    width: 6vh;
     border-radius: 10vh;
     margin-top: 0.7vh;
     margin-left: 0.6vh;
     background-color: #CB0019;
 }
 .Circulo2{
-    height: 8vh;
-    width: 8vh;
+    height: 7vh;
+    width: 7vh;
     border-radius: 10vh;
     border: 0.2vh solid #808080;
     position: relative;
@@ -90,16 +96,16 @@ body{
 }
 .Preto{
     margin-top: 0.7vh;
-    margin-left: 10.9vh;
+    margin-left: 9.9vh;
     position: absolute;
-    height: 7vh;
-    width: 7vh;
+    height: 6vh;
+    width: 6vh;
     border-radius: 10vh;
     background-color: #222222;
 }
 .Circulo3{
-    height: 8vh;
-    width: 8vh;
+    height: 7vh;
+    width: 7vh;
     border-radius: 10vh;
     border: 0.2vh solid #808080;
     position: relative;
@@ -110,11 +116,61 @@ body{
     cursor: pointer;
 }
 .Azul{
-    margin-left: 21.2vh;
+    margin-left: 19.2vh;
     margin-top: 0.7vh;
     position: absolute;
-    height: 7vh;
-    width: 7vh;
+    height: 6vh;
+    width: 6vh;
     border-radius: 10vh;
     background-color: #2A7DF0;
+}
+.Container2{
+  border: 1px solid black;
+  height: 100vh;
+}
+
+.Comoperso{
+    margin-top: 10vh;
+    margin-left: 80vh;
+     font-family: 'Roboto', sans-serif;
+}
+.ImagensPersonaliza{
+    border: 1px solid black ;
+    height: 30vh;
+    width: 140vh;
+    margin-left: 20vh;
+    display: flex;
+    flex-direction: row;
+    gap: 20vh;
+    justify-content: center;
+    padding: 2vh;
+}
+.CaixaBranco{
+    width: 35vh;
+    height: 35vh;
+}
+.CaixaPerso{
+    margin-top: 6vh;
+    width: 25vh;
+    height: 25vh;
+}
+.CaixaPronta{
+    margin-top: 6vh;
+    width: 25vh;
+    height: 25vh;
+}
+.Textos2{
+    margin-left: 20vh;
+    display: flex;
+    flex-direction: row;
+   font-family:'Poppins', sans-serif;
+}
+.Number{
+    margin-left: 6vh;
+}
+.Number2{
+    margin-left: 23vh;
+}
+.Number3{
+    margin-left: 16vh;
 }
