@@ -33,11 +33,15 @@
     font-family:'Poppins', sans-serif;
 }
 .Inpt-Nome{
+    outline: none;
     border: none;
     background-color: #ececec;
     height: 5VH;
     border-radius: 1VH;
     font-family: 'Poppins', sans-serif;
+}
+.Inpt-Nome:hover{
+    background-color: #cecece;
 }
 .Container-SobrenomeCadastro{
     display: flex;
@@ -51,11 +55,15 @@
     font-family:'Poppins', sans-serif;
 }
 .Inpt-Sobrenome{
+    outline: none;
    border: none;
     background-color: #ececec;
     height: 5VH;
     border-radius: 1VH;
     font-family: 'Poppins', sans-serif;
+}
+.Inpt-Sobrenome:hover{
+    background-color: #cecece;
 }
 .Container-ButtonsCadastro{
     margin-left: 100vh;
@@ -108,6 +116,7 @@
     margin-left: 109vh;
 }
 .ButtonCadastro{
+    cursor: pointer;
     width: 50vh;
     height: 5vh;
     border-radius: 4vh;
@@ -119,4 +128,9 @@
     font-family: 'Roboto', sans-serif;
     background-color: #000000;
     position: absolute;
+    transition: 1s;
+}
+.ButtonCadastro:hover{
+ background-color: #2A7DF0;
+ 
 }

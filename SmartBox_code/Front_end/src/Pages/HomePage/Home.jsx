@@ -48,6 +48,12 @@ function Home() {
              <h3 className="Number2">2. Deixe com a sua Cara</h3>
              <h3 className="Number3">3. Compre a sua SmartBox</h3>
           </div>
+
+           <div className='Textos3'>
+            <p className="Number4">Opte pelos nossos modelos maiores ou mais práticos.</p>
+             <p className="Number5">Escolha diferentes formas  de montar a sua caixa.</p>
+             <p className="Number6">Finalize seu pedido e receba sua caixa multifunções feita sob medida na sua casa.</p>
+          </div>
       
           
       </div>

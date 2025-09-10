@@ -33,11 +33,16 @@
     font-family:'Poppins', sans-serif;
 }
 .Inpt-Email{
+    outline: none;
     border: none;
     background-color: #ececec;
     height: 5VH;
     border-radius: 1VH;
-     font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    border: none;
+}
+.Inpt-Email:hover{
+   background-color: #cecece;
 }
 .Container-Buttons{
     margin-left: 100vh;
@@ -55,10 +60,16 @@
     font-size: 2vh;
     font-family: 'Roboto', sans-serif;
     color: #808080;
+    transition: 1s;
+    cursor: pointer;
 }.ButtonGoogle img{
     width: 3vh;
     margin-right: 8px;       /* espaçamento entre a imagem e o texto */
     vertical-align: middle; 
+}.ButtonGoogle:hover{
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+ transform: translateY(-2px);
 }
 .ButtonLinkedin{
     background-color: #FBFBFB;
@@ -70,10 +81,16 @@
      font-size: 2vh;
     font-family: 'Roboto', sans-serif;
     color: #808080;
+    cursor: pointer;
+    transition: 1s;
 }.ButtonLinkedin img{
     width: 3vh;
     margin-right: 8px;       /* espaçamento entre a imagem e o texto */
     vertical-align: middle; 
+}.ButtonLinkedin:hover{
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+ transform: translateY(-2px);
 }
 .Container-E{
     /* border: 1px solid black; */
@@ -93,11 +110,15 @@
 font-family:'Poppins', sans-serif;
 }
 .Inpt-Senha{
+    outline: none;
     border: none;
     background-color: #ececec;
     height: 5VH;
     border-radius: 1VH;
      font-family: 'Poppins', sans-serif;
+}
+.Inpt-Senha:hover{
+    background-color: #cecece;
 }
 .Container-Senha img{
     width: 3.5vh;
@@ -153,8 +174,16 @@ font-family:'Poppins', sans-serif;
     margin-top: 8vh;
     border: 2px solid p;
     color: #FFFFFF;
+    cursor: pointer;
     font-size: 2.5vh;
     font-family: 'Roboto', sans-serif;
     background-color: #000000;
     position: absolute;
+    transition: 1s;
+}
+
+.Button-Login:hover{
+    color: #fcfcfc;
+    /* border: 0.3vh solid black; */
+    background-color: #2A7DF0;
 }

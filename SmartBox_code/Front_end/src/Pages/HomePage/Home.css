@@ -45,12 +45,14 @@ body{
     height: 5vh;
     border: none;
     border-radius: 4vh;
+    transition: 1s;
     background-color: black;
 }
+
 .Button:hover{
     background-color: #F3F3F3;
-    border: 0.1vh solid #222222;
-    color: #222222;
+     border: 0.1vh solid #222222; 
+    color: #0f0f0f;
 }
 .Colors{
     margin-top: 5vh;
@@ -67,8 +69,10 @@ body{
     border-radius: 10vh;
     border: 0.2vh solid #808080;
     position: relative;
+    transition: 0.2s;
 }
 .Circulo:hover{
+    
     background-color: #CB0019; 
     border: 0.2vh solid #CB0019;
     cursor: pointer;
@@ -130,6 +134,7 @@ body{
 }
 
 .Comoperso{
+    font-size: 3vh;
     margin-top: 10vh;
     margin-left: 80vh;
      font-family: 'Roboto', sans-serif;
@@ -150,6 +155,7 @@ body{
     height: 35vh;
 }
 .CaixaPerso{
+    margin-right: 3vh;
     margin-top: 6vh;
     width: 25vh;
     height: 25vh;
@@ -160,6 +166,7 @@ body{
     height: 25vh;
 }
 .Textos2{
+    font-size: 2.4vh;
     margin-left: 20vh;
     display: flex;
     flex-direction: row;
@@ -169,8 +176,34 @@ body{
     margin-left: 6vh;
 }
 .Number2{
-    margin-left: 23vh;
+    margin-left: 13vh;
 }
 .Number3{
-    margin-left: 16vh;
+    margin-left: 13vh;
+}
+.Textos3{
+     width: 145vh;
+    font-size: 2.2vh;
+    margin-top: -4vh;
+    margin-left: 20vh;
+    display: flex;
+    flex-direction: row;
+    font-family:'Poppins', sans-serif;
+    border: 1px solid pink;
+
+}
+.Number4{
+    margin-left: 8vh;
+    border: 1px solid pink;
+    width: 90vh;
+}
+.Number5{
+    margin-left: 13vh;
+    border: 1px solid pink;
+    width: 80vh;
+}
+.Number6{
+    margin-left: 13vh;
+    border: 1px solid pink;
+    width: 90vh;
 }
