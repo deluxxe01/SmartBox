@@ -26,7 +26,9 @@ function NavBar() {
       </div>
 
 <div className='container_Icons'>
-  <img src=".\public\icon\sacola.svg" alt="" />
+  <img src=".\public\icon\sacola.svg" alt="" onClick={()=>{
+    navigate('/carrinho')
+  }} />
   <img src=".\public\icon\user.svg" alt="" />
 </div>
 
