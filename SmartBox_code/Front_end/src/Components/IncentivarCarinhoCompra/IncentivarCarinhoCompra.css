@@ -1,0 +1,29 @@
+.H2NaoPossuiItens{
+    font-family: "Roboto",sans-serif;
+    font-weight: 600;
+    color: #222222;
+    font-size: xx-large;
+    padding: 25px;
+    
+
+}
+
+.ContainerAvisoNãoPossuiCompra{
+   
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    border: 2px solid #222222;
+    border-radius: 30px;
+    
+    
+
+}
+.ContainerAvisoNãoPossuiCompra h3{
+    font-family: "Roboto",sans-serif;
+    color: #808080;
+     word-break: break-word;
+     font-size: x-large;
+}
