@@ -18,6 +18,9 @@
   gap: 2vh;
   font-family: 'Roboto', sans-serif;
   color: #1a1a1a;
+
+align-items: center;
+
 }
 .Infos p:hover{
   cursor: pointer;
@@ -42,6 +45,8 @@
   justify-content: space-around;
   font-size: 19px;
   margin: 3px;
+
+
 }
 .container_icons_user_sacola{
   width: 40px;
