@@ -12,9 +12,6 @@
   box-sizing: border-box;
 }
 
-html, body {
-  overflow: hidden; /* Mantemos isso como uma garantia extra */
-}
 
 
 /* --- ESTRUTURA PRINCIPAL --- */
