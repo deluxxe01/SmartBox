@@ -25,94 +25,131 @@ function Caixa_persona_etp1() {
         <div className="container_personalizacao_caixa">
           
           {/* Título */}
-          <div className="container_h1_caixa_personalizada_etp1">
-            <h1 className="h1_caixa_personalizada_etp1">
+          <div className="container_p_caixa_personalizada_etp1">
+            <p className="p_caixa_personalizada_etp1">
               Personalização da caixa: 1° andar
-            </h1>
+            </p>
           </div>
 
           {/* Seleção de andares */}
           <div className="container_infos_andares_caixa">
-            <div className="container_andares_caixa">
-              <h2>Andares</h2>
+            <div className="p_container_andares_caixa">
+              <p>Andares</p>
             </div>
             <div className="container_numero_andares">
-              <h2>1° andar</h2>
-              <h2>2° andar</h2>
-              <h2>3° andar</h2>
+              <p>1 unidade</p>
+              <p>2 unidades</p>
+              <p>3 unidades</p>
             </div>
           </div>
 
           {/* Cor do chassi */}
           <div className="container_cor_chasi">
-            <div className="container_cor_chasi_h1">
-              <h1>Cor do chassi</h1>
+            <div className="container_cor_chasi_p">
+              <p>Cor do chassi</p>
             </div>
             <div className="cores_chasi">
-              <button>Vermelho</button>
-              <button>Preto</button>
-              <button>Azul</button>
+              <div className='container_cor_chasi_bnt_vermelho'>
+                <button className='cor_chasi_bnt_vermelho'></button>
+              </div>               
+              <div className='container_cor_chasi_bnt_preto'>
+                <button className='cor_chasi_bnt_preto'></button>
+              </div>
+              <div className='container_cor_chasi_bnt_azul'>
+                <button className='cor_chasi_bnt_azul'></button>
+              </div>
             </div>
           </div>
 
-          {/* Cor da paleta esquerda */}
+          {/* Cor das lâminas */}
+          {/** Esquerda **/}
           <div className="container_cor_lamina_esq">
-            <div className="h1_cor_lamina_esq">
-              <h1>Cor da paleta esquerda</h1>
+            <div className="p_cor_lamina_esq">
+              <p>Cor da paleta esquerda</p>
             </div>
-            <div className="cor_lamina_esq">
-              <button>Vermelho</button>
-              <button>Preto</button>
-              <button>Azul</button>
-              <button>Verde</button>
-              <button>Branco</button>
-              <button>Amarelo</button>
+            <div className="cores_lamina_esq">
+              <div className="container_cor_lamina_bnt_vermelho">
+                <button className="cor_lamina_bnt_vermelho"></button>
+              </div>
+              <div className="container_cor_lamina_bnt_preto">
+                <button className="cor_lamina_bnt_preto"></button>
+              </div>
+              <div className="container_cor_lamina_bnt_azul">
+                <button className="cor_lamina_bnt_azul"></button>
+              </div>
+              <div className="container_cor_lamina_bnt_verde">
+                <button className="cor_lamina_bnt_verde"></button>
+              </div>
+              <div className="container_cor_lamina_bnt_branco">
+                <button className="cor_lamina_bnt_branco"></button>
+              </div>
+              <div className="container_cor_lamina_bnt_amarelo">
+                <button className="cor_lamina_bnt_amarelo"></button>
+              </div>
             </div>
           </div>
 
-          {/* Cor da paleta frontal */}
+          {/** Frontal **/}
           <div className="container_cor_lamina_front">
-            <div className="h1_cor_lamina_front">
-              <h1>Cor da paleta frontal</h1>
+            <div className="p_cor_lamina_front">
+              <p>Cor da paleta frontal</p>
             </div>
-            <div className="cor_lamina_front">
-              <button>Vermelho</button>
-              <button>Preto</button>
-              <button>Azul</button>
-              <button>Verde</button>
-              <button>Branco</button>
-              <button>Amarelo</button>
+            <div className="cores_lamina_front">
+              <div className="container_cor_lamina_bnt_vermelho">
+                <button className="cor_lamina_bnt_vermelho"></button>
+              </div>
+              <div className="container_cor_lamina_bnt_preto">
+                <button className="cor_lamina_bnt_preto"></button>
+              </div>
+              <div className="container_cor_lamina_bnt_azul">
+                <button className="cor_lamina_bnt_azul"></button>
+              </div>
+              <div className="container_cor_lamina_bnt_verde">
+                <button className="cor_lamina_bnt_verde"></button>
+              </div>
+              <div className="container_cor_lamina_bnt_branco">
+                <button className="cor_lamina_bnt_branco"></button>
+              </div>
+              <div className="container_cor_lamina_bnt_amarelo">
+                <button className="cor_lamina_bnt_amarelo"></button>
+              </div>
             </div>
           </div>
-          
- {/* Cor da paleta dir */}
+
+          {/** Direita **/}
           <div className="container_cor_lamina_dir">
-            <div className="h1_cor_lamina_dir">
-              <h1>Cor da paleta direita</h1>
+            <div className="p_cor_lamina_dir">
+              <p>Cor da paleta direita</p>
             </div>
-            <div className="cor_lamina_dir">
-              <button>Vermelho</button>
-              <button>Preto</button>
-              <button>Azul</button>
-              <button>Verde</button>
-              <button>Branco</button>
-              <button>Amarelo</button>
+            <div className="cores_lamina_dir">
+              <div className="container_cor_lamina_bnt_vermelho">
+                <button className="cor_lamina_bnt_vermelho"></button>
+              </div>
+              <div className="container_cor_lamina_bnt_preto">
+                <button className="cor_lamina_bnt_preto"></button>
+              </div>
+              <div className="container_cor_lamina_bnt_azul">
+                <button className="cor_lamina_bnt_azul"></button>
+              </div>
+              <div className="container_cor_lamina_bnt_verde">
+                <button className="cor_lamina_bnt_verde"></button>
+              </div>
+              <div className="container_cor_lamina_bnt_branco">
+                <button className="cor_lamina_bnt_branco"></button>
+              </div>
+              <div className="container_cor_lamina_bnt_amarelo">
+                <button className="cor_lamina_bnt_amarelo"></button>
+              </div>
             </div>
           </div>
 
-
-
-
-
-
-
-
+          {/* Botão próxima etapa */}
+          <div className='container_bnt_proxima_etapa'>
+            <button className='bnt_proxima_etapa'>Próxima etapa</button>
+          </div>
 
         </div>
-    
       </div>
-    
-    
     </div>
   );
 }
