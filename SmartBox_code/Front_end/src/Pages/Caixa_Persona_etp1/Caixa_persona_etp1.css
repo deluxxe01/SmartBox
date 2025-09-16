@@ -1,5 +1,4 @@
-/* Reset global para não dar diferença de box model */
-
+/* Definição da fonte e reset global */
 @font-face {
   font-family: 'Roboto';
   src: url('./fonts/Roboto/roboto-regular.ttf') format('truetype');
@@ -7,272 +6,205 @@
   font-style: normal;
 }
 
-
-
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+html, body {
+  overflow: hidden; /* Mantemos isso como uma garantia extra */
+}
 
 
-/* Container principal da página */
-.conatiner_page_caixa_persona {
+/* --- ESTRUTURA PRINCIPAL --- */
+
+.container_page_caixa_persona {
   display: flex;
   width: 100%;
-  height: 85vh;
-
-
+  height: 100vh;
 }
 
-/* Lado do preview 3D */
-.conatiner_m3D {
-  border: rgb(200, 255, 0) solid 2px;
-  height: 85vh;
-  width: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Lado da personalização */
-.container_personalizacao_caixa {
-  height: 85vh;
-  width: 50%;
-  border: solid rgb(33, 39, 0) 2px;
-  padding-left: 40px;
-  padding-right: 40px;
-  box-sizing: border-box; /* Corrige o problema de largura maior */
+.container_m3D {
+  height: 100%;
+  width: 60%;
   display: flex;
   flex-direction: column;
- justify-content: space-evenly;
+  align-items: center;
 
-
+  gap: 20px; /* Espaço entre logo e imagem */
 
 }
 
-/* Imagem preview */
+/* Lado da personalização - AJUSTE FINAL */
+.container_personalizacao_caixa {
+  height: 100%;
+  width: 40%;
+  padding: 20px 40px; /* Adiciona padding vertical para afastar das bordas */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Distribui o espaço entre os itens */
+}
+
+/* --- LADO ESQUERDO (PREVIEW) --- */
+
+.container_select_de_paginas {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  justify-content: start;
+  padding-left: 10px;
+margin-bottom: 100px;
+  /* MARGEM REMOVIDA DAQUI */
+}
+
+.img_logo_select_paginas {
+  height: 60px;
+}
+
 .no_biches_img {
-  width: 80%;
-  height: 80%;
+  width: 80%; /* Voltando para um tamanho responsivo */
+  max-width: 400px; /* Limite para não ficar gigante */
+  height: auto;
   object-fit: contain;
 }
 
-/* Título centralizado */
+/* --- LADO DIREITO (PERSONALIZAÇÃO) --- */
+
 .container_p_caixa_personalizada_etp1 {
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin-bottom: 16px;
- 
-
-
-
+  /* MARGENS REMOVIDAS DAQUI */
 }
 
 .p_caixa_personalizada_etp1 {
-
-  font-family: 'Roboto';
-font-weight: 800;
-font-size: 30px;
-
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 30px;
 }
 
-
-.p_container_andares_caixa {
-  margin-bottom: 16px;
-  font-family: 'Roboto';
-font-weight: 500;
-font-size: 22px;
-border-bottom: 1px solid #9D9D9D;
-padding-bottom: 10px;
-
-}
-
-.container_infos_andares_caixa {
-  margin-bottom: 8px;
- 
-
-
+.p_container_andares_caixa,
+.container_cor_chasi_p p,
+.p_cor_lamina_esq p,
+.p_cor_lamina_front p,
+.p_cor_lamina_dir p {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 22px;
+  border-bottom: 1px solid #9D9D9D;
+  padding-bottom: 10px;
+  /* MARGEM REMOVIDA DAQUI */
 }
 
 .container_numero_andares {
   display: flex;
   justify-content: space-between;
   padding: 5px;
-
- font-family: 'Roboto';
-font-weight: 500;
-font-size: 18px
-
-
-}
-
-
-
-.container_cor_chasi{
-
-    font-family: 'Roboto';
-font-weight: 500;
-font-size: 22px;
-
-
-}
-
-.container_cor_chasi_p{
-padding-bottom: 7px;
-border-bottom: 1px solid #9D9D9D;
-
-}
-
-
-
-.cores_chasi{
-display: flex;
-gap: 10px;
-padding: 15px;
-
-}
-
-.container_cor_lamina_esq{
-
-
-}
-.p_cor_lamina_esq{
-
-  font-family: 'Roboto';
-font-weight: 500;
-font-size: 22px;
-border-bottom: 1px solid #9D9D9D;
-padding-bottom: 7px;
-}
-.cor_lamina_esq{
-
-  display: flex;
-gap: 10px;
-padding: 15px;
-}
-
-.container_cor_lamina_front{
-
-
-
-}
-.p_cor_lamina_front{
-  font-family: 'Roboto';
+  font-family: 'Roboto', sans-serif;
   font-weight: 500;
-font-size: 22px;
-border-bottom: 1px solid #9D9D9D;
-padding-bottom: 7px;
+  font-size: 18px;
 }
-.cor_lamina_front{
+
+.cores_chasi,
+.cores_lamina_esq,
+.cor_lamina_front,
+.cor_lamina_dir {
   display: flex;
-gap: 10px;
-padding: 15px;
+  gap: 15px;
+  padding: 10px 5px;
+  flex-wrap: wrap;
 }
 
-.container_cor_lamina_dir{
-
-
-
-
-}
-.p_cor_lamina_dir{
-
-  font-family: 'Roboto';
-font-weight: 500;
-font-size: 22px;
-border-bottom: 1px solid #9D9D9D;
-padding-bottom: 7px;
-}
-.cor_lamina_dir{
-
+/* --- BOTÕES DE COR (Estilo unificado) --- */
+.container_cor_chasi_bnt_vermelho,
+.container_cor_chasi_bnt_preto,
+.container_cor_chasi_bnt_azul,
+.container_cor_lamina_bnt_vermelho,
+.container_cor_lamina_bnt_preto,
+.container_cor_lamina_bnt_azul,
+.container_cor_lamina_bnt_verde,
+.container_cor_lamina_bnt_branco,
+.container_cor_lamina_bnt_amarelo {
+  border-radius: 100%;
+  border: transparent solid 3px;
   display: flex;
-gap: 10px;
-padding: 15px;
+  justify-content: center;
+  align-items: center;
+  padding: 2px;
+  transition: all 0.2s ease-in-out;
 }
 
-
-.container_bnt_proxima_etapa{
-display: flex;
-justify-content: center;
-
+.cor_chasi_bnt_vermelho,
+.cor_chasi_bnt_preto,
+.cor_chasi_bnt_azul,
+.cor_lamina_bnt_vermelho,
+.cor_lamina_bnt_preto,
+.cor_lamina_bnt_azul,
+.cor_lamina_bnt_verde,
+.cor_lamina_bnt_branco,
+.cor_lamina_bnt_amarelo {
+  width: 35px;
+  height: 35px;
+  border: rgba(0, 0, 0, 0.2) solid 1px;
+  border-radius: 100%;
+  cursor: pointer;
 }
 
-.bnt_proxima_etapa{
+/* Cores específicas */
+.cor_chasi_bnt_vermelho, .cor_lamina_bnt_vermelho { background-color: #CB0019; }
+.cor_chasi_bnt_preto, .cor_lamina_bnt_preto { background-color: #222222; }
+.cor_chasi_bnt_azul, .cor_lamina_bnt_azul { background-color: #2A7DF0; }
+.cor_lamina_bnt_verde { background-color: #3DAE00; }
+.cor_lamina_bnt_branco { background-color: #F5F5F5; }
+.cor_lamina_bnt_amarelo { background-color: #FFB200; }
 
+/* Botão Próxima Etapa */
+.container_bnt_proxima_etapa {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* MARGEM/PADDING REMOVIDOS DAQUI PARA O PAI CONTROLAR */
 }
 
-.cor_chasi_bnt_vermelho{
-background-color: #CB0019;
-width: 35px;
-height: 35px;
-border: rgb(255, 255, 255) solid 1px;
- border-radius: 100%;
-
-
-} 
-
-.container_cor_chasi_bnt_vermelho{
-
- border-radius: 100%;
-border: gray solid 1.5px;
-display: flex;
-justify-content:center ;
-
-
-
+.bnt_proxima_etapa {
+  width: 300px;
+  height: 50px;
+  background-color: black;
+  font-family: 'Roboto', sans-serif;
+  border: none;
+  color: white;
+  border-radius: 30px;
+  font-size: 17px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-.cor_chasi_bnt_preto{
-
-
-background-color: #222222;
-width: 35px;
-height: 35px;
-border: rgb(255, 255, 255) solid 1px;
- border-radius: 100%;
+.bnt_proxima_etapa:hover {
+    background-color: #333;
 }
 
-
-.container_cor_chasi_bnt_preto{
-
- border-radius: 100%;
-border: gray solid 1.5px;
-display: flex;
-justify-content:center ;
-
+.selecionado {
+  border-color: #222222 !important;
+  transform: scale(1.1);
 }
 
+/* --- ESTILO PARA SELEÇÃO DE ANDARES (VERSÃO ATUALIZADA) --- */
 
-.cor_chasi_bnt_azul{
-background-color: #2A7DF0;
-width: 35px;
-height: 35px;
-border: rgb(255, 255, 255) solid 1px;
- border-radius: 100%;
-
-
+/* 1. Estilo PADRÃO (não selecionado) para todos os andares */
+.container_numero_andares p {
+  color: #888; /* << A COR CINZA PARA OS NÃO ESCOLHIDOS */
+  font-weight: 500; /* Peso da fonte normal */
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 20px;
+  transition: all 0.2s ease-in-out;
+  background-color: transparent; /* Garante que não tenha fundo por padrão */
 }
 
-
-
-.container_cor_chasi_bnt_azul{
-
- border-radius: 100%;
-border: gray solid 1.5px;
-display: flex;
-justify-content:center ;
-
+/* 2. Estilo para o andar que ESTÁ SELECIONADO */
+.andar_selecionado {
+  color: #000;      /* << A COR PRETA PARA O ESCOLHIDO */
+  font-weight: bold; /* Negrito para dar mais destaque */
+  background-color: #e0e0e0; /* Mantém o fundo cinza claro para destaque extra */
 }
-
-
-
-
-
-
-
-
-
