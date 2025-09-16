@@ -1,4 +1,5 @@
 import { Router } from "express";
+import ClientController from "../controllers/ClientController.js";
 
 const routes = Router()
 
@@ -25,6 +26,8 @@ routes.post("/createBoxClient", async (req,res)=>{
   res.json("deu certo")
 
 })
+
+routes.post("/clients",ClientController.insertUser)
 
 
 export default routes
