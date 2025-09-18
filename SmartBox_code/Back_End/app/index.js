@@ -1,5 +1,12 @@
 import express from 'express'
 import routes from '../routes/routes.js'
+import dotenv from "dotenv"
+import path from "path"
+dotenv.config({
+   path:"./secrets/.env"
+})
+const PORT = process.env.APIPORT  
+
 
  const App = express()
 
@@ -9,6 +16,5 @@ import routes from '../routes/routes.js'
 
 
 
- App.listen(3000,()=>{
-    console.log('oiiiiiii🤡')
+ App.listen(PORT,()=>{
  })

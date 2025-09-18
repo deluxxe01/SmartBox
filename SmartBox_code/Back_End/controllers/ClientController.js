@@ -1,5 +1,5 @@
 
-
+import clientServices from "../services/ClientService.js"
 
 export default {
 
@@ -24,8 +24,11 @@ export default {
     if(senha.length <= 6){
         return res.status(400).json({error:"Porfavor insira uma senha com mais de 6 digitos !"})
     }
+    console.log({nome,email,senha,sobrenome})
 
-    return res.status(201).json("parabens voce se cadastrou no sistema")
+    const result =  new clientServices().InsertUserService({nome,email,senha,sobrenome})
+
+    return res.status(201).json({result:result})
 
     }
 }
