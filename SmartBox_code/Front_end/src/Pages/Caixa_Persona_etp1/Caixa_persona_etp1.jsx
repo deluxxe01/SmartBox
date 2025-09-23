@@ -1,114 +1,142 @@
 import './Caixa_persona_etp1.css';
-import NavBar from '../../Components/NavBar/NavBar';
 import React, { useState } from 'react';
 
-function Caixa_persona_etp1() {
-  // Estados para guardar as escolhas
-  const [corChassi, setCorChassi] = useState('null');
-  const [corLaminaEsq, setCorLaminaEsq] = useState('null');
-  const [corLaminaFront, setCorLaminaFront] = useState('null');
-  const [corLaminaDir, setCorLaminaDir] = useState('null');
-  const [andares, setAndares] = useState(1);
-
-console.log({ corChassi, corLaminaEsq, corLaminaFront, corLaminaDir, andares });
+// Componente genérico para seleção de cor
+function SeletorCor({ titulo, corSelecionada, setCor }) {
+  const cores = ['vermelho', 'preto', 'azul', 'verde', 'branco', 'amarelo'];
 
   return (
     <div>
-      <div className="container_page_caixa_persona">
-        <div className="container_m3D">
-          <div className='container_select_de_paginas'>
-            <img src="./images/logo_smartBox.svg" className='img_logo_select_paginas' alt="Logo" />
+      <div className="titulo_secao"><p>{titulo}</p></div>
+      <div className="cores_container">
+        {cores.map(cor => (
+          <div
+            key={cor}
+            className={`container_cor_bnt ${corSelecionada === cor ? 'selecionado' : ''}`}
+          >
+            <button
+              className={`cor_bnt ${cor}`}
+              onClick={() => setCor(cor)}
+            ></button>
           </div>
-          <img
-            src="https://i1.sndcdn.com/artworks-7n7INsM9YyE3b2KH-kyEyFw-t1080x1080.jpg"
-            alt="Preview Caixa"
-            className="no_biches_img"
-          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function Caixa_persona_etp1() {
+  const [personalizacoes, setPersonalizacoes] = useState({
+    1: { corChassi: null, corLaminaEsq: null, corLaminaFront: null, corLaminaDir: null },
+    2: { corChassi: null, corLaminaEsq: null, corLaminaFront: null, corLaminaDir: null },
+    3: { corChassi: null, corLaminaEsq: null, corLaminaFront: null, corLaminaDir: null },
+  });
+
+  const [andares, setAndares] = useState(1);
+  const [maxAndarLiberado, setMaxAndarLiberado] = useState(1);
+  const [erroMsg, setErroMsg] = useState('');
+
+  const atualizarCor = (campo, valor) => {
+    setPersonalizacoes(prev => ({
+      ...prev,
+      [andares]: {
+        ...prev[andares],
+        [campo]: valor
+      }
+    }));
+    setErroMsg('');
+  };
+
+  const todasCoresSelecionadas = (andar) => {
+    const config = personalizacoes[andar];
+    return Object.values(config).every(cor => cor !== null);
+  };
+
+  const trocarAndar = (novoAndar) => {
+    const podeVoltar = novoAndar < andares;
+    const podeAvancar = novoAndar === andares + 1 && todasCoresSelecionadas(andares);
+    const mesmoAndar = novoAndar === andares;
+
+    const habilitado = podeVoltar || podeAvancar || mesmoAndar;
+
+    if (habilitado) {
+      setAndares(novoAndar);
+      setMaxAndarLiberado(prev => Math.max(prev, novoAndar));
+      setErroMsg('');
+    } else {
+      setErroMsg('Selecione todas as cores antes de avançar para o próximo andar.');
+    }
+  };
+
+  const atual = personalizacoes[andares];
+
+console.log('Personalizações atuais:', personalizacoes);
+
+
+
+
+
+
+  return (
+    <div className="container_page_caixa_persona">
+      {/* Lado esquerdo */}
+      <div className="container_m3D">
+        <div className="container_select_de_paginas">
+          <img src="./images/logo_smartBox.svg" className="img_logo_select_paginas" alt="Logo" />
+        </div>
+      
+        
+
+
+      </div>
+
+      {/* Lado direito */}
+      <div className="container_personalizacao_caixa">
+        <div>
+          <p className="p_caixa_personalizada_etp1">
+            Personalização da caixa: {andares}° andar
+          </p>
+
+          {/* Botões de navegação por andar */}
+          <div>
+            <div className="titulo_secao"><p>Andares</p></div>
+            <div className="container_numero_andares">
+              {[1, 2, 3].map(num => {
+                const podeVoltar = num < andares;
+                const podeAvancar = num === andares + 1 && todasCoresSelecionadas(andares);
+                const mesmoAndar = num === andares;
+
+                const habilitado = podeVoltar || podeAvancar || mesmoAndar;
+
+                return (
+                  <button
+                    key={num}
+                    className={`bnt_andar ${andares === num ? 'andar_selecionado' : ''} ${!habilitado ? 'andar_bloqueado' : ''}`}
+                    onClick={() => habilitado && trocarAndar(num)}
+                    disabled={!habilitado}
+                  >
+                    {num}° andar
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Seletores de cor */}
+          <SeletorCor titulo="Cor do chassi" corSelecionada={atual.corChassi} setCor={(c) => atualizarCor('corChassi', c)} />
+          <SeletorCor titulo="Cor da paleta esquerda" corSelecionada={atual.corLaminaEsq} setCor={(c) => atualizarCor('corLaminaEsq', c)} />
+          <SeletorCor titulo="Cor da paleta frontal" corSelecionada={atual.corLaminaFront} setCor={(c) => atualizarCor('corLaminaFront', c)} />
+          <SeletorCor titulo="Cor da paleta direita" corSelecionada={atual.corLaminaDir} setCor={(c) => atualizarCor('corLaminaDir', c)} />
+
+          {/* Mensagem de erro */}
+          {erroMsg && <p className="mensagem_erro">{erroMsg}</p>}
         </div>
 
-        <div className="container_personalizacao_caixa">
-          <div className="container_p_caixa_personalizada_etp1">
-            <p className="p_caixa_personalizada_etp1">
-              Personalização da caixa: 1° andar
-            </p>
-          </div>
-
-          <div className="container_infos_andares_caixa">
-            <div className="p_container_andares_caixa">
-              <p>Andares</p>
-            </div>
-            <div className="container_numero_andares">
-              <p 
-                className={andares === 1 ? 'andar_selecionado' : ''} 
-                onClick={() => setAndares(1)}
-              >
-                1 unidade
-              </p>
-              <p 
-                className={andares === 2 ? 'andar_selecionado' : ''} 
-                onClick={() => setAndares(2)}
-              >
-                2 unidades
-              </p>
-              <p 
-                className={andares === 3 ? 'andar_selecionado' : ''} 
-                onClick={() => setAndares(3)}
-              >
-                3 unidades
-              </p>
-            </div>
-          </div>
-
-          {/* O resto do código das cores... */}
-          <div className="container_cor_chasi">
-            <div className="container_cor_chasi_p"><p>Cor do chassi</p></div>
-            <div className="cores_chasi">
-              <div className={`container_cor_chasi_bnt_vermelho ${corChassi === 'vermelho' ? 'selecionado' : ''}`}><button className='cor_chasi_bnt_vermelho' onClick={() => setCorChassi('vermelho')}></button></div>
-              <div className={`container_cor_chasi_bnt_preto ${corChassi === 'preto' ? 'selecionado' : ''}`}><button className='cor_chasi_bnt_preto' onClick={() => setCorChassi('preto')}></button></div>
-              <div className={`container_cor_chasi_bnt_azul ${corChassi === 'azul' ? 'selecionado' : ''}`}><button className='cor_chasi_bnt_azul' onClick={() => setCorChassi('azul')}></button></div>
-            </div>
-          </div>
-
-          <div className="container_cor_lamina_esq">
-            <div className="p_cor_lamina_esq"><p>Cor da paleta esquerda</p></div>
-            <div className="cores_lamina_esq">
-              <div className={`container_cor_lamina_bnt_vermelho ${corLaminaEsq === 'vermelho' ? 'selecionado' : ''}`}><button className="cor_lamina_bnt_vermelho" onClick={() => setCorLaminaEsq('vermelho')}></button></div>
-              <div className={`container_cor_lamina_bnt_preto ${corLaminaEsq === 'preto' ? 'selecionado' : ''}`}><button className="cor_lamina_bnt_preto" onClick={() => setCorLaminaEsq('preto')}></button></div>
-              <div className={`container_cor_lamina_bnt_azul ${corLaminaEsq === 'azul' ? 'selecionado' : ''}`}><button className="cor_lamina_bnt_azul" onClick={() => setCorLaminaEsq('azul')}></button></div>
-              <div className={`container_cor_lamina_bnt_verde ${corLaminaEsq === 'verde' ? 'selecionado' : ''}`}><button className="cor_lamina_bnt_verde" onClick={() => setCorLaminaEsq('verde')}></button></div>
-              <div className={`container_cor_lamina_bnt_branco ${corLaminaEsq === 'branco' ? 'selecionado' : ''}`}><button className="cor_lamina_bnt_branco" onClick={() => setCorLaminaEsq('branco')}></button></div>
-              <div className={`container_cor_lamina_bnt_amarelo ${corLaminaEsq === 'amarelo' ? 'selecionado' : ''}`}><button className="cor_lamina_bnt_amarelo" onClick={() => setCorLaminaEsq('amarelo')}></button></div>
-            </div>
-          </div>
-
-          <div className="container_cor_lamina_front">
-            <div className="p_cor_lamina_front"><p>Cor da paleta frontal</p></div>
-            <div className="cor_lamina_front">
-              <div className={`container_cor_lamina_bnt_vermelho ${corLaminaFront === 'vermelho' ? 'selecionado' : ''}`}><button className="cor_lamina_bnt_vermelho" onClick={() => setCorLaminaFront('vermelho')}></button></div>
-              <div className={`container_cor_lamina_bnt_preto ${corLaminaFront === 'preto' ? 'selecionado' : ''}`}><button className="cor_lamina_bnt_preto" onClick={() => setCorLaminaFront('preto')}></button></div>
-              <div className={`container_cor_lamina_bnt_azul ${corLaminaFront === 'azul' ? 'selecionado' : ''}`}><button className="cor_lamina_bnt_azul" onClick={() => setCorLaminaFront('azul')}></button></div>
-              <div className={`container_cor_lamina_bnt_verde ${corLaminaFront === 'verde' ? 'selecionado' : ''}`}><button className="cor_lamina_bnt_verde" onClick={() => setCorLaminaFront('verde')}></button></div>
-              <div className={`container_cor_lamina_bnt_branco ${corLaminaFront === 'branco' ? 'selecionado' : ''}`}><button className="cor_lamina_bnt_branco" onClick={() => setCorLaminaFront('branco')}></button></div>
-              <div className={`container_cor_lamina_bnt_amarelo ${corLaminaFront === 'amarelo' ? 'selecionado' : ''}`}><button className="cor_lamina_bnt_amarelo" onClick={() => setCorLaminaFront('amarelo')}></button></div>
-            </div>
-          </div>
-
-          <div className="container_cor_lamina_dir">
-            <div className="p_cor_lamina_dir"><p>Cor da paleta direita</p></div>
-            <div className="cor_lamina_dir">
-              <div className={`container_cor_lamina_bnt_vermelho ${corLaminaDir === 'vermelho' ? 'selecionado' : ''}`}><button className="cor_lamina_bnt_vermelho" onClick={() => setCorLaminaDir('vermelho')}></button></div>
-              <div className={`container_cor_lamina_bnt_preto ${corLaminaDir === 'preto' ? 'selecionado' : ''}`}><button className="cor_lamina_bnt_preto" onClick={() => setCorLaminaDir('preto')}></button></div>
-              <div className={`container_cor_lamina_bnt_azul ${corLaminaDir === 'azul' ? 'selecionado' : ''}`}><button className="cor_lamina_bnt_azul" onClick={() => setCorLaminaDir('azul')}></button></div>
-              <div className={`container_cor_lamina_bnt_verde ${corLaminaDir === 'verde' ? 'selecionado' : ''}`}><button className="cor_lamina_bnt_verde" onClick={() => setCorLaminaDir('verde')}></button></div>
-              <div className={`container_cor_lamina_bnt_branco ${corLaminaDir === 'branco' ? 'selecionado' : ''}`}><button className="cor_lamina_bnt_branco" onClick={() => setCorLaminaDir('branco')}></button></div>
-              <div className={`container_cor_lamina_bnt_amarelo ${corLaminaDir === 'amarelo' ? 'selecionado' : ''}`}><button className="cor_lamina_bnt_amarelo" onClick={() => setCorLaminaDir('amarelo')}></button></div>
-            </div>
-          </div>
-
-          <div className='container_bnt_proxima_etapa'>
-            {/* O BOTÃO COM O NOME CORRIGIDO */}
-            <button className='bnt_proxima_etapa'>Próxima etapa</button>
-          </div>
+        {/* Botão visual de próxima etapa (sem função) */}
+        <div className="container_bnt_proxima_etapa">
+          <button className="bnt_proxima_etapa">
+            Próxima etapa
+          </button>
         </div>
       </div>
     </div>
