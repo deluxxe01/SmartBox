@@ -1,5 +1,6 @@
 
 
+import { error } from "console"
 import ModelClient from "../models/ClientModel.js"
 import clientRepo from "../Repository/ClientRepository.js"
 
@@ -8,7 +9,11 @@ class clientServices{
 
     async InsertUserService(user){
         //regra de negocio
-        console.log(user)
+       const emailRepetido = await clientRepo.findEmail(user)
+
+       if(emailRepetido.length>0){
+        throw new Error("Email já inserido ,porfavor insira outro")
+       }
 
        const consulta = await clientRepo.InsertUser(user)
 

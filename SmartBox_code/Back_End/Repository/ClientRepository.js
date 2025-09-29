@@ -10,6 +10,14 @@ class clientRepo{
 
 
     }
+    static async findEmail(obj){
+        const consulta = await ModelClient.findAll({
+            where:{
+                email:obj.email
+            }
+        })
+        return consulta
+    }
 
     static async LoginUser(obj){
         const consulta = await ModelClient.findAll({
@@ -18,6 +26,7 @@ class clientRepo{
             senha:obj.senha
             }
         })
+        return consulta
     }
 }
 export default clientRepo
