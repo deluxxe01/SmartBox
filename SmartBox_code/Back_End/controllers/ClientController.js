@@ -37,5 +37,15 @@ export default {
 
     return res.status(201).json({result:result})
 
+    },
+    async loginUser(req,res){
+        const user = req.body
+
+        const result = clientServices.LoginUser(user)
+
+        return res.status(200).json({user:result})
+
+
+
     }
 }

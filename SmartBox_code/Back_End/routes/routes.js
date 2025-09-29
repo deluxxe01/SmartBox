@@ -29,5 +29,7 @@ routes.post("/createBoxClient", async (req,res)=>{
 
 routes.post("/clients",ClientController.insertUser)
 
+routes.post("/clientsLogin",ClientController.loginUser)
+
 
 export default routes
