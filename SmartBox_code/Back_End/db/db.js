@@ -2,9 +2,9 @@ import { Sequelize } from "sequelize";
 
 const DbConection = new Sequelize({
     host:"localhost",
-    password:"senai",
+    password:"180607",
     username:"postgres",
-    database:"smartBox",
+    database:"smartbox",
     dialect:"postgres",
     port:5432
 })

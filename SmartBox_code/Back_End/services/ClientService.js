@@ -1,6 +1,8 @@
 
 
 import ModelClient from "../models/ClientModel.js"
+import clientRepo from "../Repository/ClientRepository.js"
+
 
 class clientServices{
 
@@ -8,9 +10,14 @@ class clientServices{
         //regra de negocio
         console.log(user)
 
-       const consulta = await ModelClient.create(user)
-        return consulta
+       const consulta = await clientRepo.InsertUser(user)
 
+    }
+    static async LoginUser(user){
+        //regra de negocio
+        const consulta = await clientRepo.LoginUser(user)
+
+        return consulta
     }
 
 }
