@@ -129,7 +129,7 @@ body{
     background-color: #2A7DF0;
 }
 .Container2{
-  border: 1px solid black;
+  /* border: 1px solid black; */
   height: 100vh;
 }
 
@@ -140,7 +140,7 @@ body{
      font-family: 'Roboto', sans-serif;
 }
 .ImagensPersonaliza{
-    border: 1px solid black ;
+    /* border: 1px solid black ; */
     height: 30vh;
     width: 140vh;
     margin-left: 20vh;
@@ -189,21 +189,21 @@ body{
     display: flex;
     flex-direction: row;
     font-family:'Poppins', sans-serif;
-    border: 1px solid pink;
+    /* border: 1px solid pink; */
 
 }
 .Number4{
     margin-left: 8vh;
-    border: 1px solid pink;
+    /* border: 1px solid pink; */
     width: 90vh;
 }
 .Number5{
     margin-left: 13vh;
-    border: 1px solid pink;
+    /* border: 1px solid pink; */
     width: 80vh;
 }
 .Number6{
     margin-left: 13vh;
-    border: 1px solid pink;
+    /* border: 1px solid pink; */
     width: 90vh;
 }

@@ -1,10 +1,15 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 import './Home.css'
 import NavBar from '../../Components/NavBar/NavBar'
 
 
 function Home() {
 
+  const navigate = useNavigate()
+   const irParaOutraPagina = () => {
+    navigate('/cadastro')
+  }
 
 
   return (
@@ -18,7 +23,7 @@ function Home() {
     </div>
       
       <div className='Container-ButtonIrCadastro'>
-        <button className='Button'>Cadastre-se</button>
+        <button className='Button' onClick={irParaOutraPagina}>Cadastre-se</button>
       </div>
 
       <div className='Colors'>

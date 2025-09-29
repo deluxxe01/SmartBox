@@ -19,11 +19,10 @@ function NavBar() {
 
 <div className='container_links_nav_bar'>
 
-     <div className='Infos'>
-      <p>Catálago</p>
-      <p>Suas Caixas</p>
-
-      </div>
+ <div className='Infos'>
+  <p onClick={() => navigate('/catalogo')}>Catálogo</p>
+  <p onClick={() => navigate('/historico')}>Histórico</p>
+</div>
 
 <div className='container_Icons'>
   <img src=".\public\icon\sacola.svg" alt="" onClick={()=>{

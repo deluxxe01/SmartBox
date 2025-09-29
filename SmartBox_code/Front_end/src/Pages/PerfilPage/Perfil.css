@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+.Container-Perfil{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #FBFBFB;
+}
+.Primeira-diva{
+    border: 2px solid black;
+    margin-top: 10vh;
+    margin-left: 15vh;
+    width: 150vh;
+}
+.Titulo-Perfil{
+    font-family:'Poppins', sans-serif;
+}
+.Lixeira{
+    margin-left: 140vh;
+    margin-top: -8vh;
+
+}
+.Segunda-diva{
+    margin-top: 5vh;
+    margin-left: 15vh;
+    width: 60vh;
+    height: 60vh;
+    /* border: 2px solid black; */
+}
+.icon{
+    margin-left: 10vh;
+    width: 35vh;
+}
+.Add-Foto{
+    margin-left: 10vh;
+    margin-top: 2vh;
+    font-size: 2.5vh;
+    font-weight: 500;
+    font-family:'Roboto', sans-serif;
+}
+.Encerrar-button{
+    margin-top: 2vh;
+    font-family: 'Roboto', sans-serif;
+    color: #000000;
+    border:0.1vh solid #0f0f0f;
+    font-size: 2.5vh;
+    width: 50vh;
+    height: 5vh;
+    border-radius: 4vh;
+    transition: 1s;
+    background-color: #FBFBFB;
+}
+
+.Encerrar-button:hover{
+    background-color: #0f0f0f;
+     border: 0.1vh solid #222222; 
+    color: #FBFBFB;
+}
+
+.Editar-button{
+    margin-top: 2vh;
+    font-family: 'Roboto', sans-serif;
+    color: #FFFFFF;
+    font-size: 2.5vh;
+    width: 50vh;
+    height: 5vh;
+    border: none;
+    border-radius: 4vh;
+    transition: 1s;
+    background-color: black;
+}
+
+.Editar-button:hover{
+    background-color: #F3F3F3;
+     border: 0.1vh solid #222222; 
+    color: #0f0f0f;
+}
+.Terceira-diva{
+    margin-top: -55VH;
+    margin-left: 75vh;
+ display: flex;
+ flex-direction: column;
+ gap: 8vh;
+
+}
+.Inpt-Perfil{
+    outline: none;
+   border: none;
+    background-color: #ececec;
+    height: 5VH;
+    width: 55vh;
+    border-radius: 1VH;
+    font-family: 'Poppins', sans-serif;
+}
+.Inpt-Perfil:hover{
+    background-color: #cecece;
+}

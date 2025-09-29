@@ -5,7 +5,7 @@ import path from "path"
 dotenv.config({
    path:"./secrets/.env"
 })
-const PORT = process.env.APIPORT  
+const PORT = 3000
 
 
  const App = express()
