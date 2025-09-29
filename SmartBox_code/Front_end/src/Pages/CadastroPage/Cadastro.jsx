@@ -38,6 +38,11 @@ function cadastro() {
 /* v- bloco de codigo para o cadastro do cliente */
   const cadastrarUser = async () => {
   try{
+    if(user.nome == "" || user.senha=="" || user.email=="" || user.sobrenome == ""){
+      setErrorMenssage("Prencha todos os campos de informação")
+      setMostrarMenssagen(true)
+      return "seu merda"
+    }
     
       const result = await axios.post('/api/clients',user)
       console.log(result)

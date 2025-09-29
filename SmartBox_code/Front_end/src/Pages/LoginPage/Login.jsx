@@ -1,14 +1,22 @@
 
-import React, { useState } from 'react';
+import { useState,useEffect} from 'react';
 import './Login.css'
 import { useNavigate } from 'react-router-dom';
 import NavBar from '../../Components/NavBar/NavBar'
 import eyeOpen from '../../../public/icon/eyeOpen.png'
 import eyeClosed from '../../../public/icon/eyeClosed.png'
+import axios from 'axios';
+import ErrorModal from '../../Components/errorModal/ErrorModal';
 
 function Login() {
   const [senhaVisivel, setSenhaVisivel] = useState(false)
   const navigate = useNavigate()
+  const [inpt,setInpt] = useState({
+    email:"",
+    senha:""
+  })
+  const [messageErro,setMessageError] = useState("roi leticia ne")
+  const [verMessage,setVerMessage]=useState(false)
 
   const toggleVisibilidade = () => {
     setSenhaVisivel(!senhaVisivel)
@@ -16,6 +24,25 @@ function Login() {
 
     const irParaOutraPagina = () => {
     navigate('/cadastro')
+  }
+  const Logar = async()=>{
+
+    if(inpt.email == "" || inpt.senha == ""){
+      setMessageError("Prencha todos os campos")
+
+      setVerMessage(true)
+
+      
+    }
+    try{
+
+      const result = await axios.post('/api/clientsLogin',inpt)
+      console.log(result)
+      return result
+
+    }catch(err){
+      console.log("seu erro: ",err)
+    }
   }
 
   return (
@@ -35,8 +62,11 @@ function Login() {
 <div className='Container-D'>
 
 <div className='Container-Email'>
+ { verMessage ? <ErrorModal message={messageErro}  onClose={()=>{setVerMessage(false)}}/>:""}
 <label className='Label-Email'htmlFor="InptEmail">Email</label>
-<input className='Inpt-Email' placeholder='usuario@gmail.com'type="text" />
+<input className='Inpt-Email' placeholder='usuario@gmail.com'type="text"  onChange={(e)=>{
+  setInpt({...inpt,email:e.target.value})
+}} />
 </div>
 
 <div className='Container-Buttons'>
@@ -57,7 +87,12 @@ function Login() {
 
   <div className='Container-Senha'>
   <label className='Label-Senha'htmlFor="">Senha</label>
-  <input className='Inpt-Senha' id='senha' placeholder='SenhaForte123'type={senhaVisivel ? 'text' : 'password'} />
+  <input className='Inpt-Senha' id='senha' placeholder='SenhaForte123'type={senhaVisivel ? 'text' : 'password'} onChange={(e)=>{
+    setInpt({
+      ...inpt,
+      senha:e.target.value
+    })
+  }} />
   <img src={senhaVisivel ? eyeClosed : eyeOpen} alt="Mostrar ou ocultar senha" onClick={toggleVisibilidade} />
   </div>
 
@@ -73,7 +108,7 @@ function Login() {
   <p className='Pergunta'>Não possui uma conta?</p> <p onClick={irParaOutraPagina} className='Resposta'>Faça Cadastro</p>
 </div>
 </div>
-<button className='Button-Login'>Logar</button> 
+<button className='Button-Login' onClick={Logar}>Logar</button> 
         </div>
 
         
