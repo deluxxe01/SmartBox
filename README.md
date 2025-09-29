@@ -30,3 +30,11 @@ A SmartBox é uma solução inovadora que combina praticidade, versatilidade e p
 | **Desenho na Paleta Esquerda**  | Casa, barco, estrela, **null** (sem desenho). |
 | **Desenho na Paleta Direita**   |  Casa, barco, estrela, **null** (sem desenho). |
 | **Desenho na Paleta Frontal**   |  Casa, barco, estrela, **null** (sem desenho).  |
+
+# Instruções para criar a pasta `secret` e o arquivo `.env`
+
+1. Abra o terminal ou prompt de comando.
+
+2. Crie a pasta chamada `secret`:
+   ```bash
+   mkdir secret

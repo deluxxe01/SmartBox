@@ -4,7 +4,9 @@ import clientServices from "../services/ClientService.js"
 export default {
 
     async insertUser(req,res){
-        
+
+    
+    try{    
 
    let {nome,sobrenome,email,senha} = req.body
 
@@ -29,19 +31,25 @@ export default {
      
         return res.status(400).json({error:"Porfavor insira uma senha com mais de 6 digitos !"})
     }
-    console.log({nome,email,senha,sobrenome})
+    
 
     const result =  await new clientServices().InsertUserService({nome,email,senha,sobrenome})
 
     console.log("resultado",result)
 
     return res.status(201).json({result:result})
+   }catch(erro){
+    if (erro.message.includes('Email já inserido')) {
+      return res.status(400).json({ error: erro.message });
+    }
+
+   }
 
     },
     async loginUser(req,res){
         const user = req.body
 
-        const result = clientServices.LoginUser(user)
+        const result = await clientServices.LoginUser(user)
 
         return res.status(200).json({user:result})
 
