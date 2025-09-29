@@ -1,0 +1,53 @@
+@keyframes fadeInDown {/* animação para a entarda do component*/
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOutUp {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
+.imgErrorModal{
+    width: 50px;
+
+}
+.containerErrorModal{
+    position: fixed;
+    left: 10%;
+    top: 10%;
+    background-color: #fbfbfb;
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+
+    animation: fadeInDown 0.3s ease forwards;
+}
+.pModalError{
+    font-family: "Roboto",sans-serif;
+    font-weight: 400;
+    font-size: 1.2rem;
+}
+.errorModalH2{
+    font-size: 1.8em;
+}
+.containerErrorModal.exit {
+  animation: fadeOutUp 0.3s ease forwards;
+}
+

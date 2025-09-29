@@ -4,9 +4,20 @@ import './cadastro.css'
 import NavBar from '../../Components/NavBar/NavBar'
 import eyeOpen from '../../../public/icon/eyeOpen.png'
 import eyeClosed from '../../../public/icon/eyeClosed.png'
+import { useEffect } from 'react';
+import axios from 'axios';
+import ErrorModal from '../../Components/errorModal/ErrorModal';
 
 function cadastro() {
+  const [errorMessage,setErrorMenssage] = useState('')
+  const [mostrarMensagen,setMostrarMenssagen] = useState(false)
   const [senhaVisivel, setSenhaVisivel] = useState(false)
+  const [user,setUser] = useState({
+    nome:'',
+    sobrenome:'',
+    email:'',
+    senha:''
+  })
    const navigate = useNavigate()
 
 
@@ -17,6 +28,44 @@ function cadastro() {
    const irParaOutraPagina = () => {
     navigate('/login')
   }
+  useEffect(()=>{
+    console.log(user)
+
+  },[user])
+
+
+/////////////////////////////////////////////////////////////////////////// 
+/* v- bloco de codigo para o cadastro do cliente */
+  const cadastrarUser = async () => {
+  try{
+    
+      const result = await axios.post('/api/clients',user)
+      console.log(result)
+      alert("cadastro concluido")
+      navigate('/catalogo')
+
+      return result
+    
+  }catch(erro){
+
+    if(erro.response){
+
+      if(erro.response.status === 400){
+        setErrorMenssage(erro.response.data.error) // pega a menssagen de erro da pai e informa pro cliente
+        setMostrarMenssagen(true)
+      }else{
+      }
+
+    }else{
+        console.log('Erro de rede ou servidor indisponível:', error.message);
+    }
+
+  }
+   
+
+  }
+////////////////////////////////////////////////////////////////////////////////////// 
+/* ^- bloco de codigo para o cadastro do cliente */
 
   return (
     <div className='ContainerCadastro'>
@@ -31,14 +80,26 @@ function cadastro() {
          </div> 
 
         <div className='Container-4'>
+          {mostrarMensagen ? <ErrorModal message={errorMessage} onClose={()=>{setMostrarMenssagen(false)}}/>:''}
           <div className='Container-NomeCadastro'>
-          <label className='Label-Nome'htmlFor="InptEmail">Nome</label>
-          <input className='Inpt-Nome' placeholder='Digite seu nome'type="text" />
+           
+          <label className='Label-Nome'htmlFor="InptEmail" >Nome</label>
+          <input className='Inpt-Nome' placeholder='Digite seu nome'type="text"onChange={(e)=>{
+            setUser({
+              ...user,
+              nome:e.target.value
+            })
+          }} />
           </div>
 
           <div className='Container-SobrenomeCadastro'>
           <label className='Label-Sobrenome'htmlFor="InptEmail">Sobrenome</label>
-          <input className='Inpt-Sobrenome' placeholder='Digite seu sobrenome'type="text" />
+          <input className='Inpt-Sobrenome' placeholder='Digite seu sobrenome'type="text"  onChange={(e)=>{
+            setUser({
+              ...user,
+              sobrenome:e.target.value
+            })
+          }} />
           </div>
 
           <div className='Container-ButtonsCadastro'>
@@ -57,13 +118,23 @@ function cadastro() {
         <div className='Container-5'>
           <div className='Container-EmailCadastro'>
            <label className='Label-Email'htmlFor="InptEmail">Email</label>
-           <input className='Inpt-Email' placeholder='usuario@gmail.com'type="text" />
+           <input className='Inpt-Email' placeholder='usuario@gmail.com'type="text" onChange={(e)=>{
+            setUser({
+              ...user,
+              email:e.target.value
+            })
+           }} />
           </div>
 
           <div className='Container-SenhaCadastro'>
             <label className='Label-Senha'htmlFor="">Senha</label>
-            <input className='Inpt-Senha' id='senha' placeholder='SenhaForte123'type={senhaVisivel ? 'text' : 'password'} />
-            <img src={senhaVisivel ? eyeClosed : eyeOpen} alt="Mostrar ou ocultar senha" onClick={toggleVisibilidade} />
+            <input className='Inpt-Senha' id='senha' placeholder='SenhaForte123'type={senhaVisivel ? 'text' : 'password'} onChange={(e)=>{
+              setUser({
+                ...user,
+                senha:e.target.value
+              })
+            }} />
+            <img src={senhaVisivel ? eyeClosed : eyeOpen} alt="Mostrar ou ocultar senha" onClick={toggleVisibilidade}  />
           </div>
 
           <div className='LinhasCadastro'>
@@ -79,7 +150,7 @@ function cadastro() {
 
 
          <div className='ContainerButtonCadastro'>
-             <button className='ButtonCadastro'>Cadastrar</button>
+             <button className='ButtonCadastro' onClick={cadastrarUser}>Cadastrar</button>
          </div>
         </div>
 
