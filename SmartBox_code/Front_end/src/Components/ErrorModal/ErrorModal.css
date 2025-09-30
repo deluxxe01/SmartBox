@@ -29,13 +29,16 @@
     left: 10%;
     top: 10%;
     background-color: #fbfbfb;
-    border: 1px solid black;
-    padding: 20px;
-    border-radius: 10px;
+    box-shadow: 2px 2px 15px 10px rgba(139, 139, 139, 0.397) ;
+    padding: 10px;
+    border-radius: 30px;
     align-items: center;
     justify-content: center;
     display: flex;
     flex-direction: column;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    width: 400px;
 
     animation: fadeInDown 0.3s ease forwards;
 }
@@ -47,7 +50,7 @@
 }
 .errorModalH2{
     font-size: 1.5em;
-     margin: 10px;
+     margin: 20px;
 }
 .containerErrorModal.exit {
   animation: fadeOutUp 0.3s ease forwards;
