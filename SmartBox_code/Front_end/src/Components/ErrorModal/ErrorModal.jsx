@@ -21,11 +21,9 @@ function ErrorModal({message,onClose}){
 
         <div className={`containerErrorModal ${isExiting ? 'exit' : ''}`}
          onClick={() => setIsExiting(true)} >
-
-            <img className='imgErrorModal' src="./icon/iconUserError.svg" alt="" />
-            <h2 className='errorModalH2'>Ops algo de errado!</h2>
-            <p className='pModalError'>{message}</p>
-
+              <img className='imgErrorModal' src="./icon/iconUserError.svg" alt="" />
+              <h2 className='errorModalH2'>Ops algo de errado!</h2>
+              <p className='pModalError'>{message}</p>
         </div>
 
     )

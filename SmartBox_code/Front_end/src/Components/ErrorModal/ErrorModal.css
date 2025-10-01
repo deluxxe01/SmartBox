@@ -20,38 +20,43 @@
   }
 }
 
-.imgErrorModal{
-    width: 50px;
+.containerErrorModal {
+  position: fixed;
+  left: 10%;
+  top: 10%;
+  background-color: #fbfbfb;
+  box-shadow: 2px 2px 15px 10px rgba(139, 139, 139, 0.397);
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 350px;
+  animation: fadeInDown 0.3s ease forwards;
+  height: 210px;
+  
+}
 
+.pModalError {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 1.2rem;
+  width: 270px;
+  text-align: center;
+  margin: 0 auto;
 }
-.containerErrorModal{
-    position: fixed;
-    left: 10%;
-    top: 10%;
-    background-color: #fbfbfb;
-    box-shadow: 2px 2px 15px 10px rgba(139, 139, 139, 0.397) ;
-    padding: 10px;
-    border-radius: 30px;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-    padding-top: 40px;
-    padding-bottom: 40px;
-    width: 400px;
 
-    animation: fadeInDown 0.3s ease forwards;
+.errorModalH2 {
+  font-size: 1.5em;
+  text-align: center;
+  
+  
 }
-.pModalError{
-    font-family: "Roboto",sans-serif;
-    font-weight: 400;
-    font-size: 1.2rem;
-   
+
+.imgErrorModal {
+  width: 50px;
 }
-.errorModalH2{
-    font-size: 1.5em;
-     margin: 20px;
-}
+
 .containerErrorModal.exit {
   animation: fadeOutUp 0.3s ease forwards;
 }
