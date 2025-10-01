@@ -3,13 +3,9 @@ import Login from "../Pages/LoginPage/Login";
 import Cadastro from "../Pages/CadastroPage/Cadastro";
 import CatalogoPage from "../Pages/CatalogoPage/CatalogoPage";
 import Home from "../Pages/HomePage/Home"
-<<<<<<< HEAD
 import Historico from "../Pages/HistoricoPages/Historico"
 import Carrinho from '../Pages/Carrinho/Carrinho'
 import Perfil from "../Pages/PerfilPage/Perfil"
-=======
-import Carrinho from '../Pages/Carrinho/Carrinho';
->>>>>>> b825732546eb08759e9cf0f83a8754beb0b0dc0f
 import Caixa_persona_etp1 from "../Pages/Caixa_Persona_etp1/Caixa_persona_etp1"
 
 

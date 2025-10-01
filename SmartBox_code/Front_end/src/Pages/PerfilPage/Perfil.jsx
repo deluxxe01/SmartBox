@@ -1,19 +1,28 @@
 
 import NavBar from '../../Components/NavBar/NavBar.jsx'
 import './Perfil.css'
+import React, { useState } from 'react'
 
 function Perfil() {
-  return (
-   
-        
-      
-        
+
+  const [lixeiraAtual, setLixeiraAtual] = useState('/icon/lixeira.png')
+
+    const trocarImagem = () => {
+    if (lixeiraAtual === '/icon/lixeira.png') {
+      setLixeiraAtual('/icon/lixeira.png')
+    } else {
+      setLixeiraAtual('/icon/lixeira.png')
+    }
+  }
+
+//Terminar de ajustar lixeira
+  return ( 
         <div className='Container-Perfil'>
 <NavBar/>
 <div className='Perfil-Usuario' >
             <div className='Primeira-diva'>
             <h1 className='Titulo-Perfil'> Perfil de Usuário</h1>
-            <img  className='Lixeira'src=".\public\icon\lixeira.png" alt="Botão para excluir conta" />
+            <img  className='Lixeira'src=".\public\icon\lixeira.png" alt="Botão para excluir conta"  onClick={trocarImagem}/>
             </div>
 
             <div className='Segunda-diva'>
@@ -25,9 +34,23 @@ function Perfil() {
             </div>
 
             <div className='Terceira-diva'>
-                <input className="Inpt-Perfil" type='text' />
+
+              <div className='InptUm'>
+              <label  className="LabelForPerfil" htmlFor="">Nome </label>
+              <input className="Inpt-Perfil" type='text' />
+              </div>
+                  <div className='InptDois'>
+                  <label className="LabelForPerfil" htmlFor="">Sobrenome</label>
                   <input className="Inpt-Perfil" type='text' />
-                     <input className="Inpt-Perfil" type='text' />
+                  </div>
+                    <div className='InptTres'>
+                    <label className="LabelForPerfil" htmlFor="">Email</label>
+                    <input className="Inpt-Perfil" type='text' />
+                    </div>
+                       <div className='InptQuatro'>
+                      <label className="LabelForPerfil" htmlFor="">Senha</label>
+                       <input className="Inpt-Perfil" type='text' />
+                       </div>
             </div>
 </div>
       

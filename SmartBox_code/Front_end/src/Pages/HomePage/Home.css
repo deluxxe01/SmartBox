@@ -45,6 +45,7 @@ body{
     height: 5vh;
     border: none;
     border-radius: 4vh;
+    cursor: pointer;
     transition: 1s;
     background-color: black;
 }
