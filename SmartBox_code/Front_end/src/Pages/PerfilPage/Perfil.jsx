@@ -8,10 +8,10 @@ function Perfil() {
   const [lixeiraAtual, setLixeiraAtual] = useState('/icon/lixeira.png')
 
     const trocarImagem = () => {
-    if (lixeiraAtual === '/icon/lixeira.png') {
-      setLixeiraAtual('/icon/lixeira.png')
+    if (lixeiraAtual === '/icon/deleteblack.png') {
+      setLixeiraAtual('/icon/delete.png')
     } else {
-      setLixeiraAtual('/icon/lixeira.png')
+      setLixeiraAtual('/icon/deleteblack.png')
     }
   }
 
@@ -22,7 +22,7 @@ function Perfil() {
 <div className='Perfil-Usuario' >
             <div className='Primeira-diva'>
             <h1 className='Titulo-Perfil'> Perfil de Usuário</h1>
-            <img  className='Lixeira'src=".\public\icon\lixeira.png" alt="Botão para excluir conta"  onClick={trocarImagem}/>
+            <img  className='Lixeira'src={lixeiraAtual}alt="Botão para excluir conta"  onClick={trocarImagem}/>
             </div>
 
             <div className='Segunda-diva'>

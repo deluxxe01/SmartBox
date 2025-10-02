@@ -1,10 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import './Home.css'
 import NavBar from '../../Components/NavBar/NavBar'
 
 
 function Home() {
+  const [ativo, setAtivo] = useState(null)
+
+  const toggleButton = () => {
+    setAtivo(!ativo)
+  }
 
   const navigate = useNavigate()
    const irParaOutraPagina = () => {
@@ -27,14 +32,9 @@ function Home() {
       </div>
 
       <div className='Colors'>
-          <div className='Vermelho'></div>
-          <div className='Circulo'></div>
-
-          <div className='Preto'></div>
-          <div className='Circulo2'></div>
-
-          <div className='Azul'></div>
-          <div className='Circulo3'></div>
+          <button className={`button red ${ativo === 0 ? 'ativo' : ''}`} onClick={() => setAtivo(0)}></button>
+           <button className={`button blue ${ativo === 1 ? 'ativo' : ''}`} onClick={toggleButton}></button>
+            <button className={`button ${ativo === 2 ? 'ativo' : ''}`} onClick={toggleButton}></button>
       </div>
 
       </div>

@@ -19,11 +19,13 @@
 .Titulo-Perfil{
     font-family:'Poppins', sans-serif;
 }
-.Lixeira{
+
+.Lixeira  {
     margin-left: 140vh;
     margin-top: -8vh;
-
+    width: 4vh;
 }
+
 .Segunda-diva{
     margin-top: 5vh;
     margin-left: 15vh;

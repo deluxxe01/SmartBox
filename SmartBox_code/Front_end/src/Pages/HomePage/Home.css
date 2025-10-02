@@ -28,7 +28,7 @@ body{
     font-size: 6vh;
 }
 .PHome{
-    margin-top: -2vh;
+    margin-top: -1vh;
     font-family: 'Roboto', sans-serif;
     font-size: 3.5vh;
     width: 70vh;
@@ -56,7 +56,7 @@ body{
     color: #0f0f0f;
 }
 .Colors{
-    margin-top: 5vh;
+    margin-top: 15vh;
     margin-left: 80vh;
     /* border: 1px solid black; */
     width: 60vh;
@@ -64,70 +64,26 @@ body{
     flex-direction: row;
     gap: 2vh;
 }
-.Circulo{
-    height: 7vh;
+.button1{
     width: 7vh;
-    border-radius: 10vh;
-    border: 0.2vh solid #808080;
-    position: relative;
-    transition: 0.2s;
-}
-.Circulo:hover{
-    
-    background-color: #CB0019; 
-    border: 0.2vh solid #CB0019;
-    cursor: pointer;
-}
-.Vermelho{
-    position: absolute;
-    height: 6vh;
-    width: 6vh;
-    border-radius: 10vh;
-    margin-top: 0.7vh;
-    margin-left: 0.6vh;
+    height: 7vh;
     background-color: #CB0019;
+    border: none;
+    border-radius: 15vh;
 }
-.Circulo2{
-    height: 7vh;
+.button2{
     width: 7vh;
-    border-radius: 10vh;
-    border: 0.2vh solid #808080;
-    position: relative;
-}
-.Circulo2:hover{
-    background-color: #222222; 
-    border: 0.2vh solid #222222;
-    cursor: pointer;
-}
-.Preto{
-    margin-top: 0.7vh;
-    margin-left: 9.9vh;
-    position: absolute;
-    height: 6vh;
-    width: 6vh;
-    border-radius: 10vh;
-    background-color: #222222;
-}
-.Circulo3{
     height: 7vh;
-    width: 7vh;
-    border-radius: 10vh;
-    border: 0.2vh solid #808080;
-    position: relative;
-}
-.Circulo3:hover{
-    background-color: #2A7DF0; 
-    border: 0.2vh solid #2A7DF0;
-    cursor: pointer;
-}
-.Azul{
-    margin-left: 19.2vh;
-    margin-top: 0.7vh;
-    position: absolute;
-    height: 6vh;
-    width: 6vh;
-    border-radius: 10vh;
     background-color: #2A7DF0;
+    border: none;
+    border-radius: 15vh;
+}
+.button3{
+    width: 7vh;
+    height: 7vh;
+    background-color: #222222;
+    border: none;
+    border-radius: 15vh;
 }
 .Container2{
   /* border: 1px solid black; */
