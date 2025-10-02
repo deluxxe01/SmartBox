@@ -7,8 +7,11 @@
     padding: 0;
     background-color: #FBFBFB;
 }
+.Perfil-Usuario{
+    height: 80vh;
+}
 .Primeira-diva{
-    border: 2px solid black;
+    /* border: 2px solid black; */
     margin-top: 10vh;
     margin-left: 15vh;
     width: 150vh;
@@ -30,7 +33,10 @@
 }
 .icon{
     margin-left: 10vh;
-    width: 35vh;
+    width: 35vh;  
+}
+.Lixeira{
+    cursor: pointer;
 }
 .Add-Foto{
     margin-left: 10vh;
@@ -48,6 +54,7 @@
     width: 50vh;
     height: 5vh;
     border-radius: 4vh;
+    cursor: pointer;
     transition: 1s;
     background-color: #FBFBFB;
 }
@@ -69,22 +76,37 @@
     border-radius: 4vh;
     transition: 1s;
     background-color: black;
+    cursor: pointer;
 }
 
 .Editar-button:hover{
     background-color: #F3F3F3;
-     border: 0.1vh solid #222222; 
+    border: 0.1vh solid #222222;  
     color: #0f0f0f;
 }
 .Terceira-diva{
-    margin-top: -55VH;
-    margin-left: 75vh;
- display: flex;
- flex-direction: column;
- gap: 8vh;
+    /* border: 2px solid black; */
+    height: 55vh;
+    width: 60vh;
+    margin-left: 90vh;
+    margin-top: -60vh;
 
 }
+.InptUm{
+    margin-top: 5vh;
+}
+.InptDois{
+    margin-top: 5vh;
+    gap: 2vh;
+}
+.InptTres{
+    margin-top: 5vh;
+}
+.InptQuatro{
+    margin-top: 5vh;
+}
 .Inpt-Perfil{
+    padding: 1vh;
     outline: none;
    border: none;
     background-color: #ececec;

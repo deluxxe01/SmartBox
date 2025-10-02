@@ -1,0 +1,70 @@
+.conteiner_page_catagalogo_box{
+
+
+    
+
+}
+
+.container_h1_catalogo_escolha_box{
+width: 100%;
+display: flex;
+justify-content:center;
+align-items: center;
+
+margin-top: 4%;
+}
+
+
+.container_h1_catalogo_escolha_box h1{
+font-size: 30px;
+font-family: poppins;
+
+}
+
+
+.container_h1_catalogo_escolha_box span{
+font-size: 50px;
+font-family: poppins;
+
+}.container_search_bar{
+
+width: 100%;
+display: flex;
+justify-content: center;
+margin-top: 10px;
+padding: 5px;
+}
+.container_search_bar input{
+
+width: 35%;
+height: 60px;
+border-radius: 40px;
+background-color: #F3F3F3;
+border: none;
+padding-left: 30px;
+font-size: 20px;
+font-weight:500 ;
+background-image: url('./icon/lupa_search_bar.svg');
+background-repeat: no-repeat;
+background-position:98% ;
+background-size: 60px;
+padding: 20px;
+}
+.container_search_bar input:focus{
+
+    outline: black  1px solid;
+
+}
+.container_h1_boxs{
+padding-top: 50px;
+width: 100%;
+
+
+
+}.container_caixas{
+
+border: purple 1px solid;
+
+height: fit-content;
+
+}

@@ -211,13 +211,12 @@ body {
 }
 
 .desenho_bnt {
-  padding: 10px 20px;
-  border: 2px solid #ccc;
-  border-radius: 8px;
-  background-color: #f0f0f0;
+  width: 40px;
+  height: 40px;
+  border: rgba(0, 0, 0, 0.2) solid 1px;
+  border-radius: 100%;
   cursor: pointer;
-  font-size: 1rem;
-  transition: all 0.2s ease-in-out;
+margin: 5px;
 }
 
 .desenho_bnt:hover {
@@ -227,10 +226,12 @@ body {
 
 /* Estilo para o botão de desenho quando está selecionado */
 .desenho_bnt.selecionado {
-  border-color: #007bff;
-  background-color: #007bff;
-  color: white;
-  font-weight: bold;
+ 
+ border: 1.5px #222222 solid;
+  transform: scale(1.1);
+  
+
+
 }
 
 
@@ -263,6 +264,7 @@ body {
   margin-bottom: 30px; /* Aumenta o espaço entre os blocos de andares */
   padding-bottom: 20px;
   border-bottom: 1px solid #e0e0e0; /* Adiciona uma linha divisória */
+  border: #007bff 2px solid;
 }
 
 /* Estilo para o título (1º Andar, 2º Andar, etc.) na tela de desenhos */
@@ -272,13 +274,7 @@ body {
   margin-bottom: 15px;
   border-left: 4px solid #007bff;
   padding-left: 10px;
-}
-
-
-.seletor_desenho_esquerda{
-
-
-
-
 
 }
+
+

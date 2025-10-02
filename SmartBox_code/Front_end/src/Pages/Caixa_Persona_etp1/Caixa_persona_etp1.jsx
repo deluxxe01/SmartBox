@@ -20,10 +20,10 @@ function SeletorCor({ titulo, corSelecionada, setCor }) {
 
 function SeletorDesenho({ titulo, desenhoSelecionado, setDesenho }) {
   const desenhos = [
-    { nome: 'Barco', img: './icon/barco_desenho.svg' },
-    { nome: 'Estrela', img: './icon/estrela_desenho.svg' },
-    { nome: 'Casa', img: './icon/casa_desenho.svg' },
-    { nome: 'Sem desenho', img: './icon/sem_image.svg' }
+    { nome: 'Barco', img: './icon/barco_desenho.svg' },//barco
+    { nome: 'Estrela', img: './icon/estrela_desenho.svg' },//estrela
+    { nome: 'Casa', img: './icon/casa_desenho.svg' },//casa
+    { nome: 'Sem desenho', img: './icon/sem_image.svg' }//sem desenho
   ];
 
   return (
@@ -37,8 +37,8 @@ function SeletorDesenho({ titulo, desenhoSelecionado, setDesenho }) {
             onClick={() => setDesenho(d.nome)}
           >
             <img src={d.img} alt={d.nome} className="desenho_img" />
-            <span>{d.nome}</span>
-          </button>
+
+          </button>                                         
         ))}
       </div>
     </div>
