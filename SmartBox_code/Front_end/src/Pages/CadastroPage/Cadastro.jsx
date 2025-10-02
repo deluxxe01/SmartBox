@@ -7,6 +7,8 @@ import eyeClosed from '../../../public/icon/eyeClosed.png'
 import { useEffect } from 'react';
 import axios from 'axios';
 import ErrorModal from '../../Components/errorModal/ErrorModal';
+import { GlobalContext } from '../../Context/Globalcontext';
+import { useContext } from 'react';
 
 function cadastro() {
   const [errorMessage,setErrorMenssage] = useState('')
@@ -18,6 +20,7 @@ function cadastro() {
     email:'',
     senha:''
   })
+  const {usuarioAtual,setUsuarioAtual,messageSuccess,setMessageSuccess} = useContext(GlobalContext)
    const navigate = useNavigate()
 
 
@@ -38,18 +41,24 @@ function cadastro() {
 /* v- bloco de codigo para o cadastro do cliente */
   const cadastrarUser = async () => {
   try{
+
     if(user.nome == "" || user.senha=="" || user.email=="" || user.sobrenome == ""){
       setErrorMenssage("Prencha todos os campos de informação")
       setMostrarMenssagen(true)
-      return "seu merda"
+      
     }
     
       const result = await axios.post('/api/clients',user)
+      setUsuarioAtual(result.data.user)
+       setMessageSuccess({
+        titulo:'Cadastro concluído!',
+        message:`Seja muito Bem-Vindo ${result.data.user.nome}`
+  })
       console.log(result)
-      alert("cadastro concluido")
+      
       navigate('/catalogo')
 
-      return result
+     
     
   }catch(erro){
 
@@ -62,7 +71,7 @@ function cadastro() {
       }
 
     }else{
-        console.log('Erro de rede ou servidor indisponível:', error.message);
+        console.log('Erro de rede ou servidor indisponível:', erro.response);
     }
 
   }

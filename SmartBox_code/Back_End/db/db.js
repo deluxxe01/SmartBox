@@ -4,7 +4,7 @@ const DbConection = new Sequelize({
     host:"localhost",
     password:"senai",
     username:"postgres",
-    database:"smartBox",
+    database:"smartbox",
     dialect:"postgres",
     port:5432
 })

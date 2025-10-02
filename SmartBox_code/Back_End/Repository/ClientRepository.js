@@ -5,8 +5,9 @@ class clientRepo{
     static async InsertUser(obj){
 
         const consulta = await ModelClient.create(obj)
+        console.log("repo",consulta.dataValues)
 
-        return consulta
+        return consulta.dataValues
 
 
     }

@@ -17,4 +17,5 @@ const PORT = 3000
 
 
  App.listen(PORT,()=>{
+   console.log("rodando na porta ",PORT)
  })
