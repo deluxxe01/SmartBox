@@ -26,7 +26,8 @@ class clientRepo{
             senha:obj.senha
             }
         })
-        return consulta
+        
+        return consulta[0].dataValues
     }
 }
 export default clientRepo

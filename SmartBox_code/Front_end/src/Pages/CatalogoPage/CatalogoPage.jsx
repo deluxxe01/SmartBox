@@ -1,3 +1,4 @@
+
 import NavBar from "../../Components/NavBar/NavBar.jsx";
 import "./CatalogoPage.css";
 
@@ -13,6 +14,7 @@ preco:"R$ 299,00"
   },]
   
   
+
   return (
     <div>
       <NavBar />

@@ -7,16 +7,19 @@ import eyeOpen from '../../../public/icon/eyeOpen.png'
 import eyeClosed from '../../../public/icon/eyeClosed.png'
 import axios from 'axios';
 import ErrorModal from '../../Components/errorModal/ErrorModal';
+import { GlobalContext } from '../../Context/Globalcontext';
+import { useContext } from 'react';
 
 function Login() {
   const [senhaVisivel, setSenhaVisivel] = useState(false)
   const navigate = useNavigate()
+  const [messageErro,setMessageError] = useState("roi leticia ne")
+  const [verMessage,setVerMessage]=useState(false)
   const [inpt,setInpt] = useState({
     email:"",
     senha:""
   })
-  const [messageErro,setMessageError] = useState("roi leticia ne")
-  const [verMessage,setVerMessage]=useState(false)
+  const {usuarioAtual,setUsuarioAtual} = useContext(GlobalContext)
 
   const toggleVisibilidade = () => {
     setSenhaVisivel(!senhaVisivel)
@@ -37,7 +40,8 @@ function Login() {
     try{
 
       const result = await axios.post('/api/clientsLogin',inpt)
-      console.log(result)
+      setUsuarioAtual(result.data.user)
+      navigate('/catalogo')
       return result
 
     }catch(err){

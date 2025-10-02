@@ -24,7 +24,7 @@ export default {
 
         console.log(email.toLowerCase().endsWith("@gmail.com"))
         
-        return res.status(400).json({error:"Gmail com terminação invalida!, Por favor escolha uma email valido"})
+        return res.status(400).json({error:"Gmail com terminação invalida, Por favor escolha um email valido"})
     }
 
     if(senha.length < 6){
@@ -50,6 +50,7 @@ export default {
         const user = req.body
 
         const result = await clientServices.LoginUser(user)
+        console.log("login: ",result)
 
         return res.status(200).json({user:result})
 
