@@ -5,7 +5,7 @@ import React, { useState } from 'react'
 
 function Perfil() {
 
-  const [lixeiraAtual, setLixeiraAtual] = useState('/icon/lixeira.png')
+  const [lixeiraAtual, setLixeiraAtual] = useState('/icon/deleteblack.png')
 
     const trocarImagem = () => {
     if (lixeiraAtual === '/icon/deleteblack.png') {

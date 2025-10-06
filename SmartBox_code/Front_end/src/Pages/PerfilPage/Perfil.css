@@ -110,7 +110,8 @@
 .Inpt-Perfil{
     padding: 1vh;
     outline: none;
-   border: none;
+    border: none;
+    color: #808080;
     background-color: #ececec;
     height: 5VH;
     width: 55vh;
