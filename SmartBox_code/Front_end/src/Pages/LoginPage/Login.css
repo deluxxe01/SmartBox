@@ -40,6 +40,7 @@
     border-radius: 1VH;
     font-family: 'Poppins', sans-serif;
     border: none;
+    padding: 5px;
 }
 .Inpt-Email:hover{
    background-color: #cecece;
@@ -116,7 +117,8 @@ font-family:'Poppins', sans-serif;
     height: 5VH;
     border-radius: 1VH;
      font-family: 'Poppins', sans-serif;
-}
+    padding: 5px;   
+    }
 .Inpt-Senha:hover{
     background-color: #cecece;
 }

@@ -1,16 +1,33 @@
-import './Caixa_persona_etp1.css';
-import React, { useState } from 'react';
+import "./Caixa_persona_etp1.css";
+import React, { useState } from "react";
+import axios from "axios";
+import NavBar from "../../Components/NavBar/NavBar";
+import { useNavigate } from "react-router-dom";
+import { GlobalContext } from "../../Context/Globalcontext";
+import { useContext } from "react";
 
 function SeletorCor({ titulo, corSelecionada, setCor }) {
-  const cores = ['vermelho', 'preto', 'azul', 'verde', 'branco', 'amarelo'];
+  const cores = ["vermelho", "preto", "azul", "verde", "branco", "amarelo"];
 
+  const { usuarioAtual } = useContext(GlobalContext);
+  console.log(usuarioAtual);
   return (
     <div>
-      <div className="titulo_secao"><p>{titulo}</p></div>
+      <div className="titulo_secao">
+        <p>{titulo}</p>
+      </div>
       <div className="cores_container">
-        {cores.map(cor => (
-          <div key={cor} className={`container_cor_bnt ${corSelecionada === cor ? 'selecionado' : ''}`}>
-            <button className={`cor_bnt ${cor}`} onClick={() => setCor(cor)}></button>
+        {cores.map((cor) => (
+          <div
+            key={cor}
+            className={`container_cor_bnt ${
+              corSelecionada === cor ? "selecionado" : ""
+            }`}
+          >
+            <button
+              className={`cor_bnt ${cor}`}
+              onClick={() => setCor(cor)}
+            ></button>
           </div>
         ))}
       </div>
@@ -20,25 +37,29 @@ function SeletorCor({ titulo, corSelecionada, setCor }) {
 
 function SeletorDesenho({ titulo, desenhoSelecionado, setDesenho }) {
   const desenhos = [
-    { nome: 'Barco', img: './icon/barco_desenho.svg' },//barco
-    { nome: 'Estrela', img: './icon/estrela_desenho.svg' },//estrela
-    { nome: 'Casa', img: './icon/casa_desenho.svg' },//casa
-    { nome: 'Sem desenho', img: './icon/sem_image.svg' }//sem desenho
+    { nome: "Barco", img: "./icon/barco_desenho.svg", cor: "#CB0019" },
+    { nome: "Estrela", img: "./icon/estrela_desenho.svg", cor: "#2A7DF0" },
+    { nome: "Casa", img: "./icon/casa_desenho.svg", cor: "#3DAE00" },
+    { nome: "Sem desenho", img: "./icon/sem_image.svg", cor: "#222222" },
   ];
 
   return (
     <div>
-      <div className="titulo_secao"><p>{titulo}</p></div>
+      <div className="titulo_secao">
+        <p>{titulo}</p>
+      </div>
       <div className="desenhos_container">
-        {desenhos.map(d => (
+        {desenhos.map((d) => (
           <button
             key={d.nome}
-            className={`desenho_bnt ${desenhoSelecionado === d.nome ? 'selecionado' : ''}`}
+            style={{ backgroundColor: d.cor }}
+            className={`desenho_bnt ${
+              desenhoSelecionado === d.nome ? "selecionado" : ""
+            }`}
             onClick={() => setDesenho(d.nome)}
           >
             <img src={d.img} alt={d.nome} className="desenho_img" />
-
-          </button>                                         
+          </button>
         ))}
       </div>
     </div>
@@ -46,107 +67,178 @@ function SeletorDesenho({ titulo, desenhoSelecionado, setDesenho }) {
 }
 
 function Caixa_persona_etp1() {
-  const [etapa, setEtapa] = useState('cores');
+  const [etapa, setEtapa] = useState("cores");
   const [personalizacoes, setPersonalizacoes] = useState({
-    1: { corChassi: null, corLaminaEsq: null, corLaminaFront: null, corLaminaDir: null, desenhoLaminaEsq: null, desenhoLaminaFront: null, desenhoLaminaDir: null },
-    2: { corChassi: null, corLaminaEsq: null, corLaminaFront: null, corLaminaDir: null, desenhoLaminaEsq: null, desenhoLaminaFront: null, desenhoLaminaDir: null },
-    3: { corChassi: null, corLaminaEsq: null, corLaminaFront: null, corLaminaDir: null, desenhoLaminaEsq: null, desenhoLaminaFront: null, desenhoLaminaDir: null },
+    1: {
+      corChassi: null,
+      corLaminaEsq: null,
+      corLaminaFront: null,
+      corLaminaDir: null,
+      desenhoLaminaEsq: null,
+      desenhoLaminaFront: null,
+      desenhoLaminaDir: null,
+    },
+    2: {
+      corChassi: null,
+      corLaminaEsq: null,
+      corLaminaFront: null,
+      corLaminaDir: null,
+      desenhoLaminaEsq: null,
+      desenhoLaminaFront: null,
+      desenhoLaminaDir: null,
+    },
+    3: {
+      corChassi: null,
+      corLaminaEsq: null,
+      corLaminaFront: null,
+      corLaminaDir: null,
+      desenhoLaminaEsq: null,
+      desenhoLaminaFront: null,
+      desenhoLaminaDir: null,
+    },
   });
 
   const [andares, setAndares] = useState(1);
   const [maxAndarLiberado, setMaxAndarLiberado] = useState(1);
-  const [erroMsg, setErroMsg] = useState('');
+  const [erroMsg, setErroMsg] = useState("");
 
   const atualizarCor = (campo, valor) => {
-    setPersonalizacoes(prev => ({ ...prev, [andares]: { ...prev[andares], [campo]: valor } }));
-    setErroMsg('');
+    setPersonalizacoes((prev) => ({
+      ...prev,
+      [andares]: { ...prev[andares], [campo]: valor },
+    }));
+    setErroMsg("");
   };
 
   const atualizarDesenho = (lamina, valor) => {
-    setPersonalizacoes(prev => ({ ...prev, [andares]: { ...prev[andares], [lamina]: valor } }));
-    setErroMsg('');
+    setPersonalizacoes((prev) => ({
+      ...prev,
+      [andares]: { ...prev[andares], [lamina]: valor },
+    }));
+    setErroMsg("");
   };
 
   const todasCoresSelecionadas = (andar) => {
     const config = personalizacoes[andar];
-    return config.corChassi && config.corLaminaEsq && config.corLaminaFront && config.corLaminaDir;
+    return (
+      config.corChassi &&
+      config.corLaminaEsq &&
+      config.corLaminaFront &&
+      config.corLaminaDir
+    );
   };
 
   const todosDesenhosSelecionados = (andar) => {
     const config = personalizacoes[andar];
-    return config.desenhoLaminaEsq && config.desenhoLaminaFront && config.desenhoLaminaDir;
+    return (
+      config.desenhoLaminaEsq &&
+      config.desenhoLaminaFront &&
+      config.desenhoLaminaDir
+    );
   };
 
   const trocarAndar = (novoAndar) => {
-    const validacaoParaAvancar = etapa === 'cores'
-      ? todasCoresSelecionadas(andares)
-      : todosDesenhosSelecionados(andares);
-
-    const podeVoltar = novoAndar < andares;
-    const podeAvancar = novoAndar === andares + 1 && validacaoParaAvancar;
-    const mesmoAndar = novoAndar === andares;
-
-    if (etapa === 'desenhos' && maxAndarLiberado === 1 && novoAndar !== 1) {
-      setErroMsg("Só é possível escolher desenhos no 1º andar.");
+    // Bloqueia desenhos apenas se for andar > 1
+    if (etapa === "desenhos" && novoAndar !== 1) {
+      setErroMsg("Os desenhos só podem ser escolhidos no 1º andar.");
       return;
     }
 
-    const habilitado = podeVoltar || podeAvancar || mesmoAndar;
-
-    if (habilitado) {
+    // Permite mudar livremente entre os andares nas cores
+    if (novoAndar >= 1 && novoAndar <= 3) {
       setAndares(novoAndar);
-      setMaxAndarLiberado(prev => Math.max(prev, novoAndar));
-      setErroMsg('');
-    } else {
-      const itemFaltante = etapa === 'cores' ? 'cores' : 'desenhos';
-      setErroMsg(`Selecione todos os ${itemFaltante} antes de avançar para o próximo andar.`);
+      setMaxAndarLiberado((prev) => Math.max(prev, novoAndar));
+      setErroMsg("");
     }
   };
 
   const irParaEtapaDesenhos = () => {
     for (let i = 1; i <= maxAndarLiberado; i++) {
       if (!todasCoresSelecionadas(i)) {
-        setErroMsg(`Por favor, complete a seleção de cores do ${i}° andar antes de continuar.`);
+        setErroMsg(
+          `Por favor, complete a seleção de cores do ${i}° andar antes de continuar.`
+        );
         return;
       }
     }
-    setErroMsg('');
-    setEtapa('desenhos');
+    setErroMsg("");
+    setEtapa("desenhos");
   };
 
   const atual = personalizacoes[andares];
+
+  const navigate = useNavigate();
+
+
+
+const enviarCaixa = async (personalizacoes) => {
+  try {
+    // Monta o payload no formato que você quer enviar
+    const payload = {
+     usuario:usuarioAtual.id_cliente, // se precisar do usuário
+      andares: Object.keys(personalizacoes).map((andar) => ({
+        numeroAndar: andar,
+        ...personalizacoes[andar],
+      })),
+    };
+
+    const resposta = await axios.post("http://localhost:3000/caixas", payload);
+
+    console.log("Caixa enviada com sucesso!", resposta.data);
+  } catch (erro) {
+    console.error("Erro ao enviar a caixa:", erro.response?.data || erro.message);
+  }
+};
+
+// Exemplo de uso:
+enviarCaixa(personalizacoes);
+
+
 
   return (
     <div className="container_page_caixa_persona">
       <div className="container_m3D">
         <div className="container_select_de_paginas">
-          <img src="./images/logo_smartBox.svg" className="img_logo_select_paginas" alt="Logo" />
+          <img
+            src="./images/logo_smartBox.svg"
+            className="img_logo_select_paginas"
+            alt="Logo"
+          />
         </div>
       </div>
 
       <div className="container_personalizacao_caixa">
         <div>
           <p className="p_caixa_personalizada_etp1">
-            Personalização ({etapa === 'cores' ? 'Cores' : 'Desenhos'}): {andares}° andar
+            Personalização ({etapa === "cores" ? "Cores" : "Desenhos"}):{" "}
+            {andares}° andar
           </p>
 
           <div>
-            <div className="titulo_secao"><p>Andares</p></div>
+            <div className="titulo_secao">
+              <p>Andares</p>
+            </div>
             <div className="container_numero_andares">
-              {[1, 2, 3].map(num => {
-                const validacaoParaAvancar = etapa === 'cores' ? todasCoresSelecionadas(andares) : todosDesenhosSelecionados(andares);
+              {[1, 2, 3].map((num) => {
+                const validacaoParaAvancar =
+                  etapa === "cores"
+                    ? todasCoresSelecionadas(andares)
+                    : todosDesenhosSelecionados(andares);
                 const podeVoltar = num < andares;
                 const podeAvancar = num === andares + 1 && validacaoParaAvancar;
                 const mesmoAndar = num === andares;
 
-                const habilitado = (etapa === 'desenhos' && maxAndarLiberado === 1)
-                  ? num === 1
-                  : (podeVoltar || podeAvancar || mesmoAndar);
+                const habilitado =
+                  etapa === "desenhos" && maxAndarLiberado === 1
+                    ? num === 1
+                    : podeVoltar || podeAvancar || mesmoAndar;
 
                 return (
                   <button
                     key={num}
-                    className={`bnt_andar ${andares === num ? 'andar_selecionado' : ''} ${!habilitado ? 'andar_bloqueado' : ''}`}
+                    className={`bnt_andar ${
+                      andares === num ? "andar_selecionado" : ""
+                    } ${!habilitado ? "andar_bloqueado" : ""}`}
                     onClick={() => habilitado && trocarAndar(num)}
                     disabled={!habilitado}
                   >
@@ -157,23 +249,55 @@ function Caixa_persona_etp1() {
             </div>
           </div>
 
-          {etapa === 'cores' ? (
+          {etapa === "cores" ? (
             <>
-              <SeletorCor titulo="Cor do chassi" corSelecionada={atual.corChassi} setCor={(c) => atualizarCor('corChassi', c)} />
-              <SeletorCor titulo="Cor da paleta esquerda" corSelecionada={atual.corLaminaEsq} setCor={(c) => atualizarCor('corLaminaEsq', c)} />
-              <SeletorCor titulo="Cor da paleta frontal" corSelecionada={atual.corLaminaFront} setCor={(c) => atualizarCor('corLaminaFront', c)} />
-              <SeletorCor titulo="Cor da paleta direita" corSelecionada={atual.corLaminaDir} setCor={(c) => atualizarCor('corLaminaDir', c)} />
+              <SeletorCor
+                titulo="Cor do chassi"
+                corSelecionada={atual.corChassi}
+                setCor={(c) => atualizarCor("corChassi", c)}
+              />
+              <SeletorCor
+                titulo="Cor da paleta esquerda"
+                corSelecionada={atual.corLaminaEsq}
+                setCor={(c) => atualizarCor("corLaminaEsq", c)}
+              />
+              <SeletorCor
+                titulo="Cor da paleta frontal"
+                corSelecionada={atual.corLaminaFront}
+                setCor={(c) => atualizarCor("corLaminaFront", c)}
+              />
+              <SeletorCor
+                titulo="Cor da paleta direita"
+                corSelecionada={atual.corLaminaDir}
+                setCor={(c) => atualizarCor("corLaminaDir", c)}
+              />
             </>
           ) : (
             <>
-              {(maxAndarLiberado > 1 || andares === 1) ? (
+              {maxAndarLiberado > 1 || andares === 1 ? (
                 <>
-                  <SeletorDesenho titulo="Lâmina Esquerda" desenhoSelecionado={atual.desenhoLaminaEsq} setDesenho={(d) => atualizarDesenho('desenhoLaminaEsq', d)} />
-                  <SeletorDesenho titulo="Lâmina Frontal" desenhoSelecionado={atual.desenhoLaminaFront} setDesenho={(d) => atualizarDesenho('desenhoLaminaFront', d)} />
-                  <SeletorDesenho titulo="Lâmina Direita" desenhoSelecionado={atual.desenhoLaminaDir} setDesenho={(d) => atualizarDesenho('desenhoLaminaDir', d)} />
+                  <SeletorDesenho
+                    titulo="Lâmina Esquerda"
+                    desenhoSelecionado={atual.desenhoLaminaEsq}
+                    setDesenho={(d) => atualizarDesenho("desenhoLaminaEsq", d)}
+                  />
+                  <SeletorDesenho
+                    titulo="Lâmina Frontal"
+                    desenhoSelecionado={atual.desenhoLaminaFront}
+                    setDesenho={(d) =>
+                      atualizarDesenho("desenhoLaminaFront", d)
+                    }
+                  />
+                  <SeletorDesenho
+                    titulo="Lâmina Direita"
+                    desenhoSelecionado={atual.desenhoLaminaDir}
+                    setDesenho={(d) => atualizarDesenho("desenhoLaminaDir", d)}
+                  />
                 </>
               ) : (
-                <p className="mensagem_erro">Só é possível escolher desenhos no 1º andar.</p>
+                <p className="mensagem_erro">
+                  Só é possível escolher desenhos no 1º andar.
+                </p>
               )}
             </>
           )}
@@ -182,14 +306,28 @@ function Caixa_persona_etp1() {
         </div>
 
         <div className="container_bnt_proxima_etapa">
-          {etapa === 'desenhos' && (
-            <button className="bnt_voltar_etapa" onClick={() => { setEtapa('cores'); setErroMsg(''); }}>
+          {etapa === "desenhos" && (
+            <button
+              className="bnt_voltar_etapa"
+              onClick={() => {
+                setEtapa("cores");
+                setErroMsg("");
+              }}
+            >
               Voltar
             </button>
           )}
 
-          <button className="bnt_proxima_etapa" onClick={etapa === 'cores' ? irParaEtapaDesenhos : () => alert('Personalização finalizada!')}>
-            {etapa === 'cores' ? 'Próxima etapa' : 'Finalizar'}
+          <button
+            className="bnt_proxima_etapa"
+            onClick={
+              etapa === "cores"
+                ? irParaEtapaDesenhos
+                : () => navigate("/Carrinho")
+                 
+            }
+          >
+            {etapa === "cores" ? "Próxima etapa" : "Finalizar"}
           </button>
         </div>
       </div>

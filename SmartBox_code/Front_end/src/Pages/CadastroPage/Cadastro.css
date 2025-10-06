@@ -39,6 +39,7 @@
     height: 5VH;
     border-radius: 1VH;
     font-family: 'Poppins', sans-serif;
+    padding: 5px;
 }
 .Inpt-Nome:hover{
     background-color: #cecece;
@@ -61,6 +62,7 @@
     height: 5VH;
     border-radius: 1VH;
     font-family: 'Poppins', sans-serif;
+    padding: 5px;
 }
 .Inpt-Sobrenome:hover{
     background-color: #cecece;
