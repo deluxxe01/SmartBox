@@ -41,13 +41,6 @@ preco:"R$ 299,00"
 
 <div className="container_caixas">
 
-caixa.map((item)=>{
-
-
-
-
-  
-})
 
 
 

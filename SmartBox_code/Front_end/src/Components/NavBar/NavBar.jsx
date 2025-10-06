@@ -22,6 +22,7 @@ function NavBar() {
  <div className='Infos'>
   <p onClick={() => navigate('/catalogo')}>Catálogo</p>
   <p onClick={() => navigate('/historico')}>Histórico</p>
+  <p onClick={() => navigate('/caixa_persona_etp1')}>criar sua caixa</p>
 </div>
 
 <div className='container_Icons'>
