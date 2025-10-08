@@ -12,18 +12,20 @@ routes.post("/createBoxClient", async (req,res)=>{
 
   const infosBox =  req.body
 
-  const resultBox = await fetch('http://10.28.196.250:8000/api/requisicoes',{
-    method:"POST",
-    headers:{
-        "Content-Type":"application/json"
+  // const resultBox = await fetch('http://52.1.197.112:3000/queue/items?limit=99',{
+  //   method:"POST",
+  //   headers:{
+  //       "Content-Type":"application/json"
         
-    },
-    body:JSON.stringify(infosBox)
-  })
+  //   },
+  //   body:JSON.stringify(infosBox)
+  // })
+    const result = await fetch('http://52.1.197.112:3000/queue/items?limit=99');
+    console.log(result)
 
-  const data = await resultBox.json()
+  // const data = await resultBox.json()
 
-  res.json("deu certo")
+  res.json(result)
 
 })
 

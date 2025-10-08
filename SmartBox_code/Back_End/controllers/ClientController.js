@@ -37,8 +37,10 @@ export default {
 
     console.log("resultado",result)
 
-    return res.status(201).json({result:result})
+    return res.status(201).json({user:result})
+
    }catch(erro){
+    
     if (erro.message.includes('Email já inserido')) {
       return res.status(400).json({ error: erro.message });
     }
@@ -47,13 +49,21 @@ export default {
 
     },
     async loginUser(req,res){
-        const user = req.body
 
-        const result = await clientServices.LoginUser(user)
-        console.log("login: ",result)
+        try{
+            const user = req.body
 
-        return res.status(200).json({user:result})
+            const result = await clientServices.LoginUser(user)
+            console.log("login: ",result)
 
+            return res.status(200).json({user:result})
+         }catch(errorLogin){
+
+            if(errorLogin.message.includes("Usuario não existe")){
+                return res.status(400).json({message:"Usuario não existe"})
+            }
+
+         }
 
 
     }

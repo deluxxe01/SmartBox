@@ -13,7 +13,7 @@ import { useContext } from 'react';
 function Login() {
   const [senhaVisivel, setSenhaVisivel] = useState(false)
   const navigate = useNavigate()
-  const [messageErro,setMessageError] = useState("roi leticia ne")
+  const [messageErro,setMessageError] = useState("")
   const [verMessage,setVerMessage]=useState(false)
   const [inpt,setInpt] = useState({
     email:"",

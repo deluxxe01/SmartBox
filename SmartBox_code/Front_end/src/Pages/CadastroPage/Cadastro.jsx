@@ -19,6 +19,7 @@ function cadastro() {
     senha:''
   })
    const navigate = useNavigate()
+   const {usuarioAtual,setUsuarioAtual} = useContext(GlobalContext)
 
 
   const toggleVisibilidade = () => {
@@ -41,21 +42,21 @@ function cadastro() {
     if(user.nome == "" || user.senha=="" || user.email=="" || user.sobrenome == ""){
       setErrorMenssage("Prencha todos os campos de informação")
       setMostrarMenssagen(true)
-      return "seu merda"
+      
     }
     
       const result = await axios.post('/api/clients',user)
-      console.log(result)
+      setUsuarioAtual(result.data.user)
       alert("cadastro concluido")
       navigate('/catalogo')
 
-      return result
     
   }catch(erro){
 
     if(erro.response){
 
       if(erro.response.status === 400){
+
         setErrorMenssage(erro.response.data.error) // pega a menssagen de erro da pai e informa pro cliente
         setMostrarMenssagen(true)
       }else{
