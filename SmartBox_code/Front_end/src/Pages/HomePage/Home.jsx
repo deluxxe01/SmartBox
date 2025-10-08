@@ -11,7 +11,7 @@ function Home() {
 
 
   const irParaOutraPagina = () => {
-    navigate('/cadastro')
+    navigate('/login')
   };
 
   // 👇 NOVO: Detecta o scroll
@@ -46,7 +46,7 @@ function Home() {
      </div>
 
         <div className='Container-ButtonIrCadastro'>
-          <button className='Button' onClick={irParaOutraPagina}>Cadastre-se</button>
+          <button className='Button' onClick={irParaOutraPagina}>Entrar</button>
         </div>
 
         <div className='Colors'>
