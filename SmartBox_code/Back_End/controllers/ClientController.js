@@ -57,36 +57,7 @@ export default {
 
       return res.status(200).json({ user: result });
       
-    } catch (erro) {
-      // Tratamento de erro genérico
-      return res.status(500).json({ error: "Erro ao tentar realizar o login. Verifique suas credenciais." });
-    }
-<<<<<<< HEAD
-    
-    if(sobrenome.length < 10){
-
-        return res.status(400).json({error:" sobrenome com poucos caracteres "})
-    }
-    if(!email.toLowerCase().endsWith("@gmail.com")){
-
-        console.log(email.toLowerCase().endsWith("@gmail.com"))
-        
-        return res.status(400).json({error:"Gmail com terminação invalida, Por favor escolha um email valido"})
-    }
-
-    if(senha.length < 6){
-     
-        return res.status(400).json({error:"Porfavor insira uma senha com mais de 6 digitos "})
-    }
-    
-
-    const result =  await new clientServices().InsertUserService({nome,email,senha,sobrenome})
-
-    console.log("resultado",result)
-
-    return res.status(201).json({user:result})
-
-   }catch(erro){
+    } catch(erro){
     
     if (erro.message.includes('Email já inserido')) {
       return res.status(400).json({ error: erro.message });
@@ -115,7 +86,3 @@ export default {
 
     }
 }
-=======
-  }
-};
->>>>>>> 721e0cdbf2a975e21ccf89dd6706130c4802f961
