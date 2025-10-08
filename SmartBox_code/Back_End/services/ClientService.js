@@ -16,6 +16,8 @@ class clientServices{
        }
 
        const consulta = await clientRepo.InsertUser(user)
+       console.log("service",consulta)
+       return consulta
 
     }
     static async LoginUser(user){

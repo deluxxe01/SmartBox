@@ -9,17 +9,18 @@ import axios from 'axios';
 import ErrorModal from '../../Components/errorModal/ErrorModal';
 import { GlobalContext } from '../../Context/Globalcontext';
 import { useContext } from 'react';
+import ModalSuccess from '../../Components/ModalSuccessLogin/ModalSuccess';
 
 function Login() {
   const [senhaVisivel, setSenhaVisivel] = useState(false)
   const navigate = useNavigate()
-  const [messageErro,setMessageError] = useState("roi leticia ne")
+  const [messageErro,setMessageError] = useState("")
   const [verMessage,setVerMessage]=useState(false)
   const [inpt,setInpt] = useState({
     email:"",
     senha:""
   })
-  const {usuarioAtual,setUsuarioAtual} = useContext(GlobalContext)
+  const {usuarioAtual,setUsuarioAtual,messageSuccess,setMessageSuccess} = useContext(GlobalContext)
 
   const toggleVisibilidade = () => {
     setSenhaVisivel(!senhaVisivel)
@@ -41,6 +42,10 @@ function Login() {
 
       const result = await axios.post('/api/clientsLogin',inpt)
       setUsuarioAtual(result.data.user)
+      setMessageSuccess({
+        titulo:'Login feito com sucesso',
+        message:`que bom te ver denovo${usuarioAtual.nome}`
+  })
       navigate('/catalogo')
       return result
 

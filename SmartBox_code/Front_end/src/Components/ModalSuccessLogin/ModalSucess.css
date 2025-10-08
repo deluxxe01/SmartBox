@@ -1,0 +1,41 @@
+.containerSucessModal {
+  position: fixed;
+  left: 10%;
+  top: 10%;
+  background-color: #fbfbfb;
+  box-shadow: 2px 2px 15px 10px rgba(139, 139, 139, 0.397);
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 350px;
+  animation: fadeInDown 0.3s ease forwards;
+  height: 210px;
+  
+}
+
+.pModalSuccess {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 1.2rem;
+  width: 270px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.SuccessModalH2 {
+  font-size: 1.5em;
+  text-align: center;
+  
+  
+}
+
+.imgSucessModal{
+  width: 60px;
+}
+
+.containerSucessModal.exit {
+  animation: fadeOutUp 0.3s ease forwards;
+}
+
