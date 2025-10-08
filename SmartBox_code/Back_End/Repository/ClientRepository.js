@@ -11,13 +11,15 @@ class clientRepo{
 
 
     }
+    
     static async findEmail(obj){
         const consulta = await ModelClient.findAll({
             where:{
                 email:obj.email
             }
         })
-        return consulta
+        
+        return consulta // retorna uma array vazio se não houver emails
     }
 
     static async LoginUser(obj){
@@ -28,7 +30,8 @@ class clientRepo{
             }
         })
         
-        return consulta[0].dataValues
+        
+        return consulta
     }
 }
 export default clientRepo

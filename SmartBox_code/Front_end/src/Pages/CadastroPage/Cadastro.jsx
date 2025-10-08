@@ -22,6 +22,7 @@ function cadastro() {
   })
   const {usuarioAtual,setUsuarioAtual,messageSuccess,setMessageSuccess} = useContext(GlobalContext)
    const navigate = useNavigate()
+   const {usuarioAtual,setUsuarioAtual} = useContext(GlobalContext)
 
 
   const toggleVisibilidade = () => {
@@ -50,6 +51,11 @@ function cadastro() {
     
       const result = await axios.post('/api/clients',user)
       setUsuarioAtual(result.data.user)
+<<<<<<< HEAD
+      alert("cadastro concluido")
+      navigate('/catalogo')
+
+=======
        setMessageSuccess({
         titulo:'Cadastro concluído!',
         message:`Seja muito Bem-Vindo ${result.data.user.nome}`
@@ -59,12 +65,14 @@ function cadastro() {
       navigate('/catalogo')
 
      
+>>>>>>> 721e0cdbf2a975e21ccf89dd6706130c4802f961
     
   }catch(erro){
 
     if(erro.response){
 
       if(erro.response.status === 400){
+
         setErrorMenssage(erro.response.data.error) // pega a menssagen de erro da pai e informa pro cliente
         setMostrarMenssagen(true)
       }else{
