@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+.Nomes{
+background-color: #222222;
+color: white;display: flex;
+flex-direction: column;
+justify-content: space-between;
+padding: 4vh;
+width: 30vh;
+height: 45vh;
+border-radius: 1.5vh;
+margin-left: 15vh;
+margin-top: 15vh;
+}
+
+.Fonts1, .Fonts2, .Fonts3{
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    cursor: pointer;
+}
+.Fonts1:hover{
+    color: rgb(255, 217, 0);
+}
+.Fonts2:hover{
+    color: rgb(74, 202, 0);
+}
+.Fonts3:hover{
+    color: rgb(0, 153, 255);
+}
