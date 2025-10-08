@@ -19,11 +19,13 @@
 .Titulo-Perfil{
     font-family:'Poppins', sans-serif;
 }
-.Lixeira{
+
+.Lixeira  {
     margin-left: 140vh;
     margin-top: -8vh;
-
+    width: 4vh;
 }
+
 .Segunda-diva{
     margin-top: 5vh;
     margin-left: 15vh;
@@ -108,7 +110,8 @@
 .Inpt-Perfil{
     padding: 1vh;
     outline: none;
-   border: none;
+    border: none;
+    color: #808080;
     background-color: #ececec;
     height: 5VH;
     width: 55vh;

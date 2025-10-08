@@ -5,6 +5,7 @@
   flex-direction: row;
   justify-content: space-between;
   padding: 2vh;
+  width: 100%;   
 }
 .navbar img {
   width: 6vh;
@@ -12,14 +13,15 @@
   
 }
 .Infos{
+  /* border: 2px solid black; */
   font-size: 2.5vh;
+  width: 60vh;
   display: flex;
   flex-direction: row;
   gap: 2vh;
   font-family: 'Roboto', sans-serif;
   color: #1a1a1a;
-
-align-items: center;
+  align-items: center;
 
 }
 .Infos p:hover{
@@ -32,7 +34,7 @@ align-items: center;
   align-items: center;
   gap: 2vh;
   width: fit-content;
-  padding-left: 50%;
+  padding-left: 40vh;
 }
 .container_Icons img{
   width: 5vh;
@@ -40,7 +42,7 @@ align-items: center;
   margin: 5px;
 }
 .container_links_nav_bar{
-  width: 50%;
+  width: 100vh;
   display: flex;
   justify-content: space-around;
   font-size: 19px;
