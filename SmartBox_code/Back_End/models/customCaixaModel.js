@@ -1,7 +1,6 @@
 import { Sequelize, DataTypes, Model } from "sequelize";
 import CaixaModel from "./CaixaModel";
 import DbConection from "../db/db";
-
 class andarPersonalizadoModel extends Model {}
 
 andarPersonalizadoModel.init({
@@ -56,6 +55,8 @@ andarPersonalizadoModel.init({
   timestamps:false,
   tableName:'andarpersonalizado'
 });
+
+
 // Associação 1:N
 
 CaixaModel.hasMany(andarPersonalizadoModel, {

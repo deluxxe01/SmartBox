@@ -1,16 +1,14 @@
 import "./Caixa_persona_etp1.css";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import axios from "axios";
 import NavBar from "../../Components/NavBar/NavBar";
 import { useNavigate } from "react-router-dom";
 import { GlobalContext } from "../../Context/Globalcontext";
-import { useContext } from "react";
 
 function SeletorCor({ titulo, corSelecionada, setCor }) {
   const cores = ["vermelho", "preto", "azul", "verde", "branco", "amarelo"];
-
   const { usuarioAtual } = useContext(GlobalContext);
-  console.log(usuarioAtual);
+
   return (
     <div>
       <div className="titulo_secao">
@@ -68,6 +66,12 @@ function SeletorDesenho({ titulo, desenhoSelecionado, setDesenho }) {
 
 function Caixa_persona_etp1() {
   const [etapa, setEtapa] = useState("cores");
+  const [andares, setAndares] = useState(1);
+  const [maxAndarLiberado, setMaxAndarLiberado] = useState(1);
+  const [erroMsg, setErroMsg] = useState("");
+  const { usuarioAtual } = useContext(GlobalContext);
+  const navigate = useNavigate();
+
   const [personalizacoes, setPersonalizacoes] = useState({
     1: {
       corChassi: null,
@@ -98,10 +102,7 @@ function Caixa_persona_etp1() {
     },
   });
 
-  const [andares, setAndares] = useState(1);
-  const [maxAndarLiberado, setMaxAndarLiberado] = useState(1);
-  const [erroMsg, setErroMsg] = useState("");
-
+  // Atualiza cor de uma parte do andar
   const atualizarCor = (campo, valor) => {
     setPersonalizacoes((prev) => ({
       ...prev,
@@ -110,6 +111,7 @@ function Caixa_persona_etp1() {
     setErroMsg("");
   };
 
+  // Atualiza desenho de uma lâmina
   const atualizarDesenho = (lamina, valor) => {
     setPersonalizacoes((prev) => ({
       ...prev,
@@ -138,13 +140,6 @@ function Caixa_persona_etp1() {
   };
 
   const trocarAndar = (novoAndar) => {
-    // Bloqueia desenhos apenas se for andar > 1
-    if (etapa === "desenhos" && novoAndar !== 1) {
-      setErroMsg("Os desenhos só podem ser escolhidos no 1º andar.");
-      return;
-    }
-
-    // Permite mudar livremente entre os andares nas cores
     if (novoAndar >= 1 && novoAndar <= 3) {
       setAndares(novoAndar);
       setMaxAndarLiberado((prev) => Math.max(prev, novoAndar));
@@ -152,47 +147,30 @@ function Caixa_persona_etp1() {
     }
   };
 
-  const irParaEtapaDesenhos = () => {
-    for (let i = 1; i <= maxAndarLiberado; i++) {
-      if (!todasCoresSelecionadas(i)) {
-        setErroMsg(
-          `Por favor, complete a seleção de cores do ${i}° andar antes de continuar.`
-        );
-        return;
-      }
-    }
-    setErroMsg("");
-    setEtapa("desenhos");
-  };
+  // // Envia os dados da personalização
+  // const enviarCaixa = async () => {
+  //   try {
+  //     const payload = {
+  //       usuario: usuarioAtual?.id_cliente || "anônimo",
+  //       andares: Object.keys(personalizacoes).map((andar) => ({
+  //         numeroAndar: andar,
+  //         ...personalizacoes[andar],
+  //       })),
+  //     };
+
+  //     const resposta = await axios.post("http://localhost:3000/caixas", payload);
+  //     console.log("Caixa enviada com sucesso!", resposta.data);
+
+  //     navigate("/Carrinho");
+  //   } catch (erro) {
+  //     console.error("Erro ao enviar a caixa:", erro.response?.data || erro.message);
+  //     setErroMsg("Erro ao enviar personalização. Tente novamente.");
+  //   }
+  // };
 
   const atual = personalizacoes[andares];
 
-  const navigate = useNavigate();
-
-
-
-const enviarCaixa = async (personalizacoes) => {
-  try {
-    // Monta o payload no formato que você quer enviar
-    const payload = {
-     usuario:usuarioAtual.id_cliente, // se precisar do usuário
-      andares: Object.keys(personalizacoes).map((andar) => ({
-        numeroAndar: andar,
-        ...personalizacoes[andar],
-      })),
-    };
-
-    const resposta = await axios.post("http://localhost:3000/caixas", payload);
-
-    console.log("Caixa enviada com sucesso!", resposta.data);
-  } catch (erro) {
-    console.error("Erro ao enviar a caixa:", erro.response?.data || erro.message);
-  }
-};
-
-// Exemplo de uso:
-enviarCaixa(personalizacoes);
-
+console.log(personalizacoes)
 
 
   return (
@@ -210,10 +188,10 @@ enviarCaixa(personalizacoes);
       <div className="container_personalizacao_caixa">
         <div>
           <p className="p_caixa_personalizada_etp1">
-            Personalização ({etapa === "cores" ? "Cores" : "Desenhos"}):{" "}
-            {andares}° andar
+            Personalização ({etapa === "cores" ? "Cores" : "Desenhos"}): {andares}° andar
           </p>
 
+          {/* Seletor de andares */}
           <div>
             <div className="titulo_secao">
               <p>Andares</p>
@@ -228,10 +206,7 @@ enviarCaixa(personalizacoes);
                 const podeAvancar = num === andares + 1 && validacaoParaAvancar;
                 const mesmoAndar = num === andares;
 
-                const habilitado =
-                  etapa === "desenhos" && maxAndarLiberado === 1
-                    ? num === 1
-                    : podeVoltar || podeAvancar || mesmoAndar;
+                const habilitado = podeVoltar || podeAvancar || mesmoAndar;
 
                 return (
                   <button
@@ -249,6 +224,7 @@ enviarCaixa(personalizacoes);
             </div>
           </div>
 
+          {/* Escolha de cores ou desenhos */}
           {etapa === "cores" ? (
             <>
               <SeletorCor
@@ -274,37 +250,28 @@ enviarCaixa(personalizacoes);
             </>
           ) : (
             <>
-              {maxAndarLiberado > 1 || andares === 1 ? (
-                <>
-                  <SeletorDesenho
-                    titulo="Lâmina Esquerda"
-                    desenhoSelecionado={atual.desenhoLaminaEsq}
-                    setDesenho={(d) => atualizarDesenho("desenhoLaminaEsq", d)}
-                  />
-                  <SeletorDesenho
-                    titulo="Lâmina Frontal"
-                    desenhoSelecionado={atual.desenhoLaminaFront}
-                    setDesenho={(d) =>
-                      atualizarDesenho("desenhoLaminaFront", d)
-                    }
-                  />
-                  <SeletorDesenho
-                    titulo="Lâmina Direita"
-                    desenhoSelecionado={atual.desenhoLaminaDir}
-                    setDesenho={(d) => atualizarDesenho("desenhoLaminaDir", d)}
-                  />
-                </>
-              ) : (
-                <p className="mensagem_erro">
-                  Só é possível escolher desenhos no 1º andar.
-                </p>
-              )}
+              <SeletorDesenho
+                titulo="Lâmina Esquerda"
+                desenhoSelecionado={atual.desenhoLaminaEsq}
+                setDesenho={(d) => atualizarDesenho("desenhoLaminaEsq", d)}
+              />
+              <SeletorDesenho
+                titulo="Lâmina Frontal"
+                desenhoSelecionado={atual.desenhoLaminaFront}
+                setDesenho={(d) => atualizarDesenho("desenhoLaminaFront", d)}
+              />
+              <SeletorDesenho
+                titulo="Lâmina Direita"
+                desenhoSelecionado={atual.desenhoLaminaDir}
+                setDesenho={(d) => atualizarDesenho("desenhoLaminaDir", d)}
+              />
             </>
           )}
 
           {erroMsg && <p className="mensagem_erro">{erroMsg}</p>}
         </div>
 
+        {/* Botões de navegação */}
         <div className="container_bnt_proxima_etapa">
           {etapa === "desenhos" && (
             <button
@@ -320,12 +287,23 @@ enviarCaixa(personalizacoes);
 
           <button
             className="bnt_proxima_etapa"
-            onClick={
-              etapa === "cores"
-                ? irParaEtapaDesenhos
-                : () => navigate("/Carrinho")
-                 
-            }
+            onClick={() => {
+              if (etapa === "cores") {
+                for (let i = 1; i <= maxAndarLiberado; i++) {
+                  if (!todasCoresSelecionadas(i)) {
+                    setErroMsg(
+                      `Por favor, complete a seleção de cores do ${i}° andar antes de continuar.`
+                    );
+                    return;
+                  }
+                }
+                setErroMsg("");
+                setEtapa("desenhos");
+                setAndares(1); // começa os desenhos no 1º andar, mas pode trocar
+              } else {
+                
+              }
+            }}
           >
             {etapa === "cores" ? "Próxima etapa" : "Finalizar"}
           </button>
