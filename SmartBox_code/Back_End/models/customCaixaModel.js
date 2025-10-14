@@ -1,5 +1,8 @@
 import { Sequelize, Datatypes, Model } from "sequelize";
 import CaixaModel from "./CaixaModel";
+
+
+
 class andarPersonalizadoModel extends Model {}
 
 andarPersonalizadoModel.init({
@@ -45,11 +48,13 @@ andarPersonalizadoModel.init({
     allowNull: false,
   },
 
-  desenho_lamina_dir: {
+  desenho_lamina_esq: {
     type: Datatypes.STRING,
     allowNull: false,
   },
 });
+
+
 // Associação 1:N
 
 CaixaModel.hasMany(andarPersonalizadoModel, {
