@@ -15,5 +15,7 @@ routes.post("/clients",ClientController.insertUser)
 
 routes.post("/clientsLogin",ClientController.loginUser)
 
+routes.post("/createBox",CaixaController.createBox)
+
 
 export default routes

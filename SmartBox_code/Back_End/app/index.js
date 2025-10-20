@@ -11,12 +11,11 @@ const PORT = 3000
 
  const App = express()
 
-await DbConection.sync()
+ await DbConection.sync({logging:false,alter:true})
 
  App.use(express.json())// habilita as rotas receberem json no req
 
  App.use(routes)
-
 
 
  App.listen(PORT,()=>{

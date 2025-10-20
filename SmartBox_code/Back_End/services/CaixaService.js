@@ -1,7 +1,12 @@
-import CaixaRepository from "../Repository/CaixaRepository"
+import CaixaRepository from "../Repository/CaixaRepository.js"
+import RepositoryCustomCaixa from "../Repository/customCaixaRepository.js"
 class CaixaService{
 
-     static async createBox(){
+     static async createBox(obj){
+
+        const caixa = await CaixaRepository.createBox(obj)
+
+         return caixa
 
     }
 }
