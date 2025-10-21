@@ -2,11 +2,14 @@ import CaixaRepository from "../Repository/CaixaRepository.js"
 import RepositoryCustomCaixa from "../Repository/customCaixaRepository.js"
 class CaixaService{
 
-     static async createBox(obj){
+     static async createBox(customCaixa,caixaInfos){
+        console.log("personalização caixa: ",customCaixa)
 
-        const caixa = await CaixaRepository.createBox(obj)
+        console.log("informação da caixa: ",caixaInfos)
 
-         return caixa
+        // const caixa = await CaixaRepository.createBox(obj)
+
+        //  return caixa
 
     }
 }
