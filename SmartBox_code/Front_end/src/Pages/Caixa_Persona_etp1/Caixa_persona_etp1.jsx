@@ -147,27 +147,66 @@ function Caixa_persona_etp1() {
     }
   };
 
-  // // Envia os dados da personalização
-  // const enviarCaixa = async () => {
-  //   try {
-  //     const payload = {
-  //       usuario: usuarioAtual?.id_cliente || "anônimo",
-  //       andares: Object.keys(personalizacoes).map((andar) => ({
-  //         numeroAndar: andar,
-  //         ...personalizacoes[andar],
-  //       })),
-  //     };
+  
 
-  //     const resposta = await axios.post("http://localhost:3000/caixas", payload);
-  //     console.log("Caixa enviada com sucesso!", resposta.data);
+    const enviarCaixa = async () => {
+      await axios.post('api/createbox',{
+       
+    payload:{
 
-  //     navigate("/Carrinho");
-  //   } catch (erro) {
-  //     console.error("Erro ao enviar a caixa:", erro.response?.data || erro.message);
-  //     setErroMsg("Erro ao enviar personalização. Tente novamente.");
-  //   }
-  // };
+      caixa:{
+        
+        bloco1:{
+          bloco1_cor_chasi:personalizacoes[1].corChassi,
+         bloco1_lamina_cor_esq:personalizacoes[1].corLaminaEsq,
+         bloco1_lamina_cor_front:personalizacoes[1].corLaminaFront,
+        bloco1_lamina_cor_dir:personalizacoes[1].corLaminaDir,
+        bloco1_desenho_lamina_dir:personalizacoes[1].desenhoLaminaEsq,
+        bloco1_desenho_lamina_front:personalizacoes[1].desenhoLaminaFront,
+        bloco1_desenho_lamina_esq:personalizacoes[1]. desenhoLaminaDir,
+      },
+        bloco2:{
+        bloco2_cor_chasi:personalizacoes[2].corChassi,
+        bloco2_lamina_cor_esq:personalizacoes[2].corLaminaEsq,
+        bloco2_lamina_cor_front:personalizacoes[2].corLaminaFront,
+        bloco2_lamina_cor_dir:personalizacoes[2].corLaminaDir,
+        bloco2_desenho_lamina_dir:personalizacoes[2].desenhoLaminaEsq,
+        bloco2_desenho_lamina_front:personalizacoes[2].desenhoLaminaFront,
+        bloco2_desenho_lamina_esq:personalizacoes[2].desenhoLaminaDir,
+        
+        },
+        bloco3:{
+          bloco3_cor_chasi:personalizacoes[3].corChassi,
+        bloco3_lamina_cor_esq:personalizacoes[3].corLaminaEsq,
+        bloco3_lamina_cor_front:personalizacoes[3].corLaminaFront,
+        bloco3_lamina_cor_dir:personalizacoes[3].corLaminaDir,
+        bloco3_desenho_lamina_dir:personalizacoes[3].desenhoLaminaEsq,
+        bloco3_desenho_lamina_front:personalizacoes[3].desenhoLaminaFront,
+        bloco3_desenho_lamina_esq:personalizacoes[3].desenhoLaminaDir,
+        
+      },
+    
+    },
+    sku:'caixinha',
+          
+  } ,
+   
+   
+    callbackUrl: "http://localhost:3333/callback"
+  }
+  
+  )
+   
 
+
+
+
+
+
+
+
+
+}
   const atual = personalizacoes[andares];
 
 console.log(personalizacoes)
@@ -307,6 +346,9 @@ console.log(personalizacoes)
           >
             {etapa === "cores" ? "Próxima etapa" : "Finalizar"}
           </button>
+
+        <button onClick={()=>{enviarCaixa()}}>enviar caixa</button>
+       
         </div>
       </div>
     </div>
