@@ -1,5 +1,5 @@
 import { Model, DataTypes} from "sequelize";
-import DbConection from "../db/db";
+import DbConection from "../db/db.js";
 
 
 class CaixaModel extends Model {}
@@ -11,7 +11,7 @@ CaixaModel.init({
     autoIncrement: true,
     primaryKey: true,
   },
-  id_cliente: {
+  fk_id_cliente: {
     type: DataTypes.INTEGER,
     allowNull: false,
   },
@@ -23,11 +23,15 @@ CaixaModel.init({
     type:DataTypes.DATE,
     allowNull:false,
     defaultValue:DataTypes.NOW
+  },
+  id_maquina_smart:{
+    type:DataTypes.STRING(255),
+    allowNull:false
   }
 },{
     sequelize:DbConection,
      timestamps:false,
-     tableName:"caixa_personalizad"
+     tableName:"caixa_personalizada"
 }
 
 );
