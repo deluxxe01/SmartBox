@@ -52,8 +52,8 @@ preco:"R$ 299,00"
   <div>
     <p>{item.nome}</p>
     <img src={item.img} alt="" />
-    <p>item.descricao</p>
-    <p>item.preco</p>
+    <p>{item.descricao}</p>
+    <p>{item.preco}</p>
 
   </div>
 

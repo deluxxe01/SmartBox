@@ -6,8 +6,8 @@ import { useNavigate } from "react-router-dom";
 import { GlobalContext } from "../../Context/Globalcontext";
 
 function SeletorCor({ titulo, corSelecionada, setCor }) {
-  const cores = ["vermelho", "preto", "azul", "verde", "branco", "amarelo"];
-  const { usuarioAtual } = useContext(GlobalContext);
+  const cores = ["1", "preto", "azul", "verde", "branco", "amarelo"];
+ 
 
   return (
     <div>
@@ -197,7 +197,20 @@ function Caixa_persona_etp1() {
   
   )
    
+const infosCaixa = async ()=>{
 
+await axios.post('api/caixa',{
+
+fk_id_cliente:usuarioAtual,
+nome:'1',
+
+
+
+
+})
+
+
+}
 
 
 
