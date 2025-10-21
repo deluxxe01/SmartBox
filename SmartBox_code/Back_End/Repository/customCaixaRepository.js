@@ -3,7 +3,8 @@ import ModelCustomCaixa from "../models/customCaixaModel.js";
 class RepositoryCustomCaixa{
 
 
-    static async criarPersonalizacaoCaixa(personalizacao,infosCaixa){
+    static async criarPersonalizacaoCaixa(personalizacao){
+        
 
 
     }

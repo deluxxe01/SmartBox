@@ -26,7 +26,7 @@ CaixaModel.init({
   },
   id_maquina_smart:{
     type:DataTypes.STRING(255),
-    allowNull:false
+    allowNull:true
   }
 },{
     sequelize:DbConection,
