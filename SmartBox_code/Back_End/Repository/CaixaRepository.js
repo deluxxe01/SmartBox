@@ -2,9 +2,9 @@ import CaixaModel from "../models/CaixaModel.js"
 
 class CaixaRepository{
 
-    static async createBox(personalizacao,infosCaixa){
+    static async createBox(infosCaixa){
 
-        const consulta = await CaixaModel.create(caixa)
+        const consulta = await CaixaModel.create(infosCaixa)
 
         return consulta
 
