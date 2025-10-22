@@ -1,14 +1,13 @@
-import { error } from "console";
 import ModelClient from "../models/ClientModel.js";
 import clientRepo from "../Repository/ClientRepository.js";
 
 class clientServices {
   async InsertUserService(user) {
-    //regra de negocio
+    // Regra de negócio
     const emailRepetido = await clientRepo.findEmail(user);
 
     if (emailRepetido.length > 0) {
-      throw new Error("Email já inserido ,porfavor insira outro");
+      throw new Error("Email já inserido, por favor insira outro");
     }
 
     const consulta = await clientRepo.InsertUser(user);
@@ -16,17 +15,33 @@ class clientServices {
 
     return consulta;
   }
+
   static async LoginUser(user) {
-    //regra de negocio
+    // Regra de negócio
     const consulta = await clientRepo.LoginUser(user);
 
     if (!consulta) {
-
-      throw new Error("Usuario não existe");
-
+      throw new Error("Usuário não existe");
     }
 
     return consulta;
+  }
+
+  // Novo método para deletar usuário
+  async DeleteUserService(id) {
+    try {
+      // Chama o repositório para deletar pelo id
+      const resultado = await clientRepo.deleteUserById(id);
+
+      if (!resultado) {
+        throw new Error("Usuário não encontrado");
+      }
+
+      return resultado;
+    } catch (error) {
+      console.error("Erro no DeleteUserService:", error);
+      throw error; // relança para o controller tratar
+    }
   }
 }
 

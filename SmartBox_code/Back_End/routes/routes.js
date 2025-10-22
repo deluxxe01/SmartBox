@@ -4,18 +4,19 @@ import CaixaController from "../controllers/CaixaController.js";
 
 const routes = Router()
 
-routes.get('/rotaTest',(req,res)=>{
-
+routes.get('/rotaTest', (req, res) => {
     res.json('rotas funfando')
-
 })
-routes.post("/createBoxClient",CaixaController.createBox)
 
-routes.post("/clients",ClientController.insertUser)
+routes.post("/createBoxClient", CaixaController.createBox)
 
-routes.post("/clientsLogin",ClientController.loginUser)
+routes.post("/clients", ClientController.insertUser)
 
-routes.post("/createBox",CaixaController.createBox)
+routes.post("/clientsLogin", ClientController.loginUser)
 
+// Nova rota para deletar usuário
+routes.delete("/clients/:id", ClientController.deleteUser)
+
+routes.post("/createBox", CaixaController.createBox)
 
 export default routes

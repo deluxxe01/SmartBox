@@ -84,5 +84,19 @@ export default {
          }
 
 
-    }
+    },
+async deleteUser(req, res) {
+  try {
+    const { id } = req.params; // Pegamos o ID do usuário via URL
+
+    // Chama o serviço para deletar o usuário (precisa criar esse método no service)
+    await clientServices.DeleteUserService(id);
+
+    return res.status(200).json({ message: "Usuário deletado com sucesso." });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ error: "Erro ao deletar usuário." });
+  }
+}
+    
 }
