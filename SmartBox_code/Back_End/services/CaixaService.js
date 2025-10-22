@@ -18,15 +18,32 @@ class CaixaService{
 
         const caixa = await CaixaRepository.createBox(caixaInfos)
 
-        console.log("retorno do banco: ",caixa)
+        
 
         customCaixa.fk_caixa_id = caixa.dataValues.id_caixa
 
         const createCustomCaixa = await RepositoryCustomCaixa.criarPersonalizacaoCaixa(customCaixa)
 
-        console.log("retorno do banco da criação das customizações da caixa: ",createCustomCaixa)
+        
 
           return caixa
+
+    }
+
+    static async getPositionCaixa(id){
+        //http://52.1.197.112:3000/queue/items/68f9281f973f2b637aff39c6/position
+        const res = await fetch(`http://52.1.197.112:3000/queue/items/${id}/position`,{
+            method:"GET",
+            headers:{
+                "Content-Type":"application/json"
+            }
+        })
+        
+        const resposta = await res.json()
+
+       
+
+        return resposta
 
     }
 }

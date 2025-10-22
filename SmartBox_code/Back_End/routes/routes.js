@@ -9,13 +9,13 @@ routes.get('/rotaTest',(req,res)=>{
     res.json('rotas funfando')
 
 })
-routes.post("/createBoxClient",CaixaController.createBox)
 
 routes.post("/clients",ClientController.insertUser)
 
 routes.post("/clientsLogin",ClientController.loginUser)
 
 routes.post("/createBox",CaixaController.createBox)
+routes.get('/getPositionCaixa/:id',CaixaController.getPositionCaixa)
 
 
 export default routes

@@ -61,5 +61,18 @@ export default{
 
 
 
+    },
+     async getPositionCaixa(req,res){
+
+        const id_smart = req.params.id 
+        console.log("id smart pegado pela minha rota get: ",id_smart)
+
+        const result = await CaixaService.getPositionCaixa(id_smart)
+        console.log("controller service: ",result)
+
+        return res.status(200).json({status:result})
+
+
+
     }
 }
