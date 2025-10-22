@@ -10,7 +10,7 @@ andarPersonalizadoModel.init({
     primaryKey: true,
     autoIncrement: true,
   },
-  caixa_id: {
+  fk_caixa_id: {
     type: DataTypes.INTEGER,
     allowNull: false,
   },
