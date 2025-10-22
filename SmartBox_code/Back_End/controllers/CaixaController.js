@@ -13,6 +13,7 @@ export default{
             
 
             let customCaixa={
+                fk_caixa_id:"não possui",
                 Andar_caixa:caixa.codigoProduto,
                 bloco1_cor_chasi:caixa.bloco1.cor,
                 bloco1_cor_lamina_esq:caixa.bloco1.lamina1,
@@ -38,16 +39,16 @@ export default{
 
             }
             let caixaInfos = {
-                fk_id_client:item.payload.id_client,
+                fk_id_cliente:item.payload.id_client,
                 nome:item.payload.sku,
-                id_maquina_smart:"teste"
+                id_maquina_smart:"false"
             }
             
 
-               const consulta = await CaixaService.createBox(customCaixa,caixaInfos)
-                vetorCaixas.push(consulta)
+               const consulta = await CaixaService.createBox(customCaixa,caixaInfos,item)
+                
            }
-            return res.status(201).json({test:"oi"})
+            return res.status(201).json({test:"foi"})
 
         
         }catch(error){

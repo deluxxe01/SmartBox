@@ -1,13 +1,14 @@
 {
             "payload": {
                 "orderId": "ABC-123",
+                "id_client":2,
                 "caixa": {
                     "codigoProduto": 1, <- numero de andares da caixa
                     "bloco1": {
 		                    "cor": 1,
-                        "lamina1": 1,
-                        "lamina2": 1,
-                        "lamina3": 1,
+                        "lamina1": 1,esq
+                        "lamina2": 1,front
+                        "lamina3": 1,dir
                         "padrao1": "1",
                         "padrao2": "1",
                         "padrao3": "1"
