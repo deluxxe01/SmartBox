@@ -1,36 +1,34 @@
-import ModelClient from "../models/ClientModel.js";
 import clientRepo from "../Repository/ClientRepository.js";
 
-class clientServices {
-  async InsertUserService(user) {
-    // Regra de negócio
-    const emailRepetido = await clientRepo.findEmail(user);
+class ClientServices {
 
+  // Inserir usuário
+  async InsertUserService(user) {
+    const emailRepetido = await clientRepo.findEmail(user);
     if (emailRepetido.length > 0) {
       throw new Error("Email já inserido, por favor insira outro");
     }
 
     const consulta = await clientRepo.InsertUser(user);
-    console.log("serviceClient", consulta);
-
+    console.log("serviceClient:", consulta);
     return consulta;
   }
 
+  // Login de usuário (método estático)
   static async LoginUser(user) {
-    // Regra de negócio
     const consulta = await clientRepo.LoginUser(user);
 
-    if (!consulta) {
+    if (!consulta || consulta.length === 0) {
       throw new Error("Usuário não existe");
     }
 
-    return consulta;
+    // retorna apenas o primeiro usuário encontrado
+    return consulta[0].dataValues;
   }
 
-  // Novo método para deletar usuário
+  // Deletar usuário pelo ID
   async DeleteUserService(id) {
     try {
-      // Chama o repositório para deletar pelo id
       const resultado = await clientRepo.deleteUserById(id);
 
       if (!resultado) {
@@ -45,4 +43,4 @@ class clientServices {
   }
 }
 
-export default clientServices;
+export default ClientServices;
