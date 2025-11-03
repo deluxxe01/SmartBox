@@ -43,10 +43,11 @@ function Login() {
       const result = await axios.post('/api/clientsLogin',inpt)
       console.log("resultado da api: ",result)
       setUsuarioAtual(result.data.user)
+      sessionStorage.setItem("login",1)
       
       setMessageSuccess({
         titulo:'Login feito com sucesso',
-        message:`que bom te ver denovo${usuarioAtual.nome}`
+        message:`Seja bem-vindo Denovo ${usuarioAtual.nome}`
   })
       navigate('/catalogo')
       return result

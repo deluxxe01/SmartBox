@@ -32,10 +32,7 @@ function cadastro() {
    const irParaOutraPagina = () => {
     navigate('/login')
   }
-  useEffect(()=>{
-    console.log(user)
 
-  },[user])
 
 
 /////////////////////////////////////////////////////////////////////////// 
@@ -66,6 +63,7 @@ function cadastro() {
     if(erro.response){
 
       if(erro.response.status === 400){
+        console.log("log do erro",erro.response)
 
         setErrorMenssage(erro.response.data.error) // pega a menssagen de erro da pai e informa pro cliente
         setMostrarMenssagen(true)

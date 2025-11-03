@@ -36,7 +36,11 @@ class ClientServices {
       }
 
     return consulta[0].dataValues
+  }catch(erro){
+    console.log('erro ao fazer a interação com o banco',erro)
+
   }
+}
 }
 
 export default ClientServices;

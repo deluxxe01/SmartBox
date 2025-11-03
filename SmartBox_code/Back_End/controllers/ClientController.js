@@ -20,7 +20,7 @@ export default {
 
     } catch (erro) {
       console.error(erro);
-      return res.status(500).json({ error: erro.message.includes("Email já inserido") ? erro.message : "Erro inesperado, tente novamente mais tarde." });
+      return res.status(400).json({ error: erro.message.includes("Email já inserido") ? erro.message : "Erro inesperado, tente novamente mais tarde." });
     }
   },
 
@@ -32,7 +32,7 @@ export default {
       return res.status(200).json({ user: result });
     } catch (errorLogin) {
       console.error(errorLogin);
-      return res.status(500).json({ error: errorLogin.message.includes("Usuário não existe") ? "Usuário não existe" : "Erro inesperado no login." });
+      return res.status(400).json({ error: errorLogin.message.includes("Usuário não existe") ? "Usuário não existe" : "Erro inesperado no login." });
     }
   },
 
@@ -49,7 +49,7 @@ export default {
 
     } catch (error) {
       console.error(error);
-      return res.status(500).json({ error: error.message });
+      return res.status(400).json({ error: error.message });
     }
   }
 };

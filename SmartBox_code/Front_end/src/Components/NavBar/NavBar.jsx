@@ -29,7 +29,7 @@ function NavBar() {
   <img src=".\public\icon\sacola.svg" alt="" onClick={()=>{
     navigate('/carrinho')
   }} />
-  <img src=".\public\icon\user.svg" alt="" />
+  <img src=".\public\icon\user.svg" alt=""  onClick={()=>{navigate('/perfil')}}/>
 </div>
 
 </div>
