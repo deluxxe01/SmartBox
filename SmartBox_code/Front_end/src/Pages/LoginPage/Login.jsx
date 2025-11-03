@@ -41,8 +41,9 @@ function Login() {
     try{
 
       const result = await axios.post('/api/clientsLogin',inpt)
+      console.log("resultado da api: ",result)
       setUsuarioAtual(result.data.user)
-      console.log('Usuário setado no contexto:', result.data.user);
+      
       setMessageSuccess({
         titulo:'Login feito com sucesso',
         message:`que bom te ver denovo${usuarioAtual.nome}`

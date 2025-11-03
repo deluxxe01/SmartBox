@@ -35,11 +35,7 @@ class ClientServices {
         throw new Error("Usuário não encontrado");
       }
 
-      return resultado;
-    } catch (error) {
-      console.error("Erro no DeleteUserService:", error);
-      throw error; // relança para o controller tratar
-    }
+    return consulta[0].dataValues
   }
 }
 
