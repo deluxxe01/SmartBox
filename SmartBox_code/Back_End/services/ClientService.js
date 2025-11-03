@@ -26,7 +26,7 @@ class clientServices {
 
     }
 
-    return consulta;
+    return consulta[0].dataValues
   }
 }
 
