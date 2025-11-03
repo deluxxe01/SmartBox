@@ -1,4 +1,4 @@
-import React from 'react'
+
 import NavBar from '../../Components/NavBar/NavBar'
 import './Caixa_persona_etp1.css'
 
@@ -27,7 +27,7 @@ function Caixa_persona_etp1() {
 
 
 <div className='title_custom_caixa'>
-<h1>Personalização da Caixa 1</h1>
+<h1 className='h1_pesonalização_caixa'>Personalização da Caixa 1</h1>
 </div>
 
 <div className='container_all_andares_caixa'>
@@ -35,7 +35,7 @@ function Caixa_persona_etp1() {
 
 
 <div className='container_andares_custom_caixa'>
-<h1>andares</h1>
+<h1 className='h1_andares_caixa'>Andares</h1>
 </div>
 <div className='container_andares_caixa'>
 
@@ -46,11 +46,19 @@ function Caixa_persona_etp1() {
 </div>
 </div>
 
+
 <div className='container_cor_chasi'>
 
+
+<h1 className='h1_chasi_color'>Cor do chasi</h1>
+
+
+<div className='container_paleta_chasi'>
 <button className='button_cor_chasi_vermelho'></button>
 <button className='button_cor_chasi_preto'></button>
 <button className='button_cor_chasi_azul'></button>
+</div>
+
 </div>
 
 
@@ -59,13 +67,18 @@ function Caixa_persona_etp1() {
 
 <div className='cotainer_laminas_esq_cores'>
 
-<button>sem lamina</button>
-<button>vermelho</button>
-<button>preto</button>
-<button>azul</button>
-<button>verde</button>
-<button>branco</button>
-<button>amarelo</button> 
+<h1 className='h1_cor_lamina_esq'>Cor lamina esquerda</h1>
+
+<div className='container_paleta_lamina_esq'>
+
+<button className='button_cor_lamina_esq_sem_cor'></button>
+<button className='button_cor_lamina_esq_vermelho'></button>
+<button className='button_cor_lamina_esq_preta'></button>
+<button className='button_cor_lamina_esq_azul'></button>
+<button className='button_cor_lamina_esq_verde'></button>
+<button className='button_cor_lamina_esq_branca'></button>
+<button className='button_cor_lamina_esq_amarela'></button> 
+</div>
 
 </div>
 
@@ -73,13 +86,21 @@ function Caixa_persona_etp1() {
 
 <div className='cotainer_laminas_front_cores'>
 
-<button>sem lamina</button>
-<button>vermelho</button>
-<button>preto</button>
-<button>azul</button>
-<button>verde</button>
-<button>branco</button>
-<button>amarelo</button> 
+<h1 className=' cor_h1_lamina_frontal'>cor da lamina frontal</h1>
+
+<div className='container_paleta_lamina_front'>
+
+<button className='button_cor_lamina_front_sem_cor'></button>
+<button className='button_cor_lamina_front_vermelho'></button>
+<button className='button_cor_lamina_front_preta'></button>
+<button className='button_cor_lamina_front_azul'></button>
+<button className='button_cor_lamina_front_verde'></button>
+<button className='button_cor_lamina_front_branca'></button>
+<button className='button_cor_lamina_front_amarela'></button> 
+ </div>
+
+
+
 
 </div>
 
@@ -88,14 +109,20 @@ function Caixa_persona_etp1() {
 
 <div className='cotainer_laminas_dir_cores'>
 
-<button>sem lamina</button>
-<button>vermelho</button>
-<button>preto</button>
-<button>azul</button>
-<button>verde</button>
-<button>branco</button>
-<button>amarelo</button> 
+<h1 className='h1_lamina_dir'>cor da lamina direita</h1>
 
+<div className='container_paleta_lamina_dir'>
+
+
+<button className='button_cor_lamina_dir_sem_cor'></button>
+<button className='button_cor_lamina_dir_vermelho'></button>
+<button className='button_cor_lamina_dir_preta'></button>
+<button className='button_cor_lamina_dir_azul'></button>
+<button className='button_cor_lamina_dir_verde'></button>
+<button className='button_cor_lamina_dir_branca'></button>
+<button className='button_cor_lamina_dir_amarela'></button> 
+
+</div>
 </div>
 
 
@@ -118,30 +145,7 @@ function Caixa_persona_etp1() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 </div>
-
-
-
-
-
-
-
-
-
-
 
 
    </div>

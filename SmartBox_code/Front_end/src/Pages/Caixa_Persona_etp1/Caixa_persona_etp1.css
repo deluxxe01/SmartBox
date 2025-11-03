@@ -1,3 +1,5 @@
+
+
 .container_custom_caixa_e_mD3{
 
   
@@ -20,21 +22,31 @@ height:100%;
 width: 100%;
 
 
+}.h1_andares_caixa{
+
+font-size:22px;
+
 }
+.h1_pesonalização_caixa{
 
+width: fit-content;
+font-size:22px;
 
+}
 
 .container_custom_caixas{
 
 border: solid red 2px;
 width: 50%;
 height: 95%;
-padding: 10px;
+padding: 5px;
 
 
 }.title_custom_caixa{
 display: flex;
 justify-content: center;
+height: fit-content;
+border: red 1px solid;
 
 }
 .container_all_andares_caixa{
@@ -60,21 +72,21 @@ padding: 5px;
 
 
 .cotainer_laminas_esq_cores{
-
-display: flex;
-justify-content: start;
-gap: 20px;
+display:flex ;
+flex-direction: column;
+gap: 0px;
 padding: 5px;
+height: 20%;
+
 }
 
 .cotainer_laminas_front_cores{
 
-
-
-display: flex;
-justify-content: start;
-gap: 20px;
+display:flex ;
+flex-direction: column;
+gap: 0px;
 padding: 5px;
+height: 20%;
   
 }
 
@@ -82,44 +94,277 @@ padding: 5px;
 .cotainer_laminas_dir_cores{
 
 
-display: flex;
-justify-content: start;
-gap: 20px;
+display:flex ;
+flex-direction: column;
+gap: 0px;
 padding: 5px;
+height: 20%;
   
 }
 
 
-.container_cor_chasi{
-display:flex ;
-justify-content: start;
-gap:20px;
-padding: 5px;
-
-
-}
 
 .button_cor_chasi_vermelho{
-height: 40px;
-width: 40px;
+height: 35px;
+width: 35px;
 border-radius: 100%;
 border: none;
 background-color:#CB0019 ;
 }
 
 .button_cor_chasi_preto{
-height: 40px;
-width: 40px;
+height: 35px;
+width: 35px;
 border-radius: 100%;
 border: none;
 background-color:#222222 ;
 }
 .button_cor_chasi_azul{
-height: 40px;
-width: 40px;
+height: 35px;
+width: 35px;
 border-radius: 100%;
 border: none;
 background-color:#2A7DF0 ;
 }
+
+
+.container_h1_chasi{
+  display: flex;
+  justify-content: center;
+align-items: center;
+width: fit-content;
+height: fit-content;
+}
+.container_paleta_chasi{
+display: flex;
+justify-content: space-around;
+align-items: center;
+width:25%;
+
+}
+
+.container_cor_chasi{
+display:flex ;
+flex-direction: column;
+height: 20%;
+
+}
+
+
+.h1_chasi_color{
+height: fit-content;
+width: fit-content;
+font-size:22px;
+
+}
+
+
+.button_cor_lamina_esq_sem_cor{
+
+  height: 35px;
+width: 35px;
+border-radius: 100%;
+border: none;
+background-color:gray;
+
+}
+.button_cor_lamina_esq_vermelho{
+  height: 35px;
+width: 35px;
+border-radius: 100%;
+border: none;
+background-color:#CB0019 ;
+}
+.button_cor_lamina_esq_preta{
+  height: 35px;
+width: 35px;
+border-radius: 100%;
+border: none;
+background-color:#222222 ;
+}
+.button_cor_lamina_esq_azul{
+  height: 35px;
+width: 35px;
+border-radius: 100%;
+border: none;
+background-color:#2A7DF0 ;
+}
+.button_cor_lamina_esq_verde{
+  height: 35px;
+width: 35px;
+border-radius: 100%;
+border: none;
+background-color:#3DAE00 ;
+}
+.button_cor_lamina_esq_branca{
+  height: 35px;
+width: 35px;
+border-radius: 100%;
+border: none;
+background-color:#F5F5F5 ;
+}
+.button_cor_lamina_esq_amarela{
+  height: 35px;
+width: 35px;
+border-radius: 100%;
+border: none;
+background-color:#FFB200 ;
+}
+
+
+.button_cor_lamina_front_sem_cor{
+
+  height: 35px;
+width: 35px;
+border-radius: 100%;
+border: none;
+background-color:gray ;
+
+}
+.button_cor_lamina_front_vermelho{
+  height: 35px;
+width: 35px;
+border-radius: 100%;
+border: none;
+background-color:#CB0019 ;
+}
+.button_cor_lamina_front_preta{
+  height: 35px;
+width: 35px;
+border-radius: 100%;
+border: none;
+background-color:#222222 ;
+}
+.button_cor_lamina_front_azul{
+  height: 35px;
+width: 35px;
+border-radius: 100%;
+border: none;
+background-color:#2A7DF0 ;
+}
+.button_cor_lamina_front_verde{
+  height: 35px;
+width: 35px;
+border-radius: 100%;
+border: none;
+background-color:#3DAE00 ;
+}
+.button_cor_lamina_front_branca{
+  height: 35px;
+width: 35px;
+border-radius: 100%;
+border: none;
+background-color:#F5F5F5 ;
+}
+.button_cor_lamina_front_amarela{
+  height: 35px;
+width: 35px;
+border-radius: 100%;
+border: none;
+background-color:#FFB200 ;
+}
+
+
+
+
+.button_cor_lamina_dir_sem_cor{
+
+  height: 35px;
+width: 35px;
+border-radius: 100%;
+border: none;
+background-color:gray ;
+
+}
+.button_cor_lamina_dir_vermelho{
+  height: 35px;
+width: 35px;
+border-radius: 100%;
+border: none;
+background-color:#CB0019 ;
+}
+.button_cor_lamina_dir_preta{
+  height: 35px;
+width: 35px;
+border-radius: 100%;
+border: none;
+background-color:#222222 ;
+}
+.button_cor_lamina_dir_azul{
+  height: 35px;
+width: 35px;
+border-radius: 100%;
+border: none;
+background-color:#2A7DF0 ;
+}
+.button_cor_lamina_dir_verde{
+  height: 35px;
+width: 35px;
+border-radius: 100%;
+border: none;
+background-color:#3DAE00 ;
+}
+.button_cor_lamina_dir_branca{
+  height: 35px;
+width: 35px;
+border-radius: 100%;
+border: none;
+background-color:#F5F5F5 ;
+}
+.button_cor_lamina_dir_amarela{
+  height: 35px;
+width: 35px;
+border-radius: 100%;
+border: none;
+background-color:#FFB200 ;
+}
+.container_paleta_lamina_esq{
+display: flex;
+height: fit-content;
+justify-content: space-between;
+width: 50%;
+gap: 10px;
+}
+
+.h1_cor_lamina_esq{
+
+font-size:22px;
+width: fit-content;
+}
+
+.container_paleta_lamina_front{
+
+  display: flex;
+height: fit-content;
+justify-content: space-between;
+width: 50%;
+gap: 10px;
+}
+
+.cor_h1_lamina_frontal{
+width: fit-content;
+font-size:22px;
+}
+
+.container_paleta_lamina_dir{
+
+  display: flex;
+height: fit-content;
+justify-content: space-between;
+width: 50%;
+gap: 10px;
+}
+.h1_lamina_dir{
+
+
+font-size:22px;
+width: fit-content;
+
+}
+
+
+
+
+
 
 
