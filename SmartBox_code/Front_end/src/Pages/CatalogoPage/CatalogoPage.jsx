@@ -25,7 +25,7 @@ preco:"R$ 299,00"
     <div>
       <NavBar />
       <div className="conteiner_page_catagalogo_box">
-        <ModalSuccess message={messageSuccess} />
+        {sessionStorage.getItem("login") ? <ModalSuccess message={messageSuccess} />:""}
         <div className="container_h1_catalogo_escolha_box">
           <h1>
             Escolha sua <span>Smart</span>Box
@@ -48,8 +48,8 @@ preco:"R$ 299,00"
 
 <div className="container_caixas">
 
-{caixa.map((item)=>(
-  <div>
+{caixa.map((item,index)=>(
+  <div key={index}>
     <p>{item.nome}</p>
     <img src={item.img} alt="" />
     <p>{item.descricao}</p>

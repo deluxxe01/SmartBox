@@ -1,7 +1,7 @@
 .containerSucessModal {
   position: fixed;
-  left: 10%;
-  top: 10%;
+  left: 40%;
+  top: 20%;
   background-color: #fbfbfb;
   box-shadow: 2px 2px 15px 10px rgba(139, 139, 139, 0.397);
   border-radius: 30px;
@@ -27,6 +27,7 @@
 .SuccessModalH2 {
   font-size: 1.5em;
   text-align: center;
+  font-family: "Roboto",sans-serif;
   
   
 }

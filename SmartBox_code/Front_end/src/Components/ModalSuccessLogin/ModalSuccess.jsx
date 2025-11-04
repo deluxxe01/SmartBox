@@ -1,10 +1,19 @@
  
  import './ModalSucess.css'
- import { useState } from 'react'
+ import { useEffect, useState } from 'react'
 
  function ModalSuccess({message}){
 
     const [isExiting, setIsExiting] = useState(false)
+    useEffect(()=>{
+        if(sessionStorage.getItem("login") == 1){
+            setTimeout(()=>{
+                setIsExiting(true)
+
+            },2000)
+            
+        }
+    },[])
 
     return(
         
