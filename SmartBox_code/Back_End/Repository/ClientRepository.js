@@ -24,8 +24,9 @@ class clientRepo {
                 senha: obj.senha
             }
         })
-          // Retorna o primeiro resultado (índice 0)
-          return consulta
+        console.log("log que pertence ao login: ",consulta[0].dataValues)
+        
+        return consulta // não precisa retonar o primeiro indice do vetor com dataValues pq 
     }
 
     //deletar usuário pelo ID

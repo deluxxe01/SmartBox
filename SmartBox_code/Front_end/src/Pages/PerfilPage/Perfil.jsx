@@ -7,6 +7,16 @@ import Footer from "../../Components/Footer/Footer.jsx";
 
 function Perfil() {
   const { usuarioAtual, setUsuarioAtual } = useContext(GlobalContext);
+  const [ editMode,setEditMode ] =useState(false)
+  const [formUpdateUser,setFormUpdateUser] = useState({
+    nome:usuarioAtual.nome,
+    sobrenome:usuarioAtual.sobrenome,
+    email:usuarioAtual.email,
+    cep:usuarioAtual.cep,
+    senha:usuarioAtual.senha
+  })
+
+  
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -40,9 +50,11 @@ function Perfil() {
       console.log('Resposta do servidor:', data);
 
       if (response.ok) {
+
         alert('Conta excluída com sucesso.');
         setUsuarioAtual(null);
         navigate('/login');
+
       } else {
         alert(`Erro ao excluir conta: ${data.error || 'Erro desconhecido'}`);
       }
@@ -57,6 +69,13 @@ function Perfil() {
     setUsuarioAtual(null);
     navigate('/login');
   };
+
+
+  const updateUser = () => {
+
+
+
+  }
 
   return (
     <div className="Container-Perfil">
@@ -83,24 +102,41 @@ function Perfil() {
           <button className="Encerrar-button" onClick={handleLogout}>
             Encerrar Sessão
           </button>
-          <button className="Editar-button">Editar</button>
+          <button  className={editMode ? "Editar-button":"Editar-button yes"}>{editMode ? "Editar":"Salvar"}</button>
         </div>
         <div className="Terceira-diva">
           <div className="InptUm">
             <label className="LabelForPerfil">Nome</label>
-            <input className="Inpt-Perfil" type="text" value={usuarioAtual.nome} readOnly />
+            <input className="Inpt-Perfil" type="text" value={formUpdateUser.nome} readOnly = {editMode}
+            onChange={(e)=>{setFormUpdateUser(
+              {...formUpdateUser,nome: e.target.value })}}
+            />
+
           </div>
           <div className="InptDois">
             <label className="LabelForPerfil">Sobrenome</label>
-            <input className="Inpt-Perfil" type="text" value={usuarioAtual.sobrenome} readOnly />
+            <input className="Inpt-Perfil" type="text" value={formUpdateUser.sobrenome} readOnly ={editMode}
+            onChange={(e)=>{
+              setFormUpdateUser({...formUpdateUser,sobrenome:e.target.value})
+            }}
+            />
           </div>
           <div className="InptTres">
             <label className="LabelForPerfil">Email</label>
-            <input className="Inpt-Perfil" type="text" value={usuarioAtual.email} readOnly />
+            <input className="Inpt-Perfil" type="text" value={formUpdateUser.email} readOnly ={editMode}
+            onChange={(e) =>{
+              setFormUpdateUser({...formUpdateUser,email:e.target.value})
+            }}
+
+            />
           </div>
           <div className="InptQuatro">
             <label className="LabelForPerfil">Senha</label>
-            <input className="Inpt-Perfil" type="text" value={usuarioAtual.senha} readOnly />
+            <input className="Inpt-Perfil" type="text" value={formUpdateUser.senha} readOnly={editMode}
+            onChange={(e)=>{
+              setFormUpdateUser({...formUpdateUser,senha:e.target.value})
+            }}
+            />
           </div>
         </div>
       </div>
