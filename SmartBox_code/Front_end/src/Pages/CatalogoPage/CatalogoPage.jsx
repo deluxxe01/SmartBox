@@ -4,6 +4,7 @@ import NavBar from "../../Components/NavBar/NavBar.jsx";
 import { GlobalContext } from "../../Context/Globalcontext.jsx";
 import "./CatalogoPage.css";
 import { useContext } from "react";
+import Footer from "../../Components/Footer/Footer.jsx"
 
 
 function CatalogoPage() {
@@ -22,7 +23,7 @@ preco:"R$ 299,00"
   
 
   return (
-    <div>
+    <div  className="container_pai_catalogo">
       <NavBar />
       <div className="conteiner_page_catagalogo_box">
         {sessionStorage.getItem("login") ? <ModalSuccess message={messageSuccess} />:""}
@@ -60,18 +61,9 @@ preco:"R$ 299,00"
 
 ))}
 
-
-
-
-
-
-   
-
-
-
-
-
 </div>
+<Footer />
+
 
 
 

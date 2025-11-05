@@ -4,6 +4,7 @@
     align-items: center;
     justify-content: space-evenly;
     display: flex;
+    margin-top: 5%;
 }
 .containerMenuFooter{
     display: flex;

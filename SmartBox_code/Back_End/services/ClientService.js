@@ -41,6 +41,13 @@ class ClientServices {
 
   }
 }
+
+static async updateUser(){
+
+  //regra de negocio
+  
+
+}
 }
 
 export default ClientServices;

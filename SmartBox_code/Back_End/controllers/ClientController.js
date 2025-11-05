@@ -48,8 +48,17 @@ export default {
       });
 
     } catch (error) {
+
       console.error(error);
+
       return res.status(400).json({ error: error.message });
     }
+  },
+
+  async UpdateUser(req,res){
+    
+    const body = req.body
+
+
   }
 };

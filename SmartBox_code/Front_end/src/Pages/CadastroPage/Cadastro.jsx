@@ -52,7 +52,7 @@ function cadastro() {
         titulo:'Cadastro concluído!',
         message:`Seja muito Bem-Vindo ${result.data.user.nome}`
   })
-      console.log(result)
+      sessionStorage.setItem("login",1)
       
       navigate('/catalogo')
 

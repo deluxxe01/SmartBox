@@ -9,6 +9,7 @@
         if(sessionStorage.getItem("login") == 1){
             setTimeout(()=>{
                 setIsExiting(true)
+                sessionStorage.removeItem("login")
 
             },2000)
             
