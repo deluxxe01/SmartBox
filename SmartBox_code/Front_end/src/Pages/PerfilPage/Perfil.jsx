@@ -29,7 +29,7 @@ function Perfil() {
     try {
       console.log('Deletando usuário com ID:', usuarioAtual.id);
 
-      const response = await fetch(`http://localhost:3000/clients/${usuarioAtual.id}`, {
+      const response = await fetch(`http://localhost:3000/clients/${usuarioAtual.id_cliente}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',

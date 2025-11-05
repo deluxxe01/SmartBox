@@ -24,15 +24,17 @@ class clientRepo {
                 senha: obj.senha
             }
         })
-        return consulta
+          // Retorna o primeiro resultado (índice 0)
+          return consulta
     }
 
-    // 🔹 Método para deletar usuário pelo ID
+    //deletar usuário pelo ID
     static async deleteUserById(id) {
         const user = await ModelClient.findByPk(id); // busca pelo id
-        if (!user) return null; // retorna null se não encontrar
+        console.log(user);
+        if (!user) return null; 
 
-        await user.destroy(); // deleta o usuário
+        await user.destroy(); 
         return user.dataValues; // retorna os dados do usuário deletado
     }
 }
