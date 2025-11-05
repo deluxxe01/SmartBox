@@ -1,9 +1,16 @@
 
+import { useState } from 'react'
 import NavBar from '../../Components/NavBar/NavBar'
 import './Caixa_persona_etp1.css'
 
 function Caixa_persona_etp1() {
-  return (
+ const [andarAtivo,setAndarAtivo]=useState('0')
+ const [corChasiAtiva,setCorChasiAtiva] = useState('0')
+ 
+ 
+ 
+ 
+   return (
    <div className='container_caixa_persona_etp1'>
 
 <div className='conatiner_head_caixa_persona'>
@@ -14,7 +21,7 @@ function Caixa_persona_etp1() {
 
 <div className='container_modelo_3D'>
 
-<img src="https://pbs.twimg.com/media/FDtRc36VEAIhgER.png" alt="" className='modelo_3D'/>
+<img src="https://preview.redd.it/wallpaper-do-macaco-apenas-comece-v0-hvc4jmi16xcf1.png?width=1080&crop=smart&auto=webp&s=320c6b8e703ba42d01d1c09523035c861dc7d909" alt="" className='modelo_3D'/>
 
 </div>
 
@@ -39,9 +46,20 @@ function Caixa_persona_etp1() {
 </div>
 <div className='container_andares_caixa'>
 
-<button >1 andar</button>
-<button>2 andar</button>
-<button>3 andar</button>
+<button className={`button_primeiro_andar ${andarAtivo === "1" ? "andar_ativo" : ""}`}
+        onClick={() => setAndarAtivo("1")}>1 unidade</button>
+
+
+<button   className={`button_segundo_andar ${andarAtivo==="2" ? "andar_ativo":""}`}
+onClick={(()=>{setAndarAtivo("2")})}
+>2 unidade</button>
+
+
+
+
+
+<button    className={`button_terceiro_andar ${andarAtivo==="3" ? "andar_ativo":""}`}
+onClick={()=>{setAndarAtivo("3")}}>3 unidade</button>
 
 </div>
 </div>
@@ -54,9 +72,27 @@ function Caixa_persona_etp1() {
 
 
 <div className='container_paleta_chasi'>
-<button className='button_cor_chasi_vermelho'></button>
-<button className='button_cor_chasi_preto'></button>
-<button className='button_cor_chasi_azul'></button>
+
+<div className='container_cor_chasi_vermelho'>
+<button className= {`button_cor_chasi_vermelho ${corChasiAtiva === "1" ? "cor_Chasi_ativo" : ""}`} 
+onClick={()=>{setCorChasiAtiva("1")}}></button>
+</div>
+
+
+<div className='container_cor_chasi_preto'>
+
+<button className= "button_cor_chasi_preto"></button>
+
+
+</div>
+
+
+<div className='container_cor_chasi_azul'>
+<button className= {`button_cor_chasi_azul ${corChasiAtiva === "3" ? "cor_Chasi_ativo" : ""}`} 
+onClick={()=>{setCorChasiAtiva("3")}}></button>
+
+</div>
+
 </div>
 
 </div>

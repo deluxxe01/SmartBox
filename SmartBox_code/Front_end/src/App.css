@@ -1,0 +1,7 @@
+#root {
+  overflow: auto; /* rolagem continua funcionando */
+}
+
+#root::-webkit-scrollbar {
+  display: none; /* esconde a barra */
+}
