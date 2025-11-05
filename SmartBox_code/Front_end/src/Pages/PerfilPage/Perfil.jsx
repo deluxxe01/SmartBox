@@ -3,6 +3,7 @@ import './Perfil.css';
 import { GlobalContext } from '../../Context/Globalcontext.jsx';
 import { useNavigate } from 'react-router-dom';
 import NavBar from '../../Components/NavBar/NavBar.jsx';
+import Footer from "../../Components/Footer/Footer.jsx";
 
 function Perfil() {
   const { usuarioAtual, setUsuarioAtual } = useContext(GlobalContext);
@@ -103,6 +104,7 @@ function Perfil() {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
