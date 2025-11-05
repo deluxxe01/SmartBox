@@ -27,10 +27,10 @@ class ClientServices {
   }
 
   // Deletar usuário pelo ID
-  async DeleteUserService(id) {
+  async deleteUserById(id) {
     try {
       const resultado = await clientRepo.deleteUserById(id);
-
+      console.log(deletedUser); 
       if (!resultado) {
         throw new Error("Usuário não encontrado");
       }

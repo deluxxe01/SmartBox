@@ -29,13 +29,13 @@ class clientRepo {
         return consulta // não precisa retonar o primeiro indice do vetor com dataValues pq 
     }
 
-    // 🔹 Método para deletar usuário pelo ID
+    //deletar usuário pelo ID
     static async deleteUserById(id) {
         const user = await ModelClient.findByPk(id); // busca pelo id
-        if (!user) return null; // retorna null se não encontrar
+        console.log(user);
+        if (!user) return null; 
 
-        await user.destroy(); // deleta o usuário
-
+        await user.destroy(); 
         return user.dataValues; // retorna os dados do usuário deletado
     }
 }

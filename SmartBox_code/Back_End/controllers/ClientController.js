@@ -40,7 +40,7 @@ export default {
   async deleteUser(req, res) {
     try {
       const { id } = req.params;
-      const deletedUser = await clientService.DeleteUserService(id);
+      const deletedUser = await clientService.deleteUserById(id);
 
       return res.status(200).json({
         message: "Usuário deletado com sucesso",
