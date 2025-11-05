@@ -49,7 +49,7 @@ function Login() {
         titulo:'Login feito com sucesso',
         message:`Seja bem-vindo Denovo ${usuarioAtual.nome}`
   })
-      navigate('/catalogo')
+      navigate('/perfil')
       return result
 
     }catch(err){

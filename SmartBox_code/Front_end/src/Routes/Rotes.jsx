@@ -8,7 +8,7 @@ import Carrinho from '../Pages/Carrinho/Carrinho'
 import Perfil from "../Pages/PerfilPage/Perfil"
 import Caixa_persona_etp1 from "../Pages/Caixa_Persona_etp1/Caixa_persona_etp1"
 import GestaoCaixas from "../Pages/GestaoCaixasPages/GestaoCaixas"
-import AdminLogin from "../Pages/AdminPage/AdminLogin"
+import Dashboard from "../Pages/DashboardPage/Dashboard"
 
 
 const router =  createBrowserRouter([
@@ -23,7 +23,7 @@ const router =  createBrowserRouter([
 {path: "/caixa_persona_etp1", element: <Caixa_persona_etp1 />},
 {path:'/Carrinho',element:<Carrinho />},
 {path: '/gestaoCaixas', element: <GestaoCaixas />},
-{path: '/adminlogin', element: <AdminLogin />}
+{path: '/dashboard', element: <Dashboard />}
 
 ])
 

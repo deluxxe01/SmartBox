@@ -14,7 +14,7 @@ body{
 }
 .ContainerInfosCaixa{
     border: 2px solid black;
-    margin-top: -50vh;
+    margin-top: -70vh;
     margin-left: 60vh;
     width: 110vh;
     height: 65vh;
@@ -50,6 +50,11 @@ body{
     margin-top: 2vh;
     display: flex;
     flex-direction: column;
+}
+.InptValor{
+    margin-top:2vh;
+    display: flex;
+    flex-direction: column
 }
 .Container-VisuCaixa{
     position: relative;

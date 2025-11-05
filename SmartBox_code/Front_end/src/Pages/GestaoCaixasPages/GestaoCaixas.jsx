@@ -18,6 +18,12 @@ function GestaoCaixas() {
         <label htmlFor="">Descrição</label>
         <input  className="InptDes"type="text" />
        </div>
+
+       <div className='InptValor'>
+        <label htmlFor="">Valor</label>
+        <input  className="InptDes"type="text" />
+       </div>
+
      </div>
 
      <p className='P-VisuCaixa'>Visualização da Caixa</p>
