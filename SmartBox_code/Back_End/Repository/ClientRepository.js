@@ -24,7 +24,9 @@ class clientRepo {
                 senha: obj.senha
             }
         })
-        return consulta
+        console.log("log que pertence ao login: ",consulta[0].dataValues)
+        
+        return consulta // não precisa retonar o primeiro indice do vetor com dataValues pq 
     }
 
     // 🔹 Método para deletar usuário pelo ID
@@ -33,6 +35,7 @@ class clientRepo {
         if (!user) return null; // retorna null se não encontrar
 
         await user.destroy(); // deleta o usuário
+
         return user.dataValues; // retorna os dados do usuário deletado
     }
 }

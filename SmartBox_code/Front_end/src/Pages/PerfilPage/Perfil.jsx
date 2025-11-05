@@ -7,6 +7,15 @@ import Footer from "../../Components/Footer/Footer.jsx";
 
 function Perfil() {
   const { usuarioAtual, setUsuarioAtual } = useContext(GlobalContext);
+  const [formUpdateUser,setFormUpdateUser] = useState({
+    nome:usuarioAtual.nome,
+    sobrenome:usuarioAtual.sobrenome,
+    email:usuarioAtual.email,
+    cep:usuarioAtual.cep,
+    senha:usuarioAtual.senha
+  })
+
+  
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -40,9 +49,11 @@ function Perfil() {
       console.log('Resposta do servidor:', data);
 
       if (response.ok) {
+
         alert('Conta excluída com sucesso.');
         setUsuarioAtual(null);
         navigate('/login');
+
       } else {
         alert(`Erro ao excluir conta: ${data.error || 'Erro desconhecido'}`);
       }
@@ -57,6 +68,13 @@ function Perfil() {
     setUsuarioAtual(null);
     navigate('/login');
   };
+
+
+  const updateUser = () => {
+
+
+
+  }
 
   return (
     <div className="Container-Perfil">
@@ -88,7 +106,9 @@ function Perfil() {
         <div className="Terceira-diva">
           <div className="InptUm">
             <label className="LabelForPerfil">Nome</label>
-            <input className="Inpt-Perfil" type="text" value={usuarioAtual.nome} readOnly />
+            <input className="Inpt-Perfil" type="text" value={formUpdateUser.nome} readOnly = {false}
+            onChange={(e)=>{setFormUpdateUser([])}}
+            />
           </div>
           <div className="InptDois">
             <label className="LabelForPerfil">Sobrenome</label>
