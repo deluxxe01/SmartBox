@@ -56,6 +56,16 @@ body{
     display: flex;
     flex-direction: column
 }
+.ButtonsContainer{
+    margin-left: 10vh;
+    margin-top: 10vh;
+    display: flex;
+    flex-direction: row;
+}
+.AdcionarButtons{
+    margin-left: 2vh;
+}
+
 .Container-VisuCaixa{
     position: relative;
     margin-top: 2vh;
