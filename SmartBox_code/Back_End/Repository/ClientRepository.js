@@ -1,3 +1,4 @@
+import { where } from "sequelize";
 import ModelClient from "../models/ClientModel.js";
 
 class clientRepo {
@@ -24,7 +25,7 @@ class clientRepo {
                 senha: obj.senha
             }
         })
-        console.log("log que pertence ao login: ",consulta[0].dataValues)
+    
         
         return consulta // não precisa retonar o primeiro indice do vetor com dataValues pq 
     }
@@ -37,6 +38,24 @@ class clientRepo {
 
         await user.destroy(); 
         return user.dataValues; // retorna os dados do usuário deletado
+    }
+
+    static async UpdateUser(obj){
+        console.log("LOG DO SERVICE : ",obj)
+
+        const [linhasAtulizadas,[usuario]]= await ModelClient.update(obj,{
+            where:{
+                id_cliente:obj.id
+         },
+         returning:true
+        }
+      )//destructuring
+
+       
+
+        console.log("usuario apos Update: " ,usuario)
+
+        return usuario
     }
 }
 

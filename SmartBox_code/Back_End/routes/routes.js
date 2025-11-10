@@ -14,6 +14,8 @@ routes.post("/clients", ClientController.insertUser)
 
 routes.post("/clientsLogin", ClientController.loginUser)
 
+routes.put("/clients",ClientController.UpdateUser)
+
 // Nova rota para deletar usuário
 routes.delete("/clients/:id", ClientController.deleteUser)
 

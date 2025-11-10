@@ -4,11 +4,13 @@ import { GlobalContext } from '../../Context/Globalcontext.jsx';
 import { useNavigate } from 'react-router-dom';
 import NavBar from '../../Components/NavBar/NavBar.jsx';
 import Footer from "../../Components/Footer/Footer.jsx";
+import axios from 'axios';
 
 function Perfil() {
   const { usuarioAtual, setUsuarioAtual } = useContext(GlobalContext);
-  const [ editMode,setEditMode ] =useState(false)
+  const [ editMode,setEditMode ] = useState(true)
   const [formUpdateUser,setFormUpdateUser] = useState({
+    id:usuarioAtual.id_cliente,
     nome:usuarioAtual.nome,
     sobrenome:usuarioAtual.sobrenome,
     email:usuarioAtual.email,
@@ -71,9 +73,19 @@ function Perfil() {
   };
 
 
-  const updateUser = () => {
+  const updateUser = async () => {
+    alert("atualiza")
+    setEditMode(true)
 
+    const result = await axios.put("/api/clients",formUpdateUser)
 
+    console.log("resultado da rota de atualizar clientes: ",formUpdateUser)
+
+  }
+
+  const trocarEstado = ()=>{
+    alert("estado diferente")
+    setEditMode(false)
 
   }
 
@@ -102,7 +114,7 @@ function Perfil() {
           <button className="Encerrar-button" onClick={handleLogout}>
             Encerrar Sessão
           </button>
-          <button  className={editMode ? "Editar-button":"Editar-button yes"}>{editMode ? "Editar":"Salvar"}</button>
+          <button onClick={editMode ? trocarEstado : updateUser}  className={editMode ? "Editar-button":"Editar-button yes"}>{editMode ? "Editar":"Salvar"}</button>
         </div>
         <div className="Terceira-diva">
           <div className="InptUm">

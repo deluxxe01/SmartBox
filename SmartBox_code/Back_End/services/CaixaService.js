@@ -41,8 +41,6 @@ class CaixaService{
         
         const resposta = await res.json()
 
-       
-
         return resposta
 
     }
