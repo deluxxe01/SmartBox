@@ -8,5 +8,7 @@ const upload = multer({ storage: multer.memoryStorage() });
 routes.post("/", upload.single("imagem"), CatalogoController.createCaixa);
 routes.get("/", CatalogoController.getCaixas);
 
+// 👇 nova rota para pegar imagem
+routes.get("/:id/imagem", CatalogoController.getImagemCaixa);
 export default routes;
 

@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import MenuAdm from '../../Components/Menu/MenuAdm.jsx';
 import './GestaoCaixas.css';
-
+import { useNavigate } from 'react-router-dom';
 function GestaoCaixas() {
+  const navigate = useNavigate()
   const [descricao, setDescricao] = useState('');
   const [valor, setValor] = useState('');
   const [imagem, setImagem] = useState(null);
@@ -49,12 +50,15 @@ function GestaoCaixas() {
         setImagem(null);
         setPreview(null); // limpa preview
         carregarCaixas(); // Atualiza a lista
+
+        navigate('/catalogo')
       } else {
         console.error("Erro ao adicionar caixa");
       }
     } catch (err) {
       console.error("Erro ao conectar com o servidor:", err);
     }
+
   };
 
   const handleExcluirCaixa = async (id) => {
@@ -139,7 +143,7 @@ function GestaoCaixas() {
           )}
 
           {/* Lista de caixas já cadastradas */}
-          {caixas.map((caixa) => (
+          {/* {caixas.map((caixa) => (
             <div key={caixa.id} style={{ border: '1px solid #ccc', padding: '10px', display: 'inline-block', margin: '10px' }}>
               <img
                 src={`http://localhost:3000/catalogo/${caixa.id}/imagem`}
@@ -150,7 +154,7 @@ function GestaoCaixas() {
               <p>R$ {parseFloat(caixa.valor).toFixed(2)}</p>
               <button onClick={() => handleExcluirCaixa(caixa.id)}>Excluir</button>
             </div>
-          ))}
+          ))} */}
         </div>
       </div>
     </div>

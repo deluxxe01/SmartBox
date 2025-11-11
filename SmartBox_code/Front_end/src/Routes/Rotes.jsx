@@ -6,6 +6,7 @@ import Home from "../Pages/HomePage/Home"
 import Historico from "../Pages/HistoricoPages/Historico"
 import Carrinho from '../Pages/Carrinho/Carrinho'
 import Perfil from "../Pages/PerfilPage/Perfil"
+import CatalogoAdmin from "../Pages/CatalogoAdminPages/CatalogoAdmin"
 import Caixa_persona_etp1 from "../Pages/Caixa_Persona_etp1/Caixa_persona_etp1"
 import GestaoCaixas from "../Pages/GestaoCaixasPages/GestaoCaixas"
 import Dashboard from "../Pages/DashboardPage/Dashboard"
@@ -23,6 +24,7 @@ const router =  createBrowserRouter([
 {path: "/caixa_persona_etp1", element: <Caixa_persona_etp1 />},
 {path:'/Carrinho',element:<Carrinho />},
 {path: '/gestaoCaixas', element: <GestaoCaixas />},
+{path: '/catalogoAdmin', element: <CatalogoAdmin />},
 {path: '/dashboard', element: <Dashboard />}
 
 ])

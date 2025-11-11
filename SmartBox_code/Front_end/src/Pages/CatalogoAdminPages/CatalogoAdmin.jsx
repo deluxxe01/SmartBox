@@ -3,9 +3,9 @@ import ModalSuccess from "../../Components/ModalSuccessLogin/ModalSuccess.jsx";
 import NavBar from "../../Components/NavBar/NavBar.jsx";
 import { GlobalContext } from "../../Context/Globalcontext.jsx";
 import Footer from "../../Components/Footer/Footer.jsx";
-import "./CatalogoPage.css";
+import "./CatalogoAdmin.css";
 
-function CatalogoPage() {
+function CatalogoAdmin() {
   const [caixasProntas, setCaixasProntas] = useState([]);
   const { messageSuccess } = useContext(GlobalContext);
 
@@ -18,27 +18,7 @@ function CatalogoPage() {
 
   return (
     <div className="container_pai_catalogo">
-      <NavBar />
-      <div className="conteiner_page_catagalogo_box">
-        {sessionStorage.getItem("login") ? (
-          <ModalSuccess message={messageSuccess} />
-        ) : (
-          ""
-        )}
-
-        <div className="container_h1_catalogo_escolha_box">
-          <h1>
-            Escolha sua <span>Smart</span>Box
-          </h1>
-        </div>
-
-        <div className="container_search_bar">
-          <input
-            type="text"
-            placeholder="O que você procura?"
-            className="search_input"
-          />
-        </div>
+     
 
         <div className="container_h1_boxs">
           <h1>Catálogo</h1>
@@ -64,12 +44,10 @@ function CatalogoPage() {
               <p>R$ {parseFloat(c.valor).toFixed(2)}</p>
             </div>
           ))}
-        </div>
-
-        <Footer />
-      </div>
+        
+    </div>
     </div>
   );
 }
 
-export default CatalogoPage;
+export default CatalogoAdmin;

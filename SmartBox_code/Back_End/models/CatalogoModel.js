@@ -8,7 +8,7 @@ const CatalogoModel = DbConection.define("catalogo_caixa", {
     primaryKey: true,
   },
   imagem: {
-    type: DataTypes.BLOB("long"), // armazenar imagem em bytes (BYTEA no PostgreSQL)
+    type: DataTypes.BLOB, // armazenar imagem em bytes (BYTEA no PostgreSQL)
     allowNull: true,
   },
   descricao: {
