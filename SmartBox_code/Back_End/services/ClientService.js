@@ -42,9 +42,23 @@ class ClientServices {
   }
 }
 
-static async updateUser(){
+static async updateUser(obj){
+
+ 
 
   //regra de negocio
+
+  const emailCadastrado = await clientRepo.findEmail(obj) 
+
+   if(emailCadastrado.length > 0){
+
+    throw new Error("esse email ja esta em nosso sistema, utilize outro ")
+
+   }
+
+  const user = clientRepo.UpdateUser(obj)
+  
+  return user
   
 
 }

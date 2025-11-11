@@ -15,6 +15,9 @@ routes.post("/clients", ClientController.insertUser)
 
 routes.post("/clientsLogin", ClientController.loginUser)
 
+routes.put("/clients",ClientController.UpdateUser)
+
+// Nova rota para deletar usuário
 routes.use("/catalogo", CatalogoRoutes); // Rotas do catálogo
 
 

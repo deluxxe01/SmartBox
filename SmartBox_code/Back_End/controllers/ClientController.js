@@ -1,3 +1,4 @@
+
 import ClientServices from "../services/ClientService.js";
 
 const clientService = new ClientServices(); // instância do service
@@ -57,8 +58,21 @@ export default {
 
   async UpdateUser(req,res){
     
+  try{  
+    
     const body = req.body
 
 
+    const user = await ClientServices.updateUser(body)
+    console.log("retorno ao chamar service em um controller: ",user)
+
+    return res.status(200).json({message:"usuario atualizado com sucesso",dados:user})
+  
+  }catch(erro){
+
+    console.log("verrificando o o log do erro: ",erro)
+
+  }
+    
   }
 };

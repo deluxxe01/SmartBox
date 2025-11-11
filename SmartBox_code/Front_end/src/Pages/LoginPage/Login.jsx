@@ -42,8 +42,10 @@ function Login() {
 
       const result = await axios.post('/api/clientsLogin',inpt)
       console.log("resultado da api: ",result)
-      setUsuarioAtual(result.data.user)
-      sessionStorage.setItem("login",1)
+      
+      setUsuarioAtual(result.data.user)// atualiza o estado global de usuario atual
+
+      sessionStorage.setItem("login",1)// token para lançar o modal de seja bem vindo novamente
       
       setMessageSuccess({
         titulo:'Login feito com sucesso',
