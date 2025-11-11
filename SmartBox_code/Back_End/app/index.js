@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import path from "path";
 import DbConection from '../db/db.js';
 import cors from "cors"; // <-- 🚨 ADICIONE ESTA LINHA
+import CatalogoRoutes from "../routes/CatalogoRoutes.js";
 
 dotenv.config({
   path: "./secrets/.env"
@@ -18,6 +19,9 @@ await DbConection.sync({ logging: false, alter: true });
 App.use(cors()); // <-- 🚨 E ESTA LINHA
 App.use(express.json());
 App.use(routes);
+
+
+App.use("/catalogo", CatalogoRoutes);
 
 App.listen(PORT, () => {
   console.log("Servidor rodando na porta", PORT);
