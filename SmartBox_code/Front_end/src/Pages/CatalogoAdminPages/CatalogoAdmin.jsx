@@ -1,30 +1,31 @@
+
+import MenuAdm from '../../Components/Menu/MenuAdm.jsx'
+import NavBar from '../../Components/NavBar/NavBar.jsx'
 import { useState, useEffect, useContext } from "react";
-import ModalSuccess from "../../Components/ModalSuccessLogin/ModalSuccess.jsx";
-import NavBar from "../../Components/NavBar/NavBar.jsx";
-import { GlobalContext } from "../../Context/Globalcontext.jsx";
-import Footer from "../../Components/Footer/Footer.jsx";
-import "./CatalogoAdmin.css";
+import './CatalogoAdmin.css'
 
 function CatalogoAdmin() {
-  const [caixasProntas, setCaixasProntas] = useState([]);
-  const { messageSuccess } = useContext(GlobalContext);
 
-  useEffect(() => {
-    fetch("http://localhost:3000/catalogo")
-      .then((res) => res.json())
-      .then((data) => setCaixasProntas(data))
-      .catch((err) => console.error("Erro ao carregar catálogo:", err));
-  }, []);
+    const [caixasProntas, setCaixasProntas] = useState([]);
+    
+  
+    useEffect(() => {
+      fetch("http://localhost:3000/catalogo")
+        .then((res) => res.json())
+        .then((data) => setCaixasProntas(data))
+        .catch((err) => console.error("Erro ao carregar catálogo:", err));
+    }, []);
 
   return (
-    <div className="container_pai_catalogo">
-     
+    <div className='ContainerDashboard'>
+        
+      <NavBar/>
+      
+      <div className='Dashboard-Um'>
+       <MenuAdm />
+      </div>
 
-        <div className="container_h1_boxs">
-          <h1>Catálogo</h1>
-        </div>
-
-        <div className="container_caixas">
+      <div className="containerCaixasAdmin">
           {caixasProntas.map((c) => (
             <div
               key={c.id}
@@ -32,7 +33,7 @@ function CatalogoAdmin() {
                 border: "1px solid #ccc",
                 padding: "10px",
                 display: "inline-block",
-                margin: "10px",
+                
               }}
             >
               <img
@@ -44,10 +45,9 @@ function CatalogoAdmin() {
               <p>R$ {parseFloat(c.valor).toFixed(2)}</p>
             </div>
           ))}
-        
-    </div>
-    </div>
-  );
+        </div>
+        </div>
+  )
 }
 
-export default CatalogoAdmin;
+export default CatalogoAdmin
