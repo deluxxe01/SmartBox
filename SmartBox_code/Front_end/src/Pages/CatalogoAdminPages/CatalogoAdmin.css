@@ -1,7 +1,35 @@
-.containerCaixasAdmin{
-    margin-top: -60vh;
-    margin-left: 60vh;
-    width: 110vh;
-    height: 70vh;
-    border: 1px solid pink;
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+.container_caixas{
+    margin-left: 5vh;
+    border: 0.3vh solid pink;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 5vh;
+}
+.CatalogoADM{
+    position: relative;
+    height: 35vh;
+    width: 25vh;
+    background-color: #F3F3F3;
+}
+.imagemCatalogo{
+    margin-left: 2vh;
+    margin-top: -8vh;
+    width: 23vh;
+    /* border: 0.3vh solid orange; */
+}
+.descricaoCatalogo{
+    font-weight: 600;
+    margin-left: 2vh;
+    font-family:'Poppins', sans-serif;
+}
+.precoCatalogo{
+    margin-left: 2vh;
+    font-family:'Poppins', sans-serif
 }

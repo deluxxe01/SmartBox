@@ -156,7 +156,7 @@ body{
     margin-left: 20vh;
     display: flex;
     flex-direction: row;
-   font-family:'Poppins', sans-serif;
+    font-family:'Poppins', sans-serif;
 }
 .Number{
     margin-top: 2vh;

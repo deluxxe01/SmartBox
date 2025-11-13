@@ -1,53 +1,73 @@
-
-import MenuAdm from '../../Components/Menu/MenuAdm.jsx'
-import NavBar from '../../Components/NavBar/NavBar.jsx'
 import { useState, useEffect, useContext } from "react";
-import './CatalogoAdmin.css'
+import ModalSuccess from "../../Components/ModalSuccessLogin/ModalSuccess.jsx";
+import NavBar from "../../Components/NavBar/NavBar.jsx";
+import { GlobalContext } from "../../Context/Globalcontext.jsx";
+import Footer from "../../Components/Footer/Footer.jsx";
+import "./CatalogoAdmin.css";
 
 function CatalogoAdmin() {
+  const [caixasProntas, setCaixasProntas] = useState([]);
+  const { messageSuccess } = useContext(GlobalContext);
 
-    const [caixasProntas, setCaixasProntas] = useState([]);
-    
-  
-    useEffect(() => {
-      fetch("http://localhost:3000/catalogo")
-        .then((res) => res.json())
-        .then((data) => setCaixasProntas(data))
-        .catch((err) => console.error("Erro ao carregar catálogo:", err));
-    }, []);
+  useEffect(() => {
+    fetch("http://localhost:3000/catalogo")
+      .then((res) => res.json())
+      .then((data) => setCaixasProntas(data))
+      .catch((err) => console.error("Erro ao carregar catálogo:", err));
+  }, []);
 
   return (
-    <div className='ContainerDashboard'>
-        
-      <NavBar/>
-      
-      <div className='Dashboard-Um'>
-       <MenuAdm />
-      </div>
+    <div className="container_pai_catalogo">
+      <NavBar />
+      <div className="conteiner_page_catagalogo_box">
+        {sessionStorage.getItem("login") ? (
+          <ModalSuccess message={messageSuccess} />
+        ) : (
+          ""
+        )}
 
-      <div className="containerCaixasAdmin">
+        <div className="container_h1_catalogo_escolha_box">
+          <h1>
+            Escolha sua <span>Smart</span>Box
+          </h1>
+        </div>
+
+        <div className="container_search_bar">
+          <input
+            type="text"
+            placeholder="O que você procura?"
+            className="search_input"
+          />
+        </div>
+
+        <div className="container_h1_boxs">
+          <h1>Catálogo</h1>
+        </div>
+
+        <div className="container_caixas">
           {caixasProntas.map((c) => (
             <div
+               
               key={c.id}
-              style={{
-                border: "1px solid #ccc",
-                padding: "10px",
-                display: "inline-block",
-                
-              }}
+              className="CatalogoADM"
+              
             >
               <img
                 src={`http://localhost:3000/catalogo/${c.id}/imagem`}
                 alt="Caixa"
-                width={150}
+                className="imagemCatalogo"
+                
               />
-              <p>{c.descricao}</p>
-              <p>R$ {parseFloat(c.valor).toFixed(2)}</p>
+              <p className="descricaoCatalogo">{c.descricao}</p>
+              <p className="precoCatalogo">R$ {parseFloat(c.valor).toFixed(2)}</p>
             </div>
           ))}
         </div>
-        </div>
-  )
+
+        <Footer />
+      </div>
+    </div>
+  );
 }
 
-export default CatalogoAdmin
+export default CatalogoAdmin;
