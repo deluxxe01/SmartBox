@@ -20,7 +20,7 @@
 }
 .imagemCatalogo{
     margin-left: 2vh;
-    margin-top: -8vh;
+    margin-top: -15vh;
     width: 23vh;
     /* border: 0.3vh solid orange; */
 }
@@ -32,4 +32,12 @@
 .precoCatalogo{
     margin-left: 2vh;
     font-family:'Poppins', sans-serif
+}
+.buttonDeleteCatalogo{
+    margin-left: 7vh
+}
+.editButtonCatalogo{
+    width: 3vh;
+    margin-left: 21vh;
+    margin-top: 2vh
 }

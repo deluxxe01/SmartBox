@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
 .container_pai_catalogo{
  width: 100%;
 }
@@ -34,7 +38,7 @@ padding: 5px;
 .container_search_bar input{
 
 width: 35%;
-height: 60px;
+height: 3.5vh;
 border-radius: 40px;
 background-color: #F3F3F3;
 border: none;
@@ -55,13 +59,37 @@ padding: 20px;
 .container_h1_boxs{
 padding-top: 50px;
 width: 100%;
+font-family:'Poppins', sans-serif;
+}
 
-
-
-}.container_caixas{
-
-border: purple 1px solid;
-
-height: fit-content;
-
+.container_caixas{
+    margin-left: 5vh;
+    border: 0.3vh solid pink;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 5vh;
+}
+.CatalogoADM{
+    position: relative;
+    height: 35vh;
+    width: 25vh;
+    background-color: #F3F3F3;
+}
+.imagemCatalogo{
+    margin-left: 2vh;
+    margin-top: -8vh;
+    width: 23vh;
+    /* border: 0.3vh solid orange; */
+}
+.descricaoCatalogo1{
+    font-weight: 600;
+    margin-left: 2vh;
+    font-family:'Poppins', sans-serif;
+}
+.precoCatalogo{
+    margin-left: 2vh;
+    font-family:'Poppins', sans-serif
 }

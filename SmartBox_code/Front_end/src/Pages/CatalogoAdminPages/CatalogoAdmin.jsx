@@ -1,4 +1,5 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext} from "react";
+import { useNavigate } from "react-router-dom";
 import ModalSuccess from "../../Components/ModalSuccessLogin/ModalSuccess.jsx";
 import NavBar from "../../Components/NavBar/NavBar.jsx";
 import { GlobalContext } from "../../Context/Globalcontext.jsx";
@@ -8,7 +9,7 @@ import "./CatalogoAdmin.css";
 function CatalogoAdmin() {
   const [caixasProntas, setCaixasProntas] = useState([]);
   const { messageSuccess } = useContext(GlobalContext);
-
+  const navigate = useNavigate()
   useEffect(() => {
     fetch("http://localhost:3000/catalogo")
       .then((res) => res.json())
@@ -52,6 +53,11 @@ function CatalogoAdmin() {
               className="CatalogoADM"
               
             >
+              <img src="public/icon/edit.png" alt="ícone"
+              className="editButtonCatalogo"
+             onClick={() => navigate(`/gestaoCaixas/${c.id}`)} // redireciona com o ID 
+            style={{ cursor: "pointer" }}
+              />
               <img
                 src={`http://localhost:3000/catalogo/${c.id}/imagem`}
                 alt="Caixa"

@@ -28,7 +28,7 @@ function CatalogoPage() {
 
         <div className="container_h1_catalogo_escolha_box">
           <h1>
-            Escolha sua <span>Smart</span>Box
+            Escolha sua <span>SmartBox</span>
           </h1>
         </div>
 
@@ -48,20 +48,15 @@ function CatalogoPage() {
           {caixasProntas.map((c) => (
             <div
               key={c.id}
-              style={{
-                border: "1px solid #ccc",
-                padding: "10px",
-                display: "inline-block",
-                margin: "10px",
-              }}
+              className="CatalogoADM"
             >
               <img
                 src={`http://localhost:3000/catalogo/${c.id}/imagem`}
                 alt="Caixa"
-                width={150}
+                className="imagemCatalogo"
               />
-              <p>{c.descricao}</p>
-              <p>R$ {parseFloat(c.valor).toFixed(2)}</p>
+              <p classname="descricaoCatalogo1">{c.descricao}</p>
+              <p className="precoCatalogo">R$ {parseFloat(c.valor).toFixed(2)}</p>
             </div>
           ))}
         </div>
