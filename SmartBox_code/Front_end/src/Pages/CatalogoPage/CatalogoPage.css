@@ -73,6 +73,7 @@ font-family:'Poppins', sans-serif;
     gap: 5vh;
 }
 .CatalogoADM{
+    
     position: relative;
     height: 35vh;
     width: 25vh;
@@ -80,7 +81,7 @@ font-family:'Poppins', sans-serif;
 }
 .imagemCatalogo{
     margin-left: 2vh;
-    margin-top: -8vh;
+    margin-top: 5vh;
     width: 23vh;
     /* border: 0.3vh solid orange; */
 }

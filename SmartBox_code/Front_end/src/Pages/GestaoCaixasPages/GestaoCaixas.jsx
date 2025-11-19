@@ -9,7 +9,8 @@ function GestaoCaixas() {
   const [imagem, setImagem] = useState(null);
   const [preview, setPreview] = useState(null); // para pré-visualização
   const [caixas, setCaixas] = useState([]);
-
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedId, setSelectedId] = useState(null);
   // Carrega todas as caixas ao abrir a página
   useEffect(() => {
     carregarCaixas();
@@ -60,17 +61,56 @@ function GestaoCaixas() {
     }
 
   };
+const handleBuscarCaixa = (termo) => {
+  setSearchTerm(termo);
+
+  const caixaEncontrada = caixas.find((caixa) =>
+    caixa.descricao.toLowerCase().includes(termo.toLowerCase())
+  );
+
+  if (caixaEncontrada) {
+    setSelectedId(caixaEncontrada.id); // <-- AQUI
+    setDescricao(caixaEncontrada.descricao);
+    setValor(caixaEncontrada.valor);
+    setPreview(`http://localhost:3000/catalogo/${caixaEncontrada.id}/imagem`);
+    setImagem(null);
+  } else {
+    setSelectedId(null);
+    setDescricao('');
+    setValor('');
+    setPreview(null);
+    setImagem(null);
+  }
+};
+
 
   const handleExcluirCaixa = async (id) => {
-    try {
-      await fetch(`http://localhost:3000/catalogo/${id}`, {
-        method: "DELETE"
-      });
-      carregarCaixas(); // Atualiza a lista
-    } catch (err) {
-      console.error("Erro ao excluir caixa:", err);
+  if (!id) {
+    alert("Nenhuma caixa selecionada!");
+    return;
+  }
+
+  try {
+    const res = await fetch(`http://localhost:3000/catalogo/${id}`, {
+      method: "DELETE",
+    });
+
+    if (res.ok) {
+      alert("Caixa excluída!");
+      carregarCaixas();
+      setSelectedId(null);
+      setDescricao('');
+      setValor('');
+      setPreview(null);
+      setImagem(null);
+      setSearchTerm('');
+    } else {
+      alert("Erro ao excluir caixa");
     }
-  };
+  } catch (err) {
+    console.error("Erro ao excluir caixa:", err);
+  }
+};
 
   return (
     <div className='Container-GestaoCaixas'>
@@ -78,11 +118,14 @@ function GestaoCaixas() {
       <MenuAdm />
 
       <div className='ContainerInfosCaixa'>
-        <input
-          className="InputSearch"
-          type="text"
-          placeholder="Buscar caixa..."
-        />
+<input
+  className="InputSearch"
+  type="text"
+  placeholder="Buscar caixa..."
+  value={searchTerm}
+  onChange={(e) => handleBuscarCaixa(e.target.value)}
+/>
+
 
         <div className='ContainerInfosCaixa2'>
           <p>+ Adicionar uma imagem da caixa</p>
@@ -128,6 +171,7 @@ function GestaoCaixas() {
             <button className='AdcionarButtons' onClick={handleAdicionarCaixa}>
               Adicionar caixa
             </button>
+           <button onClick={() => handleExcluirCaixa(selectedId)}>Excluir</button>
           </div>
         </div>
 
@@ -142,19 +186,6 @@ function GestaoCaixas() {
             </div>
           )}
 
-          {/* Lista de caixas já cadastradas */}
-          {/* {caixas.map((caixa) => (
-            <div key={caixa.id} style={{ border: '1px solid #ccc', padding: '10px', display: 'inline-block', margin: '10px' }}>
-              <img
-                src={`http://localhost:3000/catalogo/${caixa.id}/imagem`}
-                alt="Caixa"
-                width={150}
-              />
-              <p>{caixa.descricao}</p>
-              <p>R$ {parseFloat(caixa.valor).toFixed(2)}</p>
-              <button onClick={() => handleExcluirCaixa(caixa.id)}>Excluir</button>
-            </div>
-          ))} */}
         </div>
       </div>
     </div>

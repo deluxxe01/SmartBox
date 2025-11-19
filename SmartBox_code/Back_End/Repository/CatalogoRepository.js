@@ -25,7 +25,17 @@ const CatalogoRepository = {
     const result = await pool.query("SELECT * FROM catalogo_caixa WHERE id = $1", [id]);
     return result.rows[0];
   },
-
+async atualizarCaixa(id, caixa) {
+  const { descricao, valor, imagem } = caixa;
+  const result = await pool.query(
+    `UPDATE catalogo_caixa
+     SET descricao = $1, valor = $2, imagem = COALESCE($3, imagem)
+     WHERE id = $4
+     RETURNING *`,
+    [descricao, valor, imagem, id]
+  );
+  return result.rows[0];
+},
   // Deletar caixa
   async deletarCaixa(id) {
     const result = await pool.query("DELETE FROM catalogo_caixa WHERE id = $1 RETURNING *", [id]);
