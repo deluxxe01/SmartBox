@@ -1,3 +1,4 @@
+import { where } from "sequelize"
 import CaixaModel from "../models/CaixaModel.js"
 
 class CaixaRepository{
@@ -11,7 +12,18 @@ class CaixaRepository{
 
 
     }
+    static async getMybox(id_user){
 
+        const consulta = await CaixaModel.findAll({
+            where:{
+            fk_id_cliente:id_user
+        }})
+        console.log("caixa")
+
+        return consulta
+    }
     
+
+  
 }
 export default CaixaRepository

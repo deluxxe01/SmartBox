@@ -54,13 +54,6 @@ export default{
         }catch(error){
 
         }
-
-
-
-
-
-
-
     },
      async getPositionCaixa(req,res){
 
@@ -74,5 +67,8 @@ export default{
 
 
 
+    },
+    async getMyBox(){
+        
     }
 }

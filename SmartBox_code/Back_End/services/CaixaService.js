@@ -44,6 +44,13 @@ class CaixaService{
         return resposta
 
     }
+
+    static async getMyBox(id){
+
+        const caixa = await CaixaRepository.getMybox(id)
+        
+        return caixa
+    }
 }
 
 export default CaixaService

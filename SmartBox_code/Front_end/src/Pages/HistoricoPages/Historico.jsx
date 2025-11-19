@@ -7,6 +7,13 @@ function Historico() {
     <div>
         
       <NavBar/>
+
+      <div>
+        <h1 className='h1HistoricoPage'>Historico</h1>
+      </div>
+      <div>
+        
+      </div>
         
         
         
