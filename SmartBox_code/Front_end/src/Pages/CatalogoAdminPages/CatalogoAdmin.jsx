@@ -55,7 +55,10 @@ function CatalogoAdmin() {
             >
               <img src="public/icon/edit.png" alt="ícone"
               className="editButtonCatalogo"
-               onClick={() => navigate(`/gestaoCaixas/${c.id}`)}// redireciona com o ID 
+              onClick={() => {
+   console.log("Clicou na imagem, ID:", c.id)
+   navigate(`/gestaoCaixas/${c.id}`)
+}}
                
               style={{ cursor: "pointer" }}
               />

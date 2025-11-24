@@ -66,6 +66,22 @@ const CatalogoController = {
       return res.status(500).json({ error: "Erro ao atualizar caixa" });
     }
   },
+// Buscar caixa por ID
+getCaixaById: async (req, res) => {
+  try {
+    const { id } = req.params;
+    const caixa = await CatalogoModel.findByPk(id);
+
+    if (!caixa) {
+      return res.status(404).json({ error: "Caixa não encontrada" });
+    }
+
+    return res.status(200).json(caixa);
+  } catch (error) {
+    console.error("Erro ao buscar caixa por ID:", error);
+    return res.status(500).json({ error: "Erro ao buscar caixa por ID" });
+  }
+},
 
   // EXCLUIR caixa 🔥
   deleteCaixa: async (req, res) => {

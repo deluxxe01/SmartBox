@@ -36,8 +36,11 @@
 .buttonDeleteCatalogo{
     margin-left: 7vh
 }
-.editButtonCatalogo{
-    width: 3vh;
-    margin-left: 21vh;
-    margin-top: 2vh
+.editButtonCatalogo {
+    position: absolute;
+    height: 5vh;
+    top: 1vh;
+    right: 1vh;
+    z-index: 10;
+    cursor: pointer;
 }
