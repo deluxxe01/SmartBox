@@ -14,7 +14,13 @@ class CatalogoService {
     const consulta = await CatalogoRepository.listarCatalogo();
     return consulta;
   }
-
+async atualizarCaixaService(id, caixa) {
+  const consulta = await CatalogoRepository.atualizarCaixa(id, caixa);
+  if (!consulta) {
+    throw new Error("Caixa não encontrada");
+  }
+  return consulta;
+}
   // Buscar uma caixa pelo ID
   async buscarCaixaPorIdService(id) {
     const consulta = await CatalogoRepository.buscarCaixaPorId(id);

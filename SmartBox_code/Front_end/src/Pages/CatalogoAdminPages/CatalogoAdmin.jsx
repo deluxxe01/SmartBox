@@ -55,8 +55,9 @@ function CatalogoAdmin() {
             >
               <img src="public/icon/edit.png" alt="ícone"
               className="editButtonCatalogo"
-             onClick={() => navigate(`/gestaoCaixas/${c.id}`)} // redireciona com o ID 
-            style={{ cursor: "pointer" }}
+               onClick={() => navigate(`/gestaoCaixas/${c.id}`)}// redireciona com o ID 
+               
+              style={{ cursor: "pointer" }}
               />
               <img
                 src={`http://localhost:3000/catalogo/${c.id}/imagem`}
