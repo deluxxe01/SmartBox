@@ -31,7 +31,7 @@ A SmartBox é uma solução inovadora que combina praticidade, versatilidade e p
 | **Desenho na Paleta Direita**   |  Casa, barco, estrela, **null** (sem desenho). |
 | **Desenho na Paleta Frontal**   |  Casa, barco, estrela, **null** (sem desenho).  |
 
-# Instruções para criar a pasta `secret` e o arquivo `.env`
+## Instruções para criar a pasta `secret` e o arquivo `.env`
 
 1. Abra o terminal ou prompt de comando.
 
