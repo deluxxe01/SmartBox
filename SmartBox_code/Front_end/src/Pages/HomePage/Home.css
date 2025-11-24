@@ -8,16 +8,13 @@ body{
     padding: 0;
     background-color: #FBFBFB;
 }
-.Container{
-  
-    
-}
+
 .Container1 {
   position: relative;
   z-index: 1;
   background-color: #F3F3F3;
   width: 100vw;
-  height: 90vh;
+  height: 95vh;
 }
 .Container-Titulo{
     display: flex;
@@ -206,6 +203,7 @@ body{
 .TituloPerso{
     font-size: 3vh;
     margin-top: 10vh;
+    margin-bottom: 5vh;
     margin-left: 10vh;
-     font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
