@@ -13,6 +13,16 @@ function GestaoCaixas() {
   const [caixas, setCaixas] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedId, setSelectedId] = useState(null);
+
+  //Proteção de tela apenas para admins
+useEffect(() => {
+  const isAdmin = sessionStorage.getItem("isAdmin") === "true";
+  console.log("isAdmin?", isAdmin);
+  if (!isAdmin) {
+    navigate("/login");
+  }
+}, [navigate]);
+
   // Carrega todas as caixas ao abrir a página
   useEffect(() => {
     carregarCaixas();

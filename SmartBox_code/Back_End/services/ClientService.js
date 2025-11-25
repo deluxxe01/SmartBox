@@ -14,7 +14,7 @@ class ClientServices {
     return consulta;
   }
 
-  // Login de usuário (método estático)
+  // Login de usuário (mantendo static)
   static async LoginUser(user) {
     const consulta = await clientRepo.LoginUser(user);
 
@@ -22,46 +22,43 @@ class ClientServices {
       throw new Error("Usuário não existe");
     }
 
-    // retorna apenas o primeiro usuário encontrado
-    return consulta[0].dataValues;
+    const usuario = consulta[0].dataValues;
+
+    // 🔥 Adiciona isAdmin no retorno
+    return {
+      id_cliente: usuario.id_cliente,
+      nome: usuario.nome,
+      sobrenome: usuario.sobrenome,
+      email: usuario.email,
+      isAdmin: usuario.isAdmin || false // true se for admin, false caso contrário
+    };
   }
 
   // Deletar usuário pelo ID
   async deleteUserById(id) {
     try {
       const resultado = await clientRepo.deleteUserById(id);
-      console.log(deletedUser); 
+      console.log(resultado); 
       if (!resultado) {
         throw new Error("Usuário não encontrado");
       }
 
-    return consulta[0].dataValues
-  }catch(erro){
-    console.log('erro ao fazer a interação com o banco',erro)
-
+      return resultado;
+    } catch(erro) {
+      console.log('erro ao fazer a interação com o banco', erro);
+      throw erro;
+    }
   }
-}
 
-static async updateUser(obj){
+  static async updateUser(obj) {
+    const emailCadastrado = await clientRepo.findEmail(obj); 
+    if (emailCadastrado.length > 0) {
+      throw new Error("esse email ja esta em nosso sistema, utilize outro ");
+    }
 
- 
-
-  //regra de negocio
-
-  const emailCadastrado = await clientRepo.findEmail(obj) 
-
-   if(emailCadastrado.length > 0){
-
-    throw new Error("esse email ja esta em nosso sistema, utilize outro ")
-
-   }
-
-  const user = clientRepo.UpdateUser(obj)
-  
-  return user
-  
-
-}
+    const user = await clientRepo.UpdateUser(obj);
+    return user;
+  }
 }
 
 export default ClientServices;

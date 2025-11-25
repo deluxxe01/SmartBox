@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext} from "react";
+import { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import ModalSuccess from "../../Components/ModalSuccessLogin/ModalSuccess.jsx";
 import NavBar from "../../Components/NavBar/NavBar.jsx";
@@ -9,7 +9,17 @@ import "./CatalogoAdmin.css";
 function CatalogoAdmin() {
   const [caixasProntas, setCaixasProntas] = useState([]);
   const { messageSuccess } = useContext(GlobalContext);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+
+//Proteção de tela apenas para admins
+useEffect(() => {
+  const isAdmin = sessionStorage.getItem("isAdmin") === "true";
+  console.log("isAdmin?", isAdmin);
+  if (!isAdmin) {
+    navigate("/login");
+  }
+}, [navigate]);
+
   useEffect(() => {
     fetch("http://localhost:3000/catalogo")
       .then((res) => res.json())
@@ -21,11 +31,7 @@ function CatalogoAdmin() {
     <div className="container_pai_catalogo">
       <NavBar />
       <div className="conteiner_page_catagalogo_box">
-        {sessionStorage.getItem("login") ? (
-          <ModalSuccess message={messageSuccess} />
-        ) : (
-          ""
-        )}
+        {sessionStorage.getItem("login") && <ModalSuccess message={messageSuccess} />}
 
         <div className="container_h1_catalogo_escolha_box">
           <h1>
@@ -47,26 +53,18 @@ function CatalogoAdmin() {
 
         <div className="container_caixas">
           {caixasProntas.map((c) => (
-            <div
-               
-              key={c.id}
-              className="CatalogoADM"
-              
-            >
-              <img src="public/icon/edit.png" alt="ícone"
-              className="editButtonCatalogo"
-              onClick={() => {
-   console.log("Clicou na imagem, ID:", c.id)
-   navigate(`/gestaoCaixas/${c.id}`)
-}}
-               
-              style={{ cursor: "pointer" }}
+            <div key={c.id} className="CatalogoADM">
+              <img
+                src="public/icon/edit.png"
+                alt="ícone"
+                className="editButtonCatalogo"
+                onClick={() => navigate(`/gestaoCaixas/${c.id}`)}
+                style={{ cursor: "pointer" }}
               />
               <img
                 src={`http://localhost:3000/catalogo/${c.id}/imagem`}
                 alt="Caixa"
                 className="imagemCatalogo"
-                
               />
               <p className="descricaoCatalogo">{c.descricao}</p>
               <p className="precoCatalogo">R$ {parseFloat(c.valor).toFixed(2)}</p>
