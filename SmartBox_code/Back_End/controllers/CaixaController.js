@@ -68,7 +68,14 @@ export default{
 
 
     },
-    async getMyBox(){
+    async getMyBox(req,res){
+
+        const id = req.params.id
+        console.log("id: ",id)
+
+        const consulta = await CaixaService.getMyBox(id)
+
+        return res.status(200).json(consulta)
         
     }
 }

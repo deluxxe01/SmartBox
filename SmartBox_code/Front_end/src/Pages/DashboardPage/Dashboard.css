@@ -2,6 +2,8 @@
     border: 2px solid black;
     width: 200vh;
     height: 100%;
+    align-items: center;
+    display: flex;
 }
 .MenuDashboard{
     margin-top: 5vh;

@@ -9,7 +9,6 @@ routes.get('/rotaTest', (req, res) => {
     res.json('rotas funfando')
 })
 
-routes.post("/createBoxClient", CaixaController.createBox)
 
 routes.post("/clients", ClientController.insertUser)
 
@@ -20,9 +19,12 @@ routes.put("/clients",ClientController.UpdateUser)
 // Nova rota para deletar usuário
 routes.use("/catalogo", CatalogoRoutes); // Rotas do catálogo
 
-
 routes.delete("/clients/:id", ClientController.deleteUser)
 
 routes.post("/createBox", CaixaController.createBox)
+
+routes.get("/BoxPosition/:id",CaixaController.getPositionCaixa)
+
+routes.get("/MyBox/:id",CaixaController.getMyBox)
 
 export default routes
