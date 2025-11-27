@@ -23,11 +23,12 @@ class clientRepo {
             where:{
                 email: obj.email,
                 senha: obj.senha
-            }
+            },
+            logging:false
         })
     
         
-        return consulta // não precisa retonar o primeiro indice do vetor com dataValues pq 
+        return consulta 
     }
 
     //deletar usuário pelo ID

@@ -54,13 +54,6 @@ export default{
         }catch(error){
 
         }
-
-
-
-
-
-
-
     },
      async getPositionCaixa(req,res){
 
@@ -74,5 +67,15 @@ export default{
 
 
 
+    },
+    async getMyBox(req,res){
+
+        const id = req.params.id
+        console.log("id: ",id)
+
+        const consulta = await CaixaService.getMyBox(id)
+
+        return res.status(200).json(consulta)
+        
     }
 }

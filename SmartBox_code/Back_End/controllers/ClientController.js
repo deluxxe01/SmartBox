@@ -12,11 +12,15 @@ export default {
 
       // Validações básicas
       if (!nome || nome.length <= 1) return res.status(400).json({ error: "O nome deve ter mais de 1 caractere." });
+
       if (!sobrenome || sobrenome.length < 10) return res.status(400).json({ error: "O sobrenome deve ter pelo menos 10 caracteres." });
+
       if (!email || !email.toLowerCase().endsWith("@gmail.com")) return res.status(400).json({ error: 'O email deve terminar com "@gmail.com".' });
+
       if (!senha || senha.length < 6) return res.status(400).json({ error: "A senha deve ter pelo menos 6 caracteres." });
 
       const result = await clientService.InsertUserService({ nome, sobrenome, email, senha });
+
       return res.status(201).json({ user: result });
 
     } catch (erro) {

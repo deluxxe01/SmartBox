@@ -4,7 +4,7 @@ class CaixaService{
 
      static async createBox(customCaixa,caixaInfos,payload){
 
-        const res = await fetch("http://52.1.197.112:3000/queue/items",{
+        const res = await fetch("http://52.72.137.244:3000/queue/items",{
             method:"POST",
             headers:{
                 "Content-Type":"application/json"
@@ -31,8 +31,8 @@ class CaixaService{
     }
 
     static async getPositionCaixa(id){
-        //http://52.1.197.112:3000/queue/items/68f9281f973f2b637aff39c6/position
-        const res = await fetch(`http://52.1.197.112:3000/queue/items/${id}/position`,{
+        //http://52.72.137.244:3000/queue/items/68f9281f973f2b637aff39c6/position
+        const res = await fetch(`http://52.72.137.244:3000/queue/items/${id}/position`,{
             method:"GET",
             headers:{
                 "Content-Type":"application/json"
@@ -43,6 +43,13 @@ class CaixaService{
 
         return resposta
 
+    }
+
+    static async getMyBox(id){
+
+        const caixa = await CaixaRepository.getMybox(id)
+        
+        return caixa
     }
 }
 
