@@ -5,15 +5,13 @@ background-color: #222222;
 color: white;
 display: flex;
 flex-direction: column;
-justify-content: space-between;
 align-items: center;
 padding: 4vh;
+position: fixed;
 width: 30vh;
-height: 45vh;
-border-radius: 1.5vh;
-margin-left: 10vh;
-margin-top: 15vh;
-margin-bottom: 10vh
+height: 93vh;
+margin-top: -15vh;
+
 }
 
 .Fonts1, .Fonts2, .Fonts3{

@@ -95,14 +95,7 @@ function Perfil() {
       <div className="Perfil-Usuario">
         <div className="Primeira-diva">
           <h1 className="Titulo-Perfil">Perfil de Usuário</h1>
-          <img
-            className="Lixeira"
-            src={lixeiraAtual}
-            alt="Botão para excluir conta"
-            onClick={handleDeleteAccount}
-            onMouseEnter={() => setLixeiraAtual('/icon/delete.png')}
-            onMouseLeave={() => setLixeiraAtual('/icon/deleteblack.png')}
-          />
+         
         </div>
         <div className="Segunda-diva">
           <img
@@ -114,7 +107,11 @@ function Perfil() {
           <button className="Encerrar-button" onClick={handleLogout}>
             Encerrar Sessão
           </button>
-          <button onClick={editMode ? trocarEstado : updateUser}  className={editMode ? "Editar-button":"Editar-button yes"}>{editMode ? "Editar":"Salvar"}</button>
+          <button className="Deletar"
+            src={lixeiraAtual}
+            alt="Botão para excluir conta"
+            onClick={handleDeleteAccount}
+            >Deletar Conta</button>
         </div>
         <div className="Terceira-diva">
           <div className="InptUm">
@@ -149,6 +146,10 @@ function Perfil() {
               setFormUpdateUser({...formUpdateUser,senha:e.target.value})
             }}
             />
+          </div>
+
+          <div className='ButtonDelete'>
+              <button onClick={editMode ? trocarEstado : updateUser}  className={editMode ? "Editar-button":"Editar-button yes"}>{editMode ? "Editar":"Salvar"}</button>
           </div>
         </div>
       </div>

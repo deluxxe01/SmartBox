@@ -9,7 +9,8 @@ import Perfil from "../Pages/PerfilPage/Perfil";
 import CatalogoAdmin from "../Pages/CatalogoAdminPages/CatalogoAdmin";
 import Caixa_persona_etp1 from "../Pages/Caixa_Persona_etp1/Caixa_persona_etp1";
 import GestaoCaixas from "../Pages/GestaoCaixasPages/GestaoCaixas";
-import Dashboard from "../Pages/DashboardPage/Dashboard";
+import GestaoClientes from "../Pages/GestaoClientePages/GestaoClientes";
+
 
 const router = createBrowserRouter([
   { path:"/", element: <Home /> },
@@ -23,7 +24,8 @@ const router = createBrowserRouter([
   { path: '/gestaoCaixas', element: <GestaoCaixas /> },
   { path: '/gestaoCaixas/:id', element: <GestaoCaixas /> },
   { path: '/catalogoAdmin', element: <CatalogoAdmin /> },
-  { path: '/dashboard', element: <Dashboard /> }
+  { path: '/gestaoclientes', element: <GestaoClientes />}
+ 
 ]);
 
 export default router;

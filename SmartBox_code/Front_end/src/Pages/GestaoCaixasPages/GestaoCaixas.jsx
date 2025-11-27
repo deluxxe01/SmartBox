@@ -163,7 +163,7 @@ const handleBuscarCaixa = (termo) => {
         <div className='ContainerInfosCaixa2'>
           
          <label className="buttonImg">
-           <p className='ADDimg'>+ Adcionar uma imagem à caixa</p>
+          <span className="ADDimg">+ Adicionar uma imagem à caixa</span>
   <input
     type="file"
     onChange={(e) => {
@@ -202,10 +202,8 @@ const handleBuscarCaixa = (termo) => {
           </div>
 
           <div className='ButtonsContainer'>
-            <button className='AdcionarButtons' onClick={handleAdicionarCaixa}>
-              Adicionar caixa
-            </button>
-           <button onClick={() => handleExcluirCaixa(selectedId)}>Excluir</button>
+            <button className='AdcionarButtons' onClick={handleAdicionarCaixa}> Adicionar caixa </button>
+           <button className="ExcluirButtons"onClick={() => handleExcluirCaixa(selectedId)}>Excluir</button>
           </div>
         </div>
 
@@ -214,7 +212,7 @@ const handleBuscarCaixa = (termo) => {
           {/* Pré-visualização da caixa que está sendo adicionada */}
           {preview && (
             <div style={{ padding: '3vh', display: 'inline-block', margin: '10px' }}>
-              <img src={preview} alt="Pré-visualização" width={150} />
+              <img className="imgGestao"src={preview} alt="Pré-visualização" width={150} />
               <p className='Des-GestaoCaixa'>{descricao}</p>
               <p className='Pre-GestaoCaixa'>R$ {parseFloat(valor || 0).toFixed(2)}</p>
             </div>
