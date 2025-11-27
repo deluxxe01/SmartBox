@@ -30,18 +30,19 @@ export default {
   },
 
   // Login de usuário
-  async loginUser(req, res) {
-    try {
-      const user = req.body;
-      const result = await ClientServices.LoginUser(user); // método estático
+async loginUser(req, res) {
+  try {
+    const user = req.body;
+    const result = await ClientServices.LoginUser(user); // método estático
+    return res.status(200).json({ user: result });
+  } catch (errorLogin) {
+    console.error(errorLogin);
+    return res.status(400).json({ 
+      error: errorLogin.message.includes("Usuário não existe") ? "Usuário não existe" : "Erro inesperado no login." 
+    });
+  }
+},
 
-      return res.status(200).json({ user: result });
-      
-    } catch (errorLogin) {
-      console.error(errorLogin);
-      return res.status(400).json({ error: errorLogin.message.includes("Usuário não existe") ? "Usuário não existe" : "Erro inesperado no login." });
-    }
-  },
 
   // Deletar usuário pelo ID
   async deleteUser(req, res) {

@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
 import MenuAdm from '../../Components/Menu/MenuAdm.jsx';
 import './GestaoCaixas.css';
+import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 function GestaoCaixas() {
   const navigate = useNavigate()
+  const { id } = useParams();
   const [descricao, setDescricao] = useState('');
   const [valor, setValor] = useState('');
   const [imagem, setImagem] = useState(null);
@@ -11,11 +13,42 @@ function GestaoCaixas() {
   const [caixas, setCaixas] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedId, setSelectedId] = useState(null);
+
+  //Proteção de tela apenas para admins
+useEffect(() => {
+  const isAdmin = sessionStorage.getItem("isAdmin") === "true";
+  console.log("isAdmin?", isAdmin);
+  if (!isAdmin) {
+    navigate("/login");
+  }
+}, [navigate]);
+
   // Carrega todas as caixas ao abrir a página
   useEffect(() => {
     carregarCaixas();
   }, []);
 
+useEffect(() => {
+  if (!id) return; // se abrir sem ID pelo menu, apenas ignora
+
+  const carregarCaixaPorId = async () => {
+    try {
+      const res = await fetch(`http://localhost:3000/catalogo/${id}`);
+      const data = await res.json();
+
+      setSelectedId(data.id);
+      setDescricao(data.descricao);
+      setValor(data.valor);
+      setPreview(`http://localhost:3000/catalogo/${data.id}/imagem`);
+      setImagem(null);
+
+    } catch (err) {
+      console.error("Erro ao carregar caixa:", err);
+    }
+  };
+
+  carregarCaixaPorId();
+}, [id]);
   const carregarCaixas = async () => {
     try {
       const res = await fetch("http://localhost:3000/catalogo");
@@ -52,7 +85,7 @@ function GestaoCaixas() {
         setPreview(null); // limpa preview
         carregarCaixas(); // Atualiza a lista
 
-        navigate('/catalogo')
+        navigate('/catalogoadmin')
       } else {
         console.error("Erro ao adicionar caixa");
       }

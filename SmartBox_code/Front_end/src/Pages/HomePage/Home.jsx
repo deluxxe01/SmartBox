@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+
 import { useNavigate } from 'react-router-dom';
 import './Home.css';
 import NavBar from '../../Components/NavBar/NavBar';
@@ -9,7 +10,15 @@ function Home() {
 
   const navigate = useNavigate()
 
+ const [caixasProntas, setCaixasProntas] = useState([]);
+  
 
+  useEffect(() => {
+    fetch("http://localhost:3000/catalogo")
+      .then((res) => res.json())
+      .then((data) => setCaixasProntas(data))
+      .catch((err) => console.error("Erro ao carregar catálogo:", err));
+  }, []);
   const irParaOutraPagina = () => {
     navigate('/login')
   };
@@ -67,7 +76,7 @@ function Home() {
         </div>
       </div>
 
-      {/* 👇 Aqui aplicamos a classe .subir se scrollAtivado for true */}
+      
       <div className={`Container2 ${scrollAtivado ? 'subir' : ''}`}>
         <h2 className='Comoperso'>Como Personalizar</h2>
 
@@ -91,6 +100,24 @@ function Home() {
 
       <div className='Container3'>
         <h2 className='TituloPerso'> Personalize a sua própria caixa</h2>
+        
+         <div className="container_caixas">
+          {caixasProntas.map((c) => (
+            <div
+              key={c.id}
+              className="CatalogoADM"
+            >
+              <img
+                src={`http://localhost:3000/catalogo/${c.id}/imagem`}
+                alt="Caixa"
+                className="imagemCatalogo"
+              />
+              <p classname="descricaoCatalogo">{c.descricao}</p>
+              <p className="precoCatalogo">R$ {parseFloat(c.valor).toFixed(2)}</p>
+            </div>
+          ))}
+        </div>
+        
       </div>
 
       </div>

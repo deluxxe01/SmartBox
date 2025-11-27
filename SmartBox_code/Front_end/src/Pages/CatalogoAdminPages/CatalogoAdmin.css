@@ -4,7 +4,7 @@
 
 .container_caixas{
     margin-left: 5vh;
-    border: 0.3vh solid pink;
+    /* border: 0.3vh solid pink; */
     width: 100%;
     height: 100%;
     display: flex;
@@ -12,6 +12,7 @@
     flex-wrap: wrap;
     gap: 5vh;
 }
+
 .CatalogoADM{
     position: relative;
     height: 35vh;
@@ -20,7 +21,7 @@
 }
 .imagemCatalogo{
     margin-left: 2vh;
-    margin-top: -15vh;
+    margin-top: -2vh;
     width: 23vh;
     /* border: 0.3vh solid orange; */
 }
@@ -36,8 +37,11 @@
 .buttonDeleteCatalogo{
     margin-left: 7vh
 }
-.editButtonCatalogo{
-    width: 3vh;
-    margin-left: 21vh;
-    margin-top: 2vh
+.editButtonCatalogo {
+    position: absolute;
+    height: 5vh;
+    top: 1vh;
+    right: 1vh;
+    z-index: 10;
+    cursor: pointer;
 }

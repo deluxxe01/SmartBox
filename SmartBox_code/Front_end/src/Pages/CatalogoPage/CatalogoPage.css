@@ -18,14 +18,14 @@ margin-top: 4%;
 
 .container_h1_catalogo_escolha_box h1{
 font-size: 30px;
-font-family: poppins;
+ font-family:'Poppins', sans-serif;
 
 }
 
 
 .container_h1_catalogo_escolha_box span{
 font-size: 50px;
-font-family: poppins;
+font-family:'Poppins', sans-serif;
 
 }.container_search_bar{
 
@@ -62,16 +62,6 @@ width: 100%;
 font-family:'Poppins', sans-serif;
 }
 
-.container_caixas{
-    margin-left: 5vh;
-    border: 0.3vh solid pink;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 5vh;
-}
 .CatalogoADM{
     
     position: relative;
@@ -84,13 +74,4 @@ font-family:'Poppins', sans-serif;
     margin-top: 5vh;
     width: 23vh;
     /* border: 0.3vh solid orange; */
-}
-.descricaoCatalogo1{
-    font-weight: 600;
-    margin-left: 2vh;
-    font-family:'Poppins', sans-serif;
-}
-.precoCatalogo{
-    margin-left: 2vh;
-    font-family:'Poppins', sans-serif
 }
