@@ -123,5 +123,18 @@
     background-color: #cecece;
 }
 .yes{
-    background-color: green;
+    background-color: #fdc500;
+    color: #222222;
+}
+
+.edit{
+    border: 2px solid #fdc500;
+    background-color: #FBFBFB;
+}
+.edit:hover{
+    background-color: #FBFBFB;
+}
+.LabelForPerfil{
+    font-family: "Roboto";
+    font-weight: 500;
 }

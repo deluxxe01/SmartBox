@@ -21,8 +21,10 @@ function Historico() {
       }
 
       if(usuarioAtual?.id_cliente){
+
         getMyBox()
       }
+      
 
 
     
