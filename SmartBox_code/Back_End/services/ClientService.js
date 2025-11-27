@@ -30,6 +30,7 @@ class ClientServices {
       nome: usuario.nome,
       sobrenome: usuario.sobrenome,
       email: usuario.email,
+      senha: usuario.senha,
       isAdmin: usuario.isAdmin || false // true se for admin, false caso contrário
     };
   }

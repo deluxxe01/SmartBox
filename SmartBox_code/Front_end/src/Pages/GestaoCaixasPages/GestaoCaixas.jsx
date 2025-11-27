@@ -154,34 +154,35 @@ const handleBuscarCaixa = (termo) => {
 <input
   className="InputSearch"
   type="text"
-  placeholder="Buscar caixa..."
+  placeholder="Procure a caixa pela descrição"
   value={searchTerm}
   onChange={(e) => handleBuscarCaixa(e.target.value)}
 />
 
 
         <div className='ContainerInfosCaixa2'>
-          <p>+ Adicionar uma imagem da caixa</p>
-          <input
-            type="file"
-            onChange={(e) => {
-              const file = e.target.files[0];
-              setImagem(file);
+          
+         <label className="buttonImg">
+           <p className='ADDimg'>+ Adcionar uma imagem à caixa</p>
+  <input
+    type="file"
+    onChange={(e) => {
+      const file = e.target.files[0];
+      setImagem(file);
 
-              if (file) {
-                const reader = new FileReader();
-                reader.onloadend = () => {
-                  setPreview(reader.result); // define preview
-                };
-                reader.readAsDataURL(file);
-              } else {
-                setPreview(null);
-              }
-            }}
-          />
+      if (file) {
+        const reader = new FileReader();
+        reader.onloadend = () => setPreview(reader.result);
+        reader.readAsDataURL(file);
+      } else {
+        setPreview(null);
+      }
+    }}
+  />
+</label>
 
           <div className='InptDescrição'>
-            <label>Descrição</label>
+            <label className='Des-Label'>Descrição</label>
             <input
               className="InptDes"
               type="text"
@@ -191,7 +192,7 @@ const handleBuscarCaixa = (termo) => {
           </div>
 
           <div className='InptValor'>
-            <label>Valor</label>
+            <label className='Des-Label'>Valor</label>
             <input
               className="InptDes"
               type="text"
@@ -212,10 +213,10 @@ const handleBuscarCaixa = (termo) => {
         <div className='Container-VisuCaixa'>
           {/* Pré-visualização da caixa que está sendo adicionada */}
           {preview && (
-            <div style={{ border: '1px solid #ccc', padding: '10px', display: 'inline-block', margin: '10px' }}>
+            <div style={{ padding: '3vh', display: 'inline-block', margin: '10px' }}>
               <img src={preview} alt="Pré-visualização" width={150} />
-              <p>{descricao}</p>
-              <p>R$ {parseFloat(valor || 0).toFixed(2)}</p>
+              <p className='Des-GestaoCaixa'>{descricao}</p>
+              <p className='Pre-GestaoCaixa'>R$ {parseFloat(valor || 0).toFixed(2)}</p>
             </div>
           )}
 

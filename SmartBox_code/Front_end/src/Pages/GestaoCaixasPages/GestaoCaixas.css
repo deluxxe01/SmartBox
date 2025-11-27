@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
 body{
     height: 100%;
     margin: 0;
@@ -13,21 +15,39 @@ body{
     font-size: 5.2vh;
 }
 .ContainerInfosCaixa{
-    border: 2px solid black;
+  
     margin-top: -70vh;
     margin-left: 60vh;
     width: 110vh;
     height: 65vh;
 }
 .InputSearch{
+    padding: 10px 10px 10px 8vh; /* espaço para o ícone */
+    background-image: url("public/icon/Search_light.png"); /* caminho da sua imagem */
+    background-repeat: no-repeat;
+    background-size: 5vh;
+    background-position: 1vh center;
     margin-left: 30vh;
+    font-size: 2.1vh;
     width: 50vh;
-    height: 6vh;
-    border: none;
+    height: 5vh;
     outline: none;
-    position: fixed;
-    background-color: #F3F3F3;
-    border-radius: 2.5vh;
+     font-family:'Poppins', sans-serif;
+    /* position: fixed; */
+    border: solid #929292 0.1vh;
+    background-color: #ffffff;
+    border-radius: 4.5vh;
+        transition: 
+        background-color 0.25s ease,
+        box-shadow 0.35s ease;
+
+}
+.InputSearch:hover {
+     font-family:'Poppins', sans-serif;
+    background-color: #ffffff;
+    border: none;
+    box-shadow: 0px 0px 12px rgba(0,0,0,0.18);
+    color: #929292;
 }
 .LixeiraGestao{
     margin-top: 10vh;
@@ -36,15 +56,33 @@ body{
     height: 5vh;
 }
 .P-VisuCaixa{
+    font-size: 2.0vh;
+    font-family:'Poppins', sans-serif;
     margin-top: -45vh;
-    margin-left: 7vh;
+    margin-left: 5vh;
     position: relative;
 }
 .ContainerInfosCaixa2{
+    margin-top: 5vh;
     margin-left: 50vh;
-    border: 2px solid black;
     width: 50vh;
     height: 45vh;
+}
+.ADDimg{
+font-family:'Poppins', sans-serif;
+}
+.buttonImg input{
+    font-family:'Poppins', sans-serif;
+    background-color: #929292;
+    display: none;
+}
+.Des-Label{
+   font-family:'Poppins', sans-serif;
+}.InptDes{
+    height: 4vh;
+    background-color: #F3F3F3;
+    border: none;
+    border-radius: 1.4vh;
 }
 .InptDescrição{
     margin-top: 2vh;
@@ -68,8 +106,15 @@ body{
 
 .Container-VisuCaixa{
     position: relative;
-    margin-top: 2vh;
-    width: 35vh;
+    margin-top: 3vh;
+    width: 30vh;
     height: 40vh;
     background-color: #F3F3F3;
+}
+.Des-GestaoCaixa{
+    font-weight: 600;
+   font-family:'Poppins', sans-serif;
+}
+.Pre-GestaoCaixa{
+    font-family:'Poppins', sans-serif;
 }
