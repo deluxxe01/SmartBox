@@ -30,7 +30,7 @@ class ClientServices {
       nome: usuario.nome,
       sobrenome: usuario.sobrenome,
       email: usuario.email,
-      senha: usuario.senha,
+      senha:usuario.senha,
       isAdmin: usuario.isAdmin || false // true se for admin, false caso contrário
     };
   }
@@ -52,12 +52,15 @@ class ClientServices {
   }
 
   static async updateUser(obj) {
+    
     const emailCadastrado = await clientRepo.findEmail(obj); 
-    if (emailCadastrado.length > 0) {
+
+    if (emailCadastrado.length > 0 && emailCadastrado[0].dataValues.id_cliente != obj.id) {
       throw new Error("esse email ja esta em nosso sistema, utilize outro ");
     }
 
     const user = await clientRepo.UpdateUser(obj);
+    
     return user;
   }
 }

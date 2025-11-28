@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import NavBar from '../../Components/NavBar/NavBar.jsx';
 import Footer from "../../Components/Footer/Footer.jsx";
 import axios from 'axios';
+import
 
 function Perfil() {
   const { usuarioAtual, setUsuarioAtual } = useContext(GlobalContext);
@@ -79,7 +80,9 @@ function Perfil() {
 
     const result = await axios.put("/api/clients",formUpdateUser)
 
-    console.log("resultado da rota de atualizar clientes: ",formUpdateUser)
+
+    console.log("resultado da rota de atualizar clientes: ",result.data.dados)
+    setUsuarioAtual(result.data.dados)
 
   }
 
@@ -116,7 +119,7 @@ function Perfil() {
         <div className="Terceira-diva">
           <div className="InptUm">
             <label className="LabelForPerfil">Nome</label>
-            <input className="Inpt-Perfil" type="text" value={formUpdateUser.nome} readOnly = {editMode}
+            <input className={editMode ?"Inpt-Perfil":"Inpt-Perfil edit"} type="text" value={formUpdateUser.nome} readOnly = {editMode}
             onChange={(e)=>{setFormUpdateUser(
               {...formUpdateUser,nome: e.target.value })}}
             />
@@ -124,7 +127,7 @@ function Perfil() {
           </div>
           <div className="InptDois">
             <label className="LabelForPerfil">Sobrenome</label>
-            <input className="Inpt-Perfil" type="text" value={formUpdateUser.sobrenome} readOnly ={editMode}
+            <input className={editMode ?"Inpt-Perfil":"Inpt-Perfil edit"} type="text" value={formUpdateUser.sobrenome} readOnly ={editMode}
             onChange={(e)=>{
               setFormUpdateUser({...formUpdateUser,sobrenome:e.target.value})
             }}
@@ -132,7 +135,7 @@ function Perfil() {
           </div>
           <div className="InptTres">
             <label className="LabelForPerfil">Email</label>
-            <input className="Inpt-Perfil" type="text" value={formUpdateUser.email} readOnly ={editMode}
+            <input className={editMode ?"Inpt-Perfil":"Inpt-Perfil edit"} type="text" value={formUpdateUser.email} readOnly ={editMode}
             onChange={(e) =>{
               setFormUpdateUser({...formUpdateUser,email:e.target.value})
             }}
@@ -141,7 +144,7 @@ function Perfil() {
           </div>
           <div className="InptQuatro">
             <label className="LabelForPerfil">Senha</label>
-            <input className="Inpt-Perfil" type="text" value={formUpdateUser.senha} readOnly={editMode}
+            <input className={editMode ?"Inpt-Perfil":"Inpt-Perfil edit"} type="text" value={formUpdateUser.senha} readOnly={editMode}
             onChange={(e)=>{
               setFormUpdateUser({...formUpdateUser,senha:e.target.value})
             }}
