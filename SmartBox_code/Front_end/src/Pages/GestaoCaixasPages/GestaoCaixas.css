@@ -1,33 +1,56 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
 body{
     height: 100%;
     margin: 0;
     padding: 0;
     background-color: #FBFBFB;
 }
+
 .Titulo-Dashboard{
+    color: #01275a;
     margin-top: 5vh;
-    margin-left: 50vh;
+    margin-left: 94vh;
     font-family: 'Roboto', sans-serif;
     font-weight: 900;
     font-size: 5.2vh;
 }
 .ContainerInfosCaixa{
-    border: 2px solid black;
-    margin-top: -70vh;
+  
+    margin-top: -1.900vh;
     margin-left: 60vh;
     width: 110vh;
     height: 65vh;
 }
 .InputSearch{
-    margin-left: 30vh;
+    padding: 10px 10px 10px 8vh; /* espaço para o ícone */
+    background-image: url("public/icon/Search_light.png"); /* caminho da sua imagem */
+    background-repeat: no-repeat;
+    background-size: 5vh;
+    background-position: 1vh center;
+    margin-left: 25vh;
+    font-size: 2.1vh;
     width: 50vh;
-    height: 6vh;
-    border: none;
+    height: 4vh;
     outline: none;
-    position: fixed;
-    background-color: #F3F3F3;
-    border-radius: 2.5vh;
+     font-family:'Poppins', sans-serif;
+    /* position: fixed; */
+    color: #929292;
+    border: solid #d1d1d1 0.1vh;
+    background-color: #fbfbfb;
+    border-radius: 4.5vh;
+        transition: 
+        background-color 0.25s ease,
+        box-shadow 0.35s ease;
+
+}
+.InputSearch:hover {
+     font-family:'Poppins', sans-serif;
+    background-color: #fbfbfb;
+    border: none;
+    box-shadow: 0px 0px 12px rgba(0,0,0,0.18);
+  
 }
 .LixeiraGestao{
     margin-top: 10vh;
@@ -36,15 +59,60 @@ body{
     height: 5vh;
 }
 .P-VisuCaixa{
+    font-size: 2.0vh;
+    font-family:'Poppins', sans-serif;
     margin-top: -45vh;
-    margin-left: 7vh;
+    margin-left: 5vh;
     position: relative;
 }
 .ContainerInfosCaixa2{
+    margin-top: 15vh;
     margin-left: 50vh;
-    border: 2px solid black;
     width: 50vh;
     height: 45vh;
+}
+.buttonImg {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #222222;
+    background-color: #fbfbfb;
+    padding: 12px 20px;
+    border-radius: 3.5vh;
+    cursor: pointer;
+    
+
+   font-family: 'Roboto', sans-serif;
+    
+    font-weight: 500;
+
+    transition: background-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.buttonImg:hover {
+    color: #0066ff;
+    /* background-color: #0066ff;
+    box-shadow: 0px 0px 10px rgba(0, 140, 255, 0.219); */
+}
+
+.buttonImg input {
+    display: none; /* ok */
+}
+
+.ADDimg {
+    pointer-events: none; /* deixa o label clicável, mesmo com o texto dentro */
+}
+.Des-Label{
+   font-family: 'Roboto', sans-serif;
+}.InptDes{
+    font-family:'Poppins', sans-serif;
+    color: #222222;
+    height: 4vh;
+    background-color: #F3F3F3;
+    border: none;
+    outline: none;
+    border-radius: 1.4vh;
 }
 .InptDescrição{
     margin-top: 2vh;
@@ -57,19 +125,56 @@ body{
     flex-direction: column
 }
 .ButtonsContainer{
-    margin-left: 10vh;
+    /* border: 2px solid black; */
     margin-top: 10vh;
     display: flex;
     flex-direction: row;
 }
 .AdcionarButtons{
-    margin-left: 2vh;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    background-color: #01275a;
+    border-radius: 2.5vh;
+    border: none;
+    margin-left: 0vh;
+    height: 5vh;
+    width: 29vh;
+      transition: background-color 0.25s ease, box-shadow 0.25s ease;
 }
-
+.AdcionarButtons:hover {
+    background-color: #0066ff;
+    
+    box-shadow: 0px 0px 10px rgba(0, 140, 255, 0.507);
+}
+.ExcluirButtons{
+    font-family: 'Poppins', sans-serif;
+    color: #01275a;
+    background-color: #fbfbfb;
+    border: 0.1vh solid #01275a;
+    border-radius: 2.5vh;
+    margin-left: 2vh;
+    width: 29vh;
+}
+.ExcluirButtons:hover{
+background-color: #006eff;
+border: none;
+color: white;
+ box-shadow: 0px 0px 10px rgba(0, 140, 255, 0.774);
+}
 .Container-VisuCaixa{
     position: relative;
-    margin-top: 2vh;
-    width: 35vh;
-    height: 40vh;
+    margin-top: 3vh;
+    width: 30vh;
+    height: 35vh;
     background-color: #F3F3F3;
+}
+.Des-GestaoCaixa{
+   font-weight: 600;
+   font-family:'Poppins', sans-serif;
+}
+.Pre-GestaoCaixa{
+    font-family:'Poppins', sans-serif;
+}
+.imgGestao{
+    margin-top:-5vh;
 }

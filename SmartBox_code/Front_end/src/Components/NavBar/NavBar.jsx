@@ -23,6 +23,7 @@ function NavBar() {
   <p onClick={() => navigate('/Caixa_persona_etp1')}>Criar SmartBox</p>
   <p onClick={() => navigate('/catalogo')}>Catálogo</p>
   <p onClick={() => navigate('/historico')}>Histórico</p>
+  
 </div>
 
 <div className='container_Icons'>

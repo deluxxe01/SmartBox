@@ -7,6 +7,7 @@ import "./CatalogoPage.css";
 
 function CatalogoPage() {
   const [caixasProntas, setCaixasProntas] = useState([]);
+  const [busca, setBusca] = useState("");
   const { messageSuccess } = useContext(GlobalContext);
 
   useEffect(() => {
@@ -16,14 +17,18 @@ function CatalogoPage() {
       .catch((err) => console.error("Erro ao carregar catálogo:", err));
   }, []);
 
+  // 🔍 Filtro baseado no que o usuário digita
+  const caixasFiltradas = caixasProntas.filter((c) =>
+    c.descricao.toLowerCase().includes(busca.toLowerCase())
+  );
+
   return (
     <div className="container_pai_catalogo">
       <NavBar />
+
       <div className="conteiner_page_catagalogo_box">
-        {sessionStorage.getItem("login") ? (
+        {sessionStorage.getItem("login") && (
           <ModalSuccess message={messageSuccess} />
-        ) : (
-          ""
         )}
 
         <div className="container_h1_catalogo_escolha_box">
@@ -32,11 +37,14 @@ function CatalogoPage() {
           </h1>
         </div>
 
+        {/* Barra de busca */}
         <div className="container_search_bar">
           <input
             type="text"
             placeholder="O que você procura?"
             className="search_input"
+            value={busca}
+            onChange={(e) => setBusca(e.target.value)}
           />
         </div>
 
@@ -44,19 +52,19 @@ function CatalogoPage() {
           <h1>Catálogo</h1>
         </div>
 
+        {/* Renderiza SOMENTE as caixas filtradas */}
         <div className="container_caixas">
-          {caixasProntas.map((c) => (
-            <div
-              key={c.id}
-              className="CatalogoADM"
-            >
+          {caixasFiltradas.map((c) => (
+            <div key={c.id} className="CatalogoADM">
               <img
                 src={`http://localhost:3000/catalogo/${c.id}/imagem`}
                 alt="Caixa"
                 className="imagemCatalogo"
               />
-              <p classname="descricaoCatalogo1">{c.descricao}</p>
-              <p className="precoCatalogo">R$ {parseFloat(c.valor).toFixed(2)}</p>
+              <p className="descricaoCatalogo">{c.descricao}</p>
+              <p className="precoCatalogo">
+                R$ {parseFloat(c.valor).toFixed(2)}
+              </p>
             </div>
           ))}
         </div>

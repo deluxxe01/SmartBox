@@ -13,16 +13,17 @@
   
 }
 .Infos{
-  /* border: 2px solid black; */
+
   font-size: 2.5vh;
-  width: 60vh;
+  
   display: flex;
   flex-direction: row;
   gap: 2vh;
   font-family: 'Roboto', sans-serif;
   color: #1a1a1a;
   align-items: center;
-
+  width: auto;
+  max-width: 80%;  /* opcional */
 }
 .Infos p:hover{
   cursor: pointer;

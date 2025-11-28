@@ -8,17 +8,17 @@ import "./CatalogoAdmin.css";
 
 function CatalogoAdmin() {
   const [caixasProntas, setCaixasProntas] = useState([]);
+  const [busca, setBusca] = useState(""); // ← estado da busca
   const { messageSuccess } = useContext(GlobalContext);
   const navigate = useNavigate();
 
-//Proteção de tela apenas para admins
-useEffect(() => {
-  const isAdmin = sessionStorage.getItem("isAdmin") === "true";
-  console.log("isAdmin?", isAdmin);
-  if (!isAdmin) {
-    navigate("/login");
-  }
-}, [navigate]);
+  // Proteção de tela apenas para admins
+  useEffect(() => {
+    const isAdmin = sessionStorage.getItem("isAdmin") === "true";
+    if (!isAdmin) {
+      navigate("/login");
+    }
+  }, [navigate]);
 
   useEffect(() => {
     fetch("http://localhost:3000/catalogo")
@@ -27,11 +27,18 @@ useEffect(() => {
       .catch((err) => console.error("Erro ao carregar catálogo:", err));
   }, []);
 
+  // 🔍 FILTRO DA BUSCA
+  const caixasFiltradas = caixasProntas.filter((c) =>
+    c.descricao.toLowerCase().includes(busca.toLowerCase())
+  );
+
   return (
     <div className="container_pai_catalogo">
       <NavBar />
       <div className="conteiner_page_catagalogo_box">
-        {sessionStorage.getItem("login") && <ModalSuccess message={messageSuccess} />}
+        {sessionStorage.getItem("login") && (
+          <ModalSuccess message={messageSuccess} />
+        )}
 
         <div className="container_h1_catalogo_escolha_box">
           <h1>
@@ -44,6 +51,8 @@ useEffect(() => {
             type="text"
             placeholder="O que você procura?"
             className="search_input"
+            value={busca}
+            onChange={(e) => setBusca(e.target.value)} // ← atualiza busca
           />
         </div>
 
@@ -52,7 +61,7 @@ useEffect(() => {
         </div>
 
         <div className="container_caixas">
-          {caixasProntas.map((c) => (
+          {caixasFiltradas.map((c) => (
             <div key={c.id} className="CatalogoADM">
               <img
                 src="public/icon/edit.png"
@@ -67,7 +76,9 @@ useEffect(() => {
                 className="imagemCatalogo"
               />
               <p className="descricaoCatalogo">{c.descricao}</p>
-              <p className="precoCatalogo">R$ {parseFloat(c.valor).toFixed(2)}</p>
+              <p className="precoCatalogo">
+                R$ {parseFloat(c.valor).toFixed(2)}
+              </p>
             </div>
           ))}
         </div>

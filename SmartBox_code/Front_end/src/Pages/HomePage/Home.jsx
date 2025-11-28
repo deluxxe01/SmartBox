@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import { useNavigate } from 'react-router-dom';
 import './Home.css';
+import '../CatalogoAdminPages/CatalogoAdmin.css'
 import NavBar from '../../Components/NavBar/NavBar';
 
 function Home() {

@@ -8,13 +8,12 @@ function MenuAdm({setPage}) {
     <div className='MenuAdm-Container'>
      
      <div className ="Nomes">
-        <p className='Fonts1' onClick={()=>{setPage(1)}} >Conta</p>
         <p className='Fonts2' onClick={()=>{setPage(2)}} >Dashboard</p>
         <p className='Fonts3' onClick={()=>{setPage(3)}} >Gestão de Caixas</p>
          <p className='Fonts3' >Gestão de Clientes</p>
         <p className='Fonts1'  >Gestão de Pedidos</p>
-        <p className='Fonts2'  >Gestão de Produtos</p>
-        <p className='Fonts3'  >Gestão de Clientes</p>
+        <p className='Fonts2'  >Gestão de Estoque</p>
+        
      </div>
     </div>
   )
