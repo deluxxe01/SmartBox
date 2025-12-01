@@ -151,6 +151,7 @@ const handleBuscarCaixa = (termo) => {
       <MenuAdm />
 
       <div className='ContainerInfosCaixa'>
+        <div  className='SearchCSS'>
 <input
   className="InputSearch"
   type="text"
@@ -158,7 +159,7 @@ const handleBuscarCaixa = (termo) => {
   value={searchTerm}
   onChange={(e) => handleBuscarCaixa(e.target.value)}
 />
-
+</div>
 
         <div className='ContainerInfosCaixa2'>
           

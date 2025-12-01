@@ -46,11 +46,11 @@ function CatalogoAdmin() {
           </h1>
         </div>
 
-        <div className="container_search_bar">
+        <div className="container_search_bar3">
           <input
             type="text"
             placeholder="O que você procura?"
-            className="search_input"
+            className="InputSearch"
             value={busca}
             onChange={(e) => setBusca(e.target.value)} // ← atualiza busca
           />

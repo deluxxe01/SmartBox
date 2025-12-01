@@ -38,11 +38,11 @@ function CatalogoPage() {
         </div>
 
         {/* Barra de busca */}
-        <div className="container_search_bar">
+        <div className="container_search_bar1">
           <input
             type="text"
             placeholder="O que você procura?"
-            className="search_input"
+            className="InputSearch"
             value={busca}
             onChange={(e) => setBusca(e.target.value)}
           />

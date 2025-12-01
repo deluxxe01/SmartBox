@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import NavBar from '../../Components/NavBar/NavBar.jsx';
 import Footer from "../../Components/Footer/Footer.jsx";
 import axios from 'axios';
-import
+
 
 function Perfil() {
   const { usuarioAtual, setUsuarioAtual } = useContext(GlobalContext);

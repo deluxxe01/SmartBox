@@ -27,21 +27,21 @@ font-size: 30px;
 font-size: 50px;
 font-family:'Poppins', sans-serif;
 
-}.container_search_bar{
+}.container_search_bar1{
 
 width: 100%;
 display: flex;
 justify-content: center;
-margin-top: 10px;
-padding: 5px;
+margin-top: 2vh;
+padding: 1vh;
 }
-.container_search_bar input{
+.container_search_bar1 input{
 
 width: 35%;
 height: 3.5vh;
 border-radius: 40px;
-background-color: #F3F3F3;
-border: none;
+
+border: solid 0.1vh #b8b8b8;
 padding-left: 30px;
 font-size: 20px;
 font-weight:500 ;

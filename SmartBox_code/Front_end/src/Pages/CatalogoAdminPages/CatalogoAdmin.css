@@ -12,7 +12,9 @@
     flex-wrap: wrap;
     gap: 5vh;
 }
-
+.container_search_bar3{
+    margin-left: 62vh;
+}
 .CatalogoADM{
     position: relative;
     height: 35vh;
