@@ -1,17 +1,18 @@
 .containerSucessModal {
   position: fixed;
-  left: 40%;
-  top: 20%;
-  background-color: #fbfbfb;
-  box-shadow: 2px 2px 15px 10px rgba(139, 139, 139, 0.397);
-  border-radius: 30px;
-  display: flex;
+  left: 5%;
+  top: 8%;
+  background-color: #ecd8a1;
+  border: solid 0.1vh #FFB200;
+ 
+  border-radius: 1.1vh;
+  /* display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
-  width: 350px;
+  justify-content: space-evenly; */
+  width: 50vh;
   animation: fadeInDown 0.3s ease forwards;
-  height: 210px;
+  height: 10vh;
   
 }
 
@@ -21,19 +22,24 @@
   font-size: 1.2rem;
   width: 270px;
   text-align: center;
-  margin: 0 auto;
+  margin-top: -1vh;
+  margin-left: 12vh;
+  color: #222222;
 }
 
 .SuccessModalH2 {
-  font-size: 1.5em;
+  margin-top: -7vh;
+  font-size: 1.3em;
   text-align: center;
   font-family: "Roboto",sans-serif;
-  
+  color: #222222;
   
 }
 
 .imgSucessModal{
   width: 60px;
+  margin-top: 2vh;
+  margin-left: 5vh;
 }
 
 .containerSucessModal.exit {

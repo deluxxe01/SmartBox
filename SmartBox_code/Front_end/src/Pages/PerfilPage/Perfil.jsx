@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import './Perfil.css';
+import ModalSuccess from "../../Components/ModalSuccessLogin/ModalSuccess.jsx";
 import { GlobalContext } from '../../Context/Globalcontext.jsx';
 import { useNavigate } from 'react-router-dom';
 import NavBar from '../../Components/NavBar/NavBar.jsx';
@@ -18,7 +19,7 @@ function Perfil() {
     cep:usuarioAtual.cep,
     senha:usuarioAtual.senha
   })
-
+  const { messageSuccess } = useContext(GlobalContext);
   
   const navigate = useNavigate();
 
@@ -96,6 +97,9 @@ function Perfil() {
     <div className="Container-Perfil">
       <NavBar />
       <div className="Perfil-Usuario">
+          {sessionStorage.getItem("login") && (
+          <ModalSuccess message={messageSuccess} />
+        )}
         <div className="Primeira-diva">
           <h1 className="Titulo-Perfil">Perfil de Usuário</h1>
          

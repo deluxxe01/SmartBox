@@ -11,7 +11,7 @@
                 setIsExiting(true)
                 sessionStorage.removeItem("login")
 
-            },2000)
+            },5000000)
             
         }
     },[])

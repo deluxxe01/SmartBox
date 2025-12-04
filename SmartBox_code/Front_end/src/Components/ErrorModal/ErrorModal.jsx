@@ -9,7 +9,7 @@ function ErrorModal({message,onClose}){
       // Após o tempo da animação (300ms), chama o onClose para remover o modal
       const timer = setTimeout(() => {
         onClose();
-      }, 300);
+      }, 5000);
 
       return () => clearTimeout(timer);
     }

@@ -22,18 +22,19 @@
 
 .containerErrorModal {
   position: fixed;
-  left: 10%;
+  left: 9%;
   top: 10%;
-  background-color: #fbfbfb;
-  box-shadow: 2px 2px 15px 10px rgba(139, 139, 139, 0.397);
-  border-radius: 30px;
-  display: flex;
+  background-color: #a5c6eb;
+  border: solid 0.1vh #0077ff;
+  border-radius: 1.1vh;
+  /* display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
-  width: 350px;
+  justify-content: space-evenly; */
+  width: 50vh;
   animation: fadeInDown 0.3s ease forwards;
-  height: 210px;
+  height: 10vh;
+  margin-top: 60vh;
   
 }
 
@@ -42,20 +43,25 @@
   font-weight: 400;
   font-size: 1.2rem;
   width: 270px;
+  margin-left: 13.5vh;
   text-align: center;
-  margin: 0 auto;
+  margin-top: -1vh;
 }
 
 .errorModalH2 {
-  font-size: 1.5em;
+  font-size: 1.3em;
   text-align: center;
   font-family:"Roboto",sans-serif ;
-  
+  margin-top: -6vh;
+  margin-left: 1vh;
+  color: rgb(16, 17, 19);
   
 }
 
 .imgErrorModal {
   width: 50px;
+  margin-left: 6vh;
+  margin-top: 2vh;
 }
 
 .containerErrorModal.exit {
