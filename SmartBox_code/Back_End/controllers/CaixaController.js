@@ -5,7 +5,7 @@ export default{
 
         try{
             const carrinho = req.body
-            let vetorCaixas = []
+            
 
            for(let item of carrinho){
             let {caixa} = item.payload
@@ -78,5 +78,35 @@ export default{
 
         return res.status(200).json(consulta)
         
+    },
+    async atualizarEstoque(req,res){
+
+        const position = req.params.pos
+
+        const {cor,op} = req.body
+
+
+        if(!position || !cor || !op){
+            return res.status(400).json(" insira todos os campos ")
+        }
+
+        const consulta = await CaixaService.atualizarEstoque({position,cor,op})
+
+        return consulta
+
+
+
+
+
+
+
+    },
+    async getAllEstoque(req,res){
+
+        const estoque = await CaixaService.getEstoque()
+
+        return res.status(200).json(estoque)
+
+
     }
 }

@@ -1,4 +1,4 @@
-{
+[
             "payload": {
                 "orderId": "ABC-123",
                 "id_client":2,
@@ -35,4 +35,4 @@
                 "sku": "KIT-01" <-Refere-se ao nome da caixa
             },
             "callbackUrl": "http://localhost:3333/callback" <-callback que e necessario para enviar a requisição
-        }
+]

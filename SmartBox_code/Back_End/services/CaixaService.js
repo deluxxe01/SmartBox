@@ -1,3 +1,4 @@
+
 import CaixaRepository from "../Repository/CaixaRepository.js"
 import RepositoryCustomCaixa from "../Repository/customCaixaRepository.js"
 class CaixaService{
@@ -13,6 +14,7 @@ class CaixaService{
         })/* <- enviando o payload da maquina e pagando o id que a  maquina retornou */
 
         const {id} = await res.json()// <- pegando o id do objeto enviado
+
         caixaInfos.id_maquina_smart = id
         
 
@@ -36,7 +38,7 @@ class CaixaService{
             method:"GET",
             headers:{
                 "Content-Type":"application/json"
-            }
+            },
         })
         
         const resposta = await res.json()
@@ -50,6 +52,42 @@ class CaixaService{
         const caixa = await CaixaRepository.getMybox(id)
         
         return caixa
+    }
+
+    static async atualizarEstoque(obj){
+
+        const payload={
+            cor:obj.cor,
+            op:obj.op
+
+        }
+
+        const res = await fetch(`http://52.72.137.244:3000/estoque/${obj.position}`,{
+            method:"PUT",
+            headers:{
+                 "Content-Type":"application/json"
+            },
+            body:JSON.stringify(payload)
+        })
+
+        const response = await res.json()
+
+        return response
+
+    }
+
+    static async getEstoque(){
+
+        const res = await fetch("http://52.72.137.244:3000/estoque",{
+            method:"GET",
+            headers:{
+                 "Content-Type":"application/json"
+            }
+        })
+
+        const resposta = await res.json()
+
+        return resposta
     }
 }
 

@@ -27,4 +27,8 @@ routes.get("/BoxPosition/:id",CaixaController.getPositionCaixa)
 
 routes.get("/MyBox/:id",CaixaController.getMyBox)
 
+routes.put("/box/update/:pos",CaixaController.atualizarEstoque)
+
+routes.get("/box/estoque",CaixaController.getAllEstoque)
+
 export default routes
