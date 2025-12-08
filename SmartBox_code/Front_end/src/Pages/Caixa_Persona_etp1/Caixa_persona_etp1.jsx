@@ -4,8 +4,9 @@ import axios from "axios";
 import NavBar from "../../Components/NavBar/NavBar";
 import { useNavigate } from "react-router-dom";
 import { GlobalContext } from "../../Context/Globalcontext";
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls, useGLTF } from "@react-three/drei";
 
-/* ================= MAPA DE CORES E DESENHOS ================= */
 const mapaCores = {
   vermelho: 1,
   azul: 2,
@@ -27,7 +28,7 @@ const mapaDesenhos = {
 const converterCor = (corNome) => mapaCores[corNome] ?? 0;
 const converterDesenho = (nome) => mapaDesenhos[nome] ?? 0;
 
-/* ================= COMPONENTES AUXILIARES ================= */
+
 
 function SeletorCor({ titulo, corSelecionada, setCor }) {
   const cores = ["vermelho", "preto", "azul", "verde", "branco", "amarelo"];
@@ -219,17 +220,27 @@ function Caixa_persona_etp1() {
   };
 const atual = personalizacoes[andares]; 
 console.log(personalizacoes)
-  /* ================= RENDER ================= */
+
+
+
+function Modelo({url}){
+const gltf=useGLTF(url)
+return <primitive object={gltf.scene} />
+
+}
+
   return (
     <div className="container_page_caixa_persona">
       <NavBar />
       <div className="container_m3D">
         <div className="container_select_de_paginas">
-          <img
-            src="./images/logo_smartBox.svg"
-            className="img_logo_select_paginas"
-            alt="Logo"
-          />
+          <Canvas camera={{position:[0,2,3],fov:75}}>
+          <ambientLight intensity={2}/>
+          <directionalLight position={[5,5,5]} intensity={3}/>
+          <OrbitControls />
+
+          <Modelo url="/models/caixa_pronta_colorida.glb" />
+          </Canvas>
         </div>
       </div>
 
@@ -239,7 +250,7 @@ console.log(personalizacoes)
             Personalização ({etapa === "cores" ? "Cores" : "Desenhos"}): {andares}° andar
           </p>
 
-          {/* Seletor de andares */}
+        
           <div>
             <div className="titulo_secao">
               <p>Andares</p>

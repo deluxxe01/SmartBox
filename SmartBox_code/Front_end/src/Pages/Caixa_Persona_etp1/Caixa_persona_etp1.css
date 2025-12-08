@@ -13,12 +13,12 @@
 /* ====== ÁREA DO MODELO 3D ====== */
 .container_m3D {
   width: 55%;
- 
   border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 25px;
+  
 }
 
 .container_m3D img {
