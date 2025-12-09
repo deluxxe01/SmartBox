@@ -34,7 +34,8 @@ class CaixaService{
 
     static async getPositionCaixa(id){
         //http://52.72.137.244:3000/queue/items/68f9281f973f2b637aff39c6/position
-        const res = await fetch(`http://52.72.137.244:3000/queue/items/${id}/position`,{
+        try{
+            const res = await fetch(`http://52.72.137.244:3000/queue/items/${id}/position`,{
             method:"GET",
             headers:{
                 "Content-Type":"application/json"
@@ -44,7 +45,11 @@ class CaixaService{
         const resposta = await res.json()
 
         return resposta
+ }catch(err){
 
+    console.log("erro: ",err)
+
+}
     }
 
     static async getMyBox(id){
@@ -55,20 +60,23 @@ class CaixaService{
     }
 
     static async atualizarEstoque(obj){
+        console.log("log do estoque: ",obj)
 
         const payload={
             cor:obj.cor,
-            op:obj.op
+            op:null
 
         }
+        console.log(`http://52.72.137.244:3000/estoque/${obj.position}`)
 
         const res = await fetch(`http://52.72.137.244:3000/estoque/${obj.position}`,{
-            method:"PUT",
+            method:'PUT',
             headers:{
                  "Content-Type":"application/json"
             },
             body:JSON.stringify(payload)
         })
+        console.log("res do midleware",res)
 
         const response = await res.json()
 

@@ -10,6 +10,7 @@ import CatalogoAdmin from "../Pages/CatalogoAdminPages/CatalogoAdmin";
 import Caixa_persona_etp1 from "../Pages/Caixa_Persona_etp1/Caixa_persona_etp1";
 import GestaoCaixas from "../Pages/GestaoCaixasPages/GestaoCaixas";
 import GestaoClientes from "../Pages/GestaoClientePages/GestaoClientes";
+import Estoque from "../Pages/estoque/Estoque";
 
 
 const router = createBrowserRouter([
@@ -24,7 +25,8 @@ const router = createBrowserRouter([
   { path: '/gestaoCaixas', element: <GestaoCaixas /> },
   { path: '/gestaoCaixas/:id', element: <GestaoCaixas /> },
   { path: '/catalogoAdmin', element: <CatalogoAdmin /> },
-  { path: '/gestaoclientes', element: <GestaoClientes />}
+  { path: '/gestaoclientes', element: <GestaoClientes />},
+  {path:'/estoque',element:<Estoque />}
  
 ]);
 

@@ -86,18 +86,16 @@ export default{
         const {cor,op} = req.body
 
 
-        if(!position || !cor || !op){
+        if(!position || !cor){
+            console.log(position)
+            console.log(cor)
             return res.status(400).json(" insira todos os campos ")
+            
         }
 
         const consulta = await CaixaService.atualizarEstoque({position,cor,op})
 
-        return consulta
-
-
-
-
-
+        return res.status(200).json(consulta)
 
 
     },

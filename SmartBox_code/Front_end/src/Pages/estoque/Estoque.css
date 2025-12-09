@@ -1,0 +1,29 @@
+.containerEstoque{
+    width: 100%;
+    min-height: 100vh;
+}
+.conateinerChassi{
+    width: 30vh;
+    border: royalblue 1px solid;
+    height: 20vh;
+}
+.containerItens{
+    align-items: center;
+    display: flex;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1vh;
+}
+
+.btnEditarEstoque{
+    width: 30vh;
+    height: 10vh;
+    font-size: 2rem;
+    font-family: "Roboto",sans-serif;
+}
+.containerBtnEstoque{
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}

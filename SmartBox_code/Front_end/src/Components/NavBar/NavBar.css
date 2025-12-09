@@ -7,7 +7,6 @@
   padding: 2vh;
   width: 95%;   
    z-index: 9999; /* fica acima de tudo */
-   position: fixed;
   top: 0;
   left: 0;
 }
