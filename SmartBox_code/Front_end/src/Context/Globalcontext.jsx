@@ -23,12 +23,17 @@ export const GlobalProvider = ({ children }) => {
     message: ''
   });
 
+const [carinhoUser,setCarinhoUser]=useState([{}])
+
   return (
     <GlobalContext.Provider value={{
       usuarioAtual,
       setUsuarioAtual,
       messageSuccess,
-      setMessageSuccess
+      setMessageSuccess,
+        carinhoUser,
+        setCarinhoUser
+
     }}>
       {children}
     </GlobalContext.Provider>

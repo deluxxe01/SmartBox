@@ -7,6 +7,16 @@ import { GlobalContext } from "../../Context/Globalcontext";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, useGLTF } from "@react-three/drei";
 
+/* ================= MAPAS ================= */
+const mapaCoresHex = {
+  vermelho: "#ff0000",
+  azul: "#0072ff",
+  amarelo: "#ffd500",
+  verde: "#1fa700",
+  preto: "#000000",
+  branco: "#ffffff",
+};
+
 const mapaCores = {
   vermelho: 1,
   azul: 2,
@@ -28,28 +38,20 @@ const mapaDesenhos = {
 const converterCor = (corNome) => mapaCores[corNome] ?? 0;
 const converterDesenho = (nome) => mapaDesenhos[nome] ?? 0;
 
-
-
-function SeletorCor({ titulo, corSelecionada, setCor }) {
-  const cores = ["vermelho", "preto", "azul", "verde", "branco", "amarelo"];
-
+/* ================= SELETORES ================= */
+function SeletorCor({ titulo, corSelecionada, setCor, opcoes }) {
   return (
     <div>
       <div className="titulo_secao">
         <p>{titulo}</p>
       </div>
       <div className="cores_container">
-        {cores.map((cor) => (
+        {opcoes.map((cor) => (
           <div
             key={cor}
-            className={`container_cor_bnt ${
-              corSelecionada === cor ? "selecionado" : ""
-            }`}
+            className={`container_cor_bnt ${corSelecionada === cor ? "selecionado" : ""}`}
           >
-            <button
-              className={`cor_bnt ${cor}`}
-              onClick={() => setCor(cor)}
-            ></button>
+            <button className={`cor_bnt ${cor}`} onClick={() => setCor(cor)}></button>
           </div>
         ))}
       </div>
@@ -75,9 +77,7 @@ function SeletorDesenho({ titulo, desenhoSelecionado, setDesenho }) {
           <button
             key={d.nome}
             style={{ backgroundColor: d.cor }}
-            className={`desenho_bnt ${
-              desenhoSelecionado === d.nome ? "selecionado" : ""
-            }`}
+            className={`desenho_bnt ${desenhoSelecionado === d.nome ? "selecionado" : ""}`}
             onClick={() => setDesenho(d.nome)}
           >
             <img src={d.img} alt={d.nome} className="desenho_img" />
@@ -88,81 +88,69 @@ function SeletorDesenho({ titulo, desenhoSelecionado, setDesenho }) {
   );
 }
 
-/* ================= COMPONENTE PRINCIPAL ================= */
 
+function Modelo({ url, cores, desenhos }) {
+  const gltf = useGLTF(url);
+  const { materials, scene } = gltf;
+
+  React.useEffect(() => {
+    if (!materials) return;
+
+    const atualizarMaterial = (materialName, corSelecionada, corPadrao, opacidadePadrao) => {
+      if (!materials[materialName]) return;
+      const corHex = corSelecionada ? mapaCoresHex[corSelecionada] : corPadrao;
+      materials[materialName].color.set(corHex);
+      materials[materialName].transparent = !corSelecionada;
+      materials[materialName].opacity = corSelecionada ? 1 : opacidadePadrao;
+    };
+
+    atualizarMaterial("Material.001", cores.chassi, "#808080", 0.4); // Chassi
+    atualizarMaterial("Material.002", cores.laminaDir, "#525252", 0.7); // Lâmina direita
+    atualizarMaterial("Material.003", cores.laminaFront, "#525252", 0.7); // Lâmina frontal
+    atualizarMaterial("Material.004", cores.laminaEsq, "#525252", 0.7); // Lâmina esquerda
+
+    
+  }, [cores, materials]);
+
+  return <primitive object={scene} />;
+}
+
+/* ================= COMPONENTE PRINCIPAL ================= */
 function Caixa_persona_etp1() {
   const [etapa, setEtapa] = useState("cores");
   const [andares, setAndares] = useState(1);
   const [maxAndarLiberado, setMaxAndarLiberado] = useState(1);
   const [erroMsg, setErroMsg] = useState("");
   const { usuarioAtual } = useContext(GlobalContext);
+  
+  
+  
   const navigate = useNavigate();
 
   const [personalizacoes, setPersonalizacoes] = useState({
-    1: {
-      corChassi: null,
-      corLaminaEsq: null,
-      corLaminaFront: null,
-      corLaminaDir: null,
-      desenhoLaminaEsq: null,
-      desenhoLaminaFront: null,
-      desenhoLaminaDir: null,
-    },
-    2: {
-      corChassi: null,
-      corLaminaEsq: null,
-      corLaminaFront: null,
-      corLaminaDir: null,
-      desenhoLaminaEsq: null,
-      desenhoLaminaFront: null,
-      desenhoLaminaDir: null,
-    },
-    3: {
-      corChassi: null,
-      corLaminaEsq: null,
-      corLaminaFront: null,
-      corLaminaDir: null,
-      desenhoLaminaEsq: null,
-      desenhoLaminaFront: null,
-      desenhoLaminaDir: null,
-    },
+    1: { corChassi: null, corLaminaEsq: null, corLaminaFront: null, corLaminaDir: null, desenhoLaminaEsq: null, desenhoLaminaFront: null, desenhoLaminaDir: null },
+    2: { corChassi: null, corLaminaEsq: null, corLaminaFront: null, corLaminaDir: null, desenhoLaminaEsq: null, desenhoLaminaFront: null, desenhoLaminaDir: null },
+    3: { corChassi: null, corLaminaEsq: null, corLaminaFront: null, corLaminaDir: null, desenhoLaminaEsq: null, desenhoLaminaFront: null, desenhoLaminaDir: null },
   });
 
-  /* ================= FUNÇÕES AUXILIARES ================= */
-
   const atualizarCor = (campo, valor) => {
-    setPersonalizacoes((prev) => ({
-      ...prev,
-      [andares]: { ...prev[andares], [campo]: valor },
-    }));
+    setPersonalizacoes((prev) => ({ ...prev, [andares]: { ...prev[andares], [campo]: valor } }));
     setErroMsg("");
   };
 
   const atualizarDesenho = (lamina, valor) => {
-    setPersonalizacoes((prev) => ({
-      ...prev,
-      [andares]: { ...prev[andares], [lamina]: valor },
-    }));
+    setPersonalizacoes((prev) => ({ ...prev, [andares]: { ...prev[andares], [lamina]: valor } }));
     setErroMsg("");
   };
 
   const todasCoresSelecionadas = (andar) => {
-    const config = personalizacoes[andar];
-    return (
-      config.corChassi &&
-      config.corLaminaEsq &&
-      config.corLaminaFront &&
-      config.corLaminaDir
-    );
+    const c = personalizacoes[andar];
+    return c.corChassi && c.corLaminaEsq && c.corLaminaFront && c.corLaminaDir;
   };
 
   const todosDesenhosSelecionados = (andar) => {
-    const config = personalizacoes[andar];
-    return (
-      config.desenhoLaminaEsq &&
-      config.desenhoLaminaFront &&
-      config.desenhoLaminaDir
-    );
+    const c = personalizacoes[andar];
+    return c.desenhoLaminaEsq && c.desenhoLaminaFront && c.desenhoLaminaDir;
   };
 
   const trocarAndar = (novoAndar) => {
@@ -173,163 +161,190 @@ function Caixa_persona_etp1() {
     }
   };
 
-  /* ================= FUNÇÃO PARA ENVIAR CAIXA ================= */
-  const enviarCaixa = async () => {
-    try {
-      const payload = {
-        caixa: {
-          bloco1: {
-            bloco1_cor_chasi: converterCor(personalizacoes[1].corChassi),
-            bloco1_lamina_cor_esq: converterCor(personalizacoes[1].corLaminaEsq),
-            bloco1_lamina_cor_front: converterCor(personalizacoes[1].corLaminaFront),
-            bloco1_lamina_cor_dir: converterCor(personalizacoes[1].corLaminaDir),
-            bloco1_desenho_lamina_esq: converterDesenho(personalizacoes[1].desenhoLaminaEsq),
-            bloco1_desenho_lamina_front: converterDesenho(personalizacoes[1].desenhoLaminaFront),
-            bloco1_desenho_lamina_dir: converterDesenho(personalizacoes[1].desenhoLaminaDir),
-          },
-          bloco2: {
-            bloco2_cor_chasi: converterCor(personalizacoes[2].corChassi),
-            bloco2_lamina_cor_esq: converterCor(personalizacoes[2].corLaminaEsq),
-            bloco2_lamina_cor_front: converterCor(personalizacoes[2].corLaminaFront),
-            bloco2_lamina_cor_dir: converterCor(personalizacoes[2].corLaminaDir),
-            bloco2_desenho_lamina_esq: converterDesenho(personalizacoes[2].desenhoLaminaEsq),
-            bloco2_desenho_lamina_front: converterDesenho(personalizacoes[2].desenhoLaminaFront),
-            bloco2_desenho_lamina_dir: converterDesenho(personalizacoes[2].desenhoLaminaDir),
-          },
-          bloco3: {
-            bloco3_cor_chasi: converterCor(personalizacoes[3].corChassi),
-            bloco3_lamina_cor_esq: converterCor(personalizacoes[3].corLaminaEsq),
-            bloco3_lamina_cor_front: converterCor(personalizacoes[3].corLaminaFront),
-            bloco3_lamina_cor_dir: converterCor(personalizacoes[3].corLaminaDir),
-            bloco3_desenho_lamina_esq: converterDesenho(personalizacoes[3].desenhoLaminaEsq),
-            bloco3_desenho_lamina_front: converterDesenho(personalizacoes[3].desenhoLaminaFront),
-            bloco3_desenho_lamina_dir: converterDesenho(personalizacoes[3].desenhoLaminaDir),
-          },
-        },
-        sku: "caixinha",
-        codigoProduto: maxAndarLiberado,
-        fk_id_cliente: usuarioAtual,
-      };
-        
-
-      await axios.post("api/createbox", { payload });
-      console.log("Caixa enviada com sucesso!");
-    } catch (error) {
-      console.error("Erro ao enviar caixa:", error);
+const enviarCaixa = async () => {
+  try {
+    // Valida se todos os desenhos foram escolhidos
+    for (let i = 1; i <= maxAndarLiberado; i++) {
+      if (!todosDesenhosSelecionados(i)) {
+        setErroMsg(`Por favor, complete a seleção de desenhos do ${i}° andar.`);
+        return;
+      }
     }
-  };
-const atual = personalizacoes[andares]; 
-console.log(personalizacoes)
+
+    setErroMsg(""); // Limpa erro anterior
+   
+
+    const payloadFinal = [{
+      payload: {
+        orderId: "",     // você preenche depois
+        id_client: usuarioAtual?.id_usuario ?? "",
+
+        caixa: {
+          codigoProduto: maxAndarLiberado,
+
+          bloco1: {
+            cor: converterCor(personalizacoes[1].corChassi),
+            lamina1: converterCor(personalizacoes[1].corLaminaEsq),
+            lamina2: converterCor(personalizacoes[1].corLaminaFront),
+            lamina3: converterCor(personalizacoes[1].corLaminaDir),
+            padrao1: converterDesenho(personalizacoes[1].desenhoLaminaEsq),
+            padrao2: converterDesenho(personalizacoes[1].desenhoLaminaFront),
+            padrao3: converterDesenho(personalizacoes[1].desenhoLaminaDir)
+          },
+
+          bloco2: {
+            cor: converterCor(personalizacoes[2].corChassi),
+            lamina1: converterCor(personalizacoes[2].corLaminaEsq),
+            lamina2: converterCor(personalizacoes[2].corLaminaFront),
+            lamina3: converterCor(personalizacoes[2].corLaminaDir),
+            padrao1: converterDesenho(personalizacoes[2].desenhoLaminaEsq),
+            padrao2: converterDesenho(personalizacoes[2].desenhoLaminaFront),
+            padrao3: converterDesenho(personalizacoes[2].desenhoLaminaDir)
+          },
+
+          bloco3: {
+            cor: converterCor(personalizacoes[3].corChassi),
+            lamina1: converterCor(personalizacoes[3].corLaminaEsq),
+            lamina2: converterCor(personalizacoes[3].corLaminaFront),
+            lamina3: converterCor(personalizacoes[3].corLaminaDir),
+            padrao1: converterDesenho(personalizacoes[3].desenhoLaminaEsq),
+            padrao2: converterDesenho(personalizacoes[3].desenhoLaminaFront),
+            padrao3: converterDesenho(personalizacoes[3].desenhoLaminaDir)
+          }
+        },
+
+        sku: "caixa"
+      },
+
+      callbackUrl: "http://localhost:3333/callback"
+    }];
+
+    // Requisição para API
+    const response = await axios.post("/api/createbox", payloadFinal);
+
+    console.log("Caixa enviada com sucesso!", response.data);
+    setErroMsg("Caixa enviada com sucesso! ✅");
+
+    // Exemplo: navegar para outra página
+    // navigate("/pagina-de-sucesso");
+
+  } catch (error) {
+    console.error("Erro ao enviar caixa:", error);
+    setErroMsg("Erro ao enviar a caixa. Tente novamente.");
+  }
+};
 
 
+  const atual = personalizacoes[andares];
 
-function Modelo({url}){
-const gltf=useGLTF(url)
-return <primitive object={gltf.scene} />
-
-}
 
   return (
     <div className="container_page_caixa_persona">
       <NavBar />
+     <div className="container_m3D_e_persona">
       <div className="container_m3D">
-        <div className="container_select_de_paginas">
-          <Canvas camera={{position:[0,2,3],fov:75}}>
-          <ambientLight intensity={2}/>
-          <directionalLight position={[5,5,5]} intensity={3}/>
+        <Canvas camera={{ position: [0, 2, 3], fov: 75 }}>
+          <ambientLight intensity={2} />
+          <directionalLight position={[5, 5, 5]} intensity={3} />
           <OrbitControls />
-
-          <Modelo url="/models/caixa_pronta_colorida.glb" />
-          </Canvas>
-        </div>
+          <Modelo
+            url="/models/caixa_pronta_colorida.glb"
+            cores={{
+              chassi: atual.corChassi,
+              laminaEsq: atual.corLaminaEsq,
+              laminaFront: atual.corLaminaFront,
+              laminaDir: atual.corLaminaDir,
+            }}
+          />
+        </Canvas>
       </div>
 
       <div className="container_personalizacao_caixa">
+        <p className="p_caixa_personalizada_etp1">
+          Personalização ({etapa === "cores" ? "Cores" : "Desenhos"}): {andares}° andar
+        </p>
+
+        {/* ANDARES */}
         <div>
-          <p className="p_caixa_personalizada_etp1">
-            Personalização ({etapa === "cores" ? "Cores" : "Desenhos"}): {andares}° andar
-          </p>
-
-        
-          <div>
-            <div className="titulo_secao">
-              <p>Andares</p>
-            </div>
-            <div className="container_numero_andares">
-              {[1, 2, 3].map((num) => {
-                const validacaoParaAvancar =
-                  etapa === "cores"
-                    ? todasCoresSelecionadas(andares)
-                    : todosDesenhosSelecionados(andares);
-                const podeVoltar = num < andares;
-                const podeAvancar = num === andares + 1 && validacaoParaAvancar;
-                const mesmoAndar = num === andares;
-                const habilitado = podeVoltar || podeAvancar || mesmoAndar;
-
-                return (
-                  <button
-                    key={num}
-                    className={`bnt_andar ${
-                      andares === num ? "andar_selecionado" : ""
-                    } ${!habilitado ? "andar_bloqueado" : ""}`}
-                    onClick={() => habilitado && trocarAndar(num)}
-                    disabled={!habilitado}
-                  >
-                    {num}° andar
-                  </button>
-                );
-              })}
-            </div>
+          <div className="titulo_secao">
+            <p>Andares</p>
           </div>
+          <div className="container_numero_andares">
+            {[1, 2, 3].map((num) => {
+              const validacaoParaAvancar =
+                etapa === "cores" ? todasCoresSelecionadas(andares) : todosDesenhosSelecionados(andares);
+              const podeVoltar = num < andares;
+              const podeAvancar = num === andares + 1 && validacaoParaAvancar;
+              const mesmoAndar = num === andares;
+              const habilitado = podeVoltar || podeAvancar || mesmoAndar;
 
-          {/* Seletor cores ou desenhos */}
-          {etapa === "cores" ? (
-            <>
-              <SeletorCor
-                titulo="Cor do chassi"
-                corSelecionada={atual.corChassi}
-                setCor={(c) => atualizarCor("corChassi", c)}
-              />
-              <SeletorCor
-                titulo="Cor da paleta esquerda"
-                corSelecionada={atual.corLaminaEsq}
-                setCor={(c) => atualizarCor("corLaminaEsq", c)}
-              />
-              <SeletorCor
-                titulo="Cor da paleta frontal"
-                corSelecionada={atual.corLaminaFront}
-                setCor={(c) => atualizarCor("corLaminaFront", c)}
-              />
-              <SeletorCor
-                titulo="Cor da paleta direita"
-                corSelecionada={atual.corLaminaDir}
-                setCor={(c) => atualizarCor("corLaminaDir", c)}
-              />
-            </>
-          ) : (
-            <>
-              <SeletorDesenho
-                titulo="Lâmina Esquerda"
-                desenhoSelecionado={atual.desenhoLaminaEsq}
-                setDesenho={(d) => atualizarDesenho("desenhoLaminaEsq", d)}
-              />
-              <SeletorDesenho
-                titulo="Lâmina Frontal"
-                desenhoSelecionado={atual.desenhoLaminaFront}
-                setDesenho={(d) => atualizarDesenho("desenhoLaminaFront", d)}
-              />
-              <SeletorDesenho
-                titulo="Lâmina Direita"
-                desenhoSelecionado={atual.desenhoLaminaDir}
-                setDesenho={(d) => atualizarDesenho("desenhoLaminaDir", d)}
-              />
-            </>
-          )}
-
-          {erroMsg && <p className="mensagem_erro">{erroMsg}</p>}
+              return (
+                <button
+                  key={num}
+                  className={`bnt_andar ${andares === num ? "andar_selecionado" : ""} ${
+                    !habilitado ? "andar_bloqueado" : ""
+                  }`}
+                  onClick={() => habilitado && trocarAndar(num)}
+                  disabled={!habilitado}
+                >
+                  {num}° andar
+                </button>
+              );
+            })}
+          </div>
         </div>
 
-        {/* Botões */}
+        {/* SELETORES */}
+        {etapa === "cores" ? (
+          <>
+            <SeletorCor
+              titulo="Cor do chassi"
+              corSelecionada={atual.corChassi}
+              setCor={(c) => atualizarCor("corChassi", c)}
+              opcoes={["vermelho", "azul", "preto"]}
+            />
+            <SeletorCor
+              titulo="Cor da paleta esquerda"
+              corSelecionada={atual.corLaminaEsq}
+              setCor={(c) => atualizarCor("corLaminaEsq", c)}
+              opcoes={["vermelho", "azul", "preto", "verde", "amarelo", "branco"]}
+            />
+            <SeletorCor
+              titulo="Cor da paleta frontal"
+              corSelecionada={atual.corLaminaFront}
+              setCor={(c) => atualizarCor("corLaminaFront", c)}
+              opcoes={["vermelho", "azul", "preto", "verde", "amarelo", "branco"]}
+            />
+            <SeletorCor
+              titulo="Cor da paleta direita"
+              corSelecionada={atual.corLaminaDir}
+              setCor={(c) => atualizarCor("corLaminaDir", c)}
+              opcoes={["vermelho", "azul", "preto", "verde", "amarelo", "branco"]}
+            />
+          </>
+        ) : (
+          <>
+            <SeletorDesenho
+              titulo="Lâmina Esquerda"
+              desenhoSelecionado={atual.desenhoLaminaEsq}
+              setDesenho={(d) => atualizarDesenho("desenhoLaminaEsq", d)}
+            />
+            <SeletorDesenho
+              titulo="Lâmina Frontal"
+              desenhoSelecionado={atual.desenhoLaminaFront}
+              setDesenho={(d) => atualizarDesenho("desenhoLaminaFront", d)}
+            />
+            <SeletorDesenho
+              titulo="Lâmina Direita"
+              desenhoSelecionado={atual.desenhoLaminaDir}
+              setDesenho={(d) => atualizarDesenho("desenhoLaminaDir", d)}
+            />
+          </>
+        )}
+
+        {erroMsg && <p className="mensagem_erro">{erroMsg}</p>}
+
+        {/* BOTÕES */}
         <div className="container_bnt_proxima_etapa">
           {etapa === "desenhos" && (
             <button
@@ -349,9 +364,7 @@ return <primitive object={gltf.scene} />
               if (etapa === "cores") {
                 for (let i = 1; i <= maxAndarLiberado; i++) {
                   if (!todasCoresSelecionadas(i)) {
-                    setErroMsg(
-                      `Por favor, complete a seleção de cores do ${i}° andar antes de continuar.`
-                    );
+                    setErroMsg(`Por favor, complete a seleção de cores do ${i}° andar antes de continuar.`);
                     return;
                   }
                 }
@@ -366,8 +379,11 @@ return <primitive object={gltf.scene} />
             {etapa === "cores" ? "Próxima etapa" : "Finalizar"}
           </button>
         </div>
+
+      
       </div>
     </div>
+      </div>
   );
 }
 

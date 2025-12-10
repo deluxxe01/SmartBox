@@ -3,10 +3,9 @@
 .navbar{
   display:flex ;
   flex-direction: row;
-  justify-content: space-between;
+    justify-content: space-between;
   padding: 2vh;
   width: 95%;   
-   z-index: 9999; /* fica acima de tudo */
   top: 0;
   left: 0;
 }
