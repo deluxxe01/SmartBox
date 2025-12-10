@@ -106,5 +106,21 @@ export default{
         return res.status(200).json(estoque)
 
 
+    },
+    async removeEstoque(req,res){
+        try{
+            const position = req.params.pos
+
+            const consulta = await CaixaService.removeEstoque(position)
+
+            return res.status(200).json(consulta)
+            
+            
+
+        }catch(err){
+            console.log(err)
+            return res.status(500).json('erro no servidor',err)
+        }
+
     }
 }

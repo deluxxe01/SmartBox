@@ -4,6 +4,8 @@
   import { useNavigate } from "react-router-dom";
   import './Estoque.css'
   import ModalEstoque from "../../Components/ModalEstoque/Modalestoque";
+import Footer from "../../Components/Footer/Footer";
+
   function Estoque(){
     const navigate = useNavigate()
     const [estoque,setEstoque] = useState([])
@@ -16,14 +18,15 @@
             }
             }, [navigate]);
 
-    useEffect(()=>{
-        const buscarEstoque = async ()=>{
-        
-            const estoque = await axios.get('/api/box/estoque')
-            console.log(estoque)
-            setEstoque(estoque.data)
+             const buscarEstoque = async ()=>{
+                const estoque = await axios.get('/api/box/estoque')
+                console.log(estoque)
+                setEstoque(estoque.data)
 
         }
+
+    useEffect(()=>{
+       
         buscarEstoque()
         
         
@@ -35,17 +38,19 @@
     return(
         <div className="conteinerMaster">
             <div>
-
-            <NavBar />
+             <NavBar />
             </div>
             <div className="containerEstoque">
-                <h1>estoque de chassi</h1>
+                <div className="containerH1Estoque">
+                     <img onClick={()=>{navigate('/gestaoCaixas')}} className="iconSeta" src="https://i.pinimg.com/736x/fe/e3/3b/fee33b2f54bd5773191cfba19c84678c.jpg" alt="" />
+                    <h1>Gestão de estoque</h1>
+                </div>
                 <div className="containerItens">
                     {estoque.map((item, index) => (
                     <div className="conateinerChassi" key={index} style={{ marginBottom: "10px" }}>
                         <p>Posição: {item.pos}</p>
-                        <p>Cor: {item.cor || "Não possui cor"}</p>
-                        <p>Opção: {item.op ?? "nenhum"}</p>
+                        <p>Chassi: {item.cor || "null"}</p>
+                        <p>Vinculado: {item.op ?? "nenhum"}</p>
                     </div>
                 ))}
                 </div>
@@ -55,11 +60,13 @@
                 
             {abrirModal && (
                 <ModalEstoque
-                close={() => setAbrirModal(false)}
+                onclose={() => setAbrirModal(false)}
                 estoque={estoque}
+                updEstoque={buscarEstoque}
                 />
             )}
           </div>
+          <Footer />
         </div>
     )
   }

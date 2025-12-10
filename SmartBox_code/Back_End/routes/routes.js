@@ -31,4 +31,6 @@ routes.put("/box/update/:pos",CaixaController.atualizarEstoque)
 
 routes.get("/box/estoque",CaixaController.getAllEstoque)
 
+routes.delete("/box/delete/:pos",CaixaController.removeEstoque)
+
 export default routes

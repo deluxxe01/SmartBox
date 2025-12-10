@@ -11,18 +11,18 @@ class CaixaService{
                 "Content-Type":"application/json"
             },
             body:JSON.stringify(payload)
-        })/* <- enviando o payload da maquina e pagando o id que a  maquina retornou */
+        })/* <- enviando o payload da maquina e pagando o position que a  maquina retornou */
 
-        const {id} = await res.json()// <- pegando o id do objeto enviado
+        const {position} = await res.json()// <- pegando o position do objeto enviado
 
-        caixaInfos.id_maquina_smart = id
+        caixaInfos.position_maquina_smart = position
         
 
         const caixa = await CaixaRepository.createBox(caixaInfos)
 
         
 
-        customCaixa.fk_caixa_id = caixa.dataValues.id_caixa
+        customCaixa.fk_caixa_position = caixa.dataValues.position_caixa
 
         const createCustomCaixa = await RepositoryCustomCaixa.criarPersonalizacaoCaixa(customCaixa)
 
@@ -32,10 +32,10 @@ class CaixaService{
 
     }
 
-    static async getPositionCaixa(id){
+    static async getPositionCaixa(position){
         //http://52.72.137.244:3000/queue/items/68f9281f973f2b637aff39c6/position
         try{
-            const res = await fetch(`http://52.72.137.244:3000/queue/items/${id}/position`,{
+            const res = await fetch(`http://52.72.137.244:3000/queue/items/${position}/position`,{
             method:"GET",
             headers:{
                 "Content-Type":"application/json"
@@ -52,9 +52,9 @@ class CaixaService{
 }
     }
 
-    static async getMyBox(id){
+    static async getMyBox(position){
 
-        const caixa = await CaixaRepository.getMybox(id)
+        const caixa = await CaixaRepository.getMybox(position)
         
         return caixa
     }
@@ -67,7 +67,7 @@ class CaixaService{
             op:null
 
         }
-        console.log(`http://52.72.137.244:3000/estoque/${obj.position}`)
+        
 
         const res = await fetch(`http://52.72.137.244:3000/estoque/${obj.position}`,{
             method:'PUT',
@@ -76,7 +76,7 @@ class CaixaService{
             },
             body:JSON.stringify(payload)
         })
-        console.log("res do midleware",res)
+        console.log("res do mpositionleware",res)
 
         const response = await res.json()
 
@@ -96,6 +96,22 @@ class CaixaService{
         const resposta = await res.json()
 
         return resposta
+    }
+
+    static async removeEstoque(position){
+
+        const res = await fetch(`http://52.72.137.244:3000/estoque/${position}`,{
+            method:"DELETE",
+            headers:{
+                 "Content-Type":"application/json"
+            }
+        
+        })
+
+        const response = await res.json()
+
+        return response
+
     }
 }
 

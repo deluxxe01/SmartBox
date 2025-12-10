@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-function ModalEstoque({ onClose, estoque, onConfirm, onAdd, onDelete }){
+function ModalEstoque({ onclose, estoque, updEstoque}){
   const [acao, setAcao] = useState("adicionar"); // adicionar | deletar
   const [posicao, setPosicao] = useState();
   const [cor,setCor] = useState("vermelho")
@@ -22,8 +22,10 @@ console.log(cor)
   };
 
   // Função para deletar
-  const deletarItem = (num) => {
-    console.log("Deletar posição:", num);
+  const deletarItem = async (num) => {
+    
+    const res = await axios.delete(`/api/box/delete/${posicao}`)
+    alert("Infos: ",res.data)
     // aqui você chama sua API de deletar
     // axios.delete(`/api/delete/${num}`)
   };
@@ -35,18 +37,26 @@ console.log(cor)
       return;
     }
 
-    if (acao === "adicionar" && posicoesOcupadas.includes(num)) {
+    const itemNaPosicao = estoque.find((e) => e.pos === num);
+
+  // 📌 ADICIONAR
+  if (acao === "adicionar") {
+
+    // Se existe um item e a cor dele NÃO é null → posição ocupada
+    if (itemNaPosicao && itemNaPosicao.cor !== null) {
       alert("Essa posição já está ocupada no estoque!");
       return;
     }
+
+  }
 
     if (acao === "deletar" && !posicoesOcupadas.includes(num)) {
       alert("Essa posição não existe no estoque para deletar!");
       return;
     }
 
-    if (acao === "adicionar") adicionarItem(num);
-    if (acao === "deletar") deletarItem(num);
+    if (acao === "adicionar"){adicionarItem(num),onclose()};
+    if (acao === "deletar") {deletarItem(num),onclose()};
 
   };
 
@@ -102,7 +112,7 @@ console.log(cor)
 
         <div style={styles.buttons}>
           <button onClick={validar} style={styles.btnConfirm}>Confirmar</button>
-          <button onClick={onClose} style={styles.btnCancel}>Cancelar</button>
+          <button onClick={()=>{onclose()}} style={styles.btnCancel}>Cancelar</button>
         </div>
       </div>
     </div>
