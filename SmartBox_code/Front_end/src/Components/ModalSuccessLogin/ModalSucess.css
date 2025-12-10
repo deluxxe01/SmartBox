@@ -28,18 +28,18 @@
 }
 
 .SuccessModalH2 {
-  margin-top: -7vh;
+  margin-top: -8vh;
   font-size: 1.3em;
   text-align: center;
   font-family: "Roboto",sans-serif;
   color: #222222;
-  
+  margin-left: 4vh;
 }
 
 .imgSucessModal{
   width: 60px;
-  margin-top: 2vh;
-  margin-left: 5vh;
+  margin-top: 1vh;
+  margin-left: 4vh;
 }
 
 .containerSucessModal.exit {

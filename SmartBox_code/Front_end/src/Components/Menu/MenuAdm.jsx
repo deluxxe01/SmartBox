@@ -13,7 +13,8 @@ function MenuAdm({setPage}) {
          <p className='Fonts3' >Gestão de Clientes</p>
         <p className='Fonts1'  >Gestão de Pedidos</p>
         <p className='Fonts2' onClick={()=>{navigate('/estoque')}}  >Gestão de Estoque</p>
-        
+        <p className='Fonts1' onClick={()=>{navigate('/catalogoAdmin')}}  >Catalogo</p>
+        <p className='Fonts1' onClick={()=>{navigate('/perfil')}}  >Perfil</p>
      </div>
     </div>
   )

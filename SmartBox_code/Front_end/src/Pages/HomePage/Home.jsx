@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
+import Footer from "../../Components/Footer/Footer.jsx";
 import { useNavigate } from 'react-router-dom';
 import './Home.css';
 import '../CatalogoAdminPages/CatalogoAdmin.css'
@@ -50,8 +50,8 @@ function Home() {
         </div>
 
       <div className='ImagemCaixa'>
-  {ativo === 0 && <img className="CaixaVermelha" src="public/images/caixaPreta.png" alt="Caixa vermelha" />}
-  {ativo === 1 && <img className="CaixaAzul" src="public/images/caixaPreta.png" alt="Caixa azul" />}
+  {ativo === 0 && <img className="CaixaVermelha" src="public/images/caixaVermelha.png" alt="Caixa vermelha" />}
+  {ativo === 1 && <img className="CaixaAzul" src="public/images/caixaAzul.png" alt="Caixa azul" />}
   {ativo === 2 && <img className="CaixaPreta" src="public/images/caixaPreta.png" alt="Caixa preta" />}
      </div>
 
@@ -121,6 +121,7 @@ function Home() {
         
       </div>
 
+      <Footer />
       </div>
     </div>
   );

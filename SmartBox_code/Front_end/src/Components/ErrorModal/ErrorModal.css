@@ -22,8 +22,8 @@
 
 .containerErrorModal {
   position: fixed;
-  left: 9%;
-  top: 10%;
+  left: 20%;
+  top: 15%;
   background-color: #a5c6eb;
   border: solid 0.1vh #0077ff;
   border-radius: 1.1vh;
@@ -43,7 +43,7 @@
   font-weight: 400;
   font-size: 1.2rem;
   width: 270px;
-  margin-left: 13.5vh;
+  margin-left: 11.5vh;
   text-align: center;
   margin-top: -1vh;
 }
@@ -52,7 +52,7 @@
   font-size: 1.3em;
   text-align: center;
   font-family:"Roboto",sans-serif ;
-  margin-top: -6vh;
+  margin-top: -8vh;
   margin-left: 1vh;
   color: rgb(16, 17, 19);
   

@@ -54,7 +54,7 @@ body{
     border-radius: 4vh;
     cursor: pointer;
     transition: 1s;
-    background-color: black;
+    background-color: #0f0f0f;
 }
 
 .Button:hover{

@@ -3,6 +3,7 @@
   import {useEffect,useState} from "react";
   import { useNavigate } from "react-router-dom";
   import './Estoque.css'
+  import MenuAdm from '../../Components/Menu/MenuAdm.jsx';
   import ModalEstoque from "../../Components/ModalEstoque/Modalestoque";
 import Footer from "../../Components/Footer/Footer";
 
@@ -37,12 +38,13 @@ import Footer from "../../Components/Footer/Footer";
     },[])
     return(
         <div className="conteinerMaster">
-            <div>
+            {/* <div>
              <NavBar />
-            </div>
+            </div> */}
             <div className="containerEstoque">
+                <MenuAdm />
                 <div className="containerH1Estoque">
-                     <img onClick={()=>{navigate('/gestaoCaixas')}} className="iconSeta" src="https://i.pinimg.com/736x/fe/e3/3b/fee33b2f54bd5773191cfba19c84678c.jpg" alt="" />
+                     {/* <img onClick={()=>{navigate('/gestaoCaixas')}} className="iconSeta" src="https://i.pinimg.com/736x/fe/e3/3b/fee33b2f54bd5773191cfba19c84678c.jpg" alt="" /> */}
                     <h1>Gestão de estoque</h1>
                 </div>
                 <div className="containerItens">
@@ -66,7 +68,7 @@ import Footer from "../../Components/Footer/Footer";
                 />
             )}
           </div>
-          <Footer />
+        
         </div>
     )
   }

@@ -71,7 +71,7 @@ font-family:'Poppins', sans-serif;
 }
 .imagemCatalogo{
     margin-left: 2vh;
-    margin-top: 5vh;
+    margin-top: -2vh;
     width: 23vh;
     /* border: 0.3vh solid orange; */
 }
